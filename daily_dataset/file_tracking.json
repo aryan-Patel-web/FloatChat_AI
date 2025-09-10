@@ -1,0 +1,102 @@
+{
+  "20250901_prof.nc": {
+    "date_str": "20250901",
+    "download_time": "2025-09-11T00:36:52.187378",
+    "local_path": "daily_dataset\\01sep2025\\20250901_prof.nc",
+    "size": "2025-09-03 02:58",
+    "last_modified": "20250901_prof.nc",
+    "download_successful": true,
+    "file_hash": "79dbfce513a35231b34dc0bc6ac120242c0a545678c6b7e008186310a201d791",
+    "attempts": 1
+  },
+  "20250902_prof.nc": {
+    "date_str": "20250902",
+    "download_time": "2025-09-11T00:36:55.706693",
+    "local_path": "daily_dataset\\02sep2025\\20250902_prof.nc",
+    "size": "2025-09-04 19:41",
+    "last_modified": "20250902_prof.nc",
+    "download_successful": true,
+    "file_hash": "746b7bf7cf927268840882d125ee3966a856f30309a4241e694c63b68f69e02b",
+    "attempts": 1
+  },
+  "20250903_prof.nc": {
+    "date_str": "20250903",
+    "download_time": "2025-09-11T00:37:01.613139",
+    "local_path": "daily_dataset\\03sep2025\\20250903_prof.nc",
+    "size": "2025-09-09 23:36",
+    "last_modified": "20250903_prof.nc",
+    "download_successful": true,
+    "file_hash": "90c7245e824e8ac5d9a78fb7560686d1ee41e595b67900209f96722833e46fea",
+    "attempts": 1
+  },
+  "20250904_prof.nc": {
+    "date_str": "20250904",
+    "download_time": "2025-09-11T00:37:05.726626",
+    "local_path": "daily_dataset\\04sep2025\\20250904_prof.nc",
+    "size": "2025-09-09 23:36",
+    "last_modified": "20250904_prof.nc",
+    "download_successful": true,
+    "file_hash": "3002d762f642e8578bb36598e7d9ae7d9d7773ebd4033f6e934cdd0343e6d69f",
+    "attempts": 1
+  },
+  "20250905_prof.nc": {
+    "date_str": "20250905",
+    "download_time": "2025-09-11T00:37:11.528774",
+    "local_path": "daily_dataset\\05sep2025\\20250905_prof.nc",
+    "size": "2025-09-10 05:30",
+    "last_modified": "20250905_prof.nc",
+    "download_successful": true,
+    "file_hash": "ae1329328692d9f01c78672e4d17276359d26cf35656ee132acdcd9021a3f838",
+    "attempts": 1
+  },
+  "20250906_prof.nc": {
+    "date_str": "20250906",
+    "download_time": "2025-09-11T00:37:17.384488",
+    "local_path": "daily_dataset\\06sep2025\\20250906_prof.nc",
+    "size": "2025-09-09 23:36",
+    "last_modified": "20250906_prof.nc",
+    "download_successful": true,
+    "file_hash": "a95fba22574200c90090756ffc8604a14e6b6be11da2eed49fb2963e77474912",
+    "attempts": 1
+  },
+  "20250907_prof.nc": {
+    "date_str": "20250907",
+    "download_time": "2025-09-11T00:37:20.867293",
+    "local_path": "daily_dataset\\07sep2025\\20250907_prof.nc",
+    "size": "2025-09-10 18:28",
+    "last_modified": "20250907_prof.nc",
+    "download_successful": true,
+    "file_hash": "ccf1c0519938b8fe7d66cc4c8c2ff7ac5beaa34af605fac83bf0e24ff1e78443",
+    "attempts": 1
+  },
+  "20250908_prof.nc": {
+    "date_str": "20250908",
+    "download_time": "2025-09-11T00:37:24.199479",
+    "local_path": "daily_dataset\\08sep2025\\20250908_prof.nc",
+    "size": "2025-09-10 08:29",
+    "last_modified": "20250908_prof.nc",
+    "download_successful": true,
+    "file_hash": "d2d6d5edb16d661c6e0ce4edb92b1b1e9b49c336dac7373edc682e5f3e946a96",
+    "attempts": 1
+  },
+  "20250909_prof.nc": {
+    "date_str": "20250909",
+    "download_time": "2025-09-11T00:37:29.785276",
+    "local_path": "daily_dataset\\09sep2025\\20250909_prof.nc",
+    "size": "2025-09-10 05:30",
+    "last_modified": "20250909_prof.nc",
+    "download_successful": true,
+    "file_hash": "6bfb9dac79385da780ac97452ecc80d804e1fde0c39a4f6f665394fd5cc9171a",
+    "attempts": 1
+  },
+  "20250910_prof.nc": {
+    "date_str": "20250910",
+    "download_time": "2025-09-11T00:37:34.269786",
+    "local_path": "daily_dataset\\10sep2025\\20250910_prof.nc",
+    "size": "2025-09-10 20:33",
+    "last_modified": "20250910_prof.nc",
+    "download_successful": true,
+    "file_hash": "c638f39ca91be2536a16b7f339d9376478487567d1c5777044527be53f875288",
+    "attempts": 1
+  }
+}
