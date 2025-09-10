@@ -1,0 +1,227 @@
+{
+  "analysis_overview": {
+    "total_bgc_files": 6,
+    "total_bgc_variables": 27,
+    "bgc_variables_detected": [
+      "BBP700",
+      "BBP700_ADJUSTED",
+      "BBP700_ADJUSTED_ERROR",
+      "BBP700_ADJUSTED_QC",
+      "BBP700_QC",
+      "CHLA",
+      "CHLA_ADJUSTED",
+      "CHLA_ADJUSTED_ERROR",
+      "CHLA_ADJUSTED_QC",
+      "CHLA_QC",
+      "DOXY",
+      "DOXY_ADJUSTED",
+      "DOXY_ADJUSTED_ERROR",
+      "DOXY_ADJUSTED_QC",
+      "DOXY_QC",
+      "FLUORESCENCE_CHLA",
+      "FLUORESCENCE_CHLA_QC",
+      "PROFILE_BBP700_QC",
+      "PROFILE_CHLA_QC",
+      "PROFILE_DOXY_QC",
+      "PROFILE_FLUORESCENCE_CHLA_QC",
+      "PROFILE_TEMP_CPU_CHLA_QC",
+      "PROFILE_TPHASE_DOXY_QC",
+      "TEMP_CPU_CHLA",
+      "TEMP_CPU_CHLA_QC",
+      "TPHASE_DOXY",
+      "TPHASE_DOXY_QC"
+    ],
+    "regions_covered": [
+      "Arabian Sea"
+    ],
+    "files_by_region": {
+      "Arabian Sea": 6
+    },
+    "data_directories_used": [
+      "D:\\FloatChat ARGO\\MINIO\\data\\argo_regional",
+      "data\\argo_regional"
+    ],
+    "analysis_timestamp": "2025-09-04T18:09:53.442381"
+  },
+  "ecosystem_health_analysis": {
+    "Arabian Sea": {
+      "region": "Arabian Sea",
+      "overall_health_score": 42.4,
+      "health_status": "Fair",
+      "parameter_scores": {
+        "DOXY": {
+          "score": 34.9,
+          "mean_value": 69.831,
+          "sample_count": 300,
+          "healthy_range": [
+            200,
+            350
+          ],
+          "parameter_name": "Dissolved Oxygen"
+        },
+        "DOXY_ADJUSTED": {
+          "score": 30.6,
+          "mean_value": 61.153,
+          "sample_count": 300,
+          "healthy_range": [
+            200,
+            350
+          ],
+          "parameter_name": "Dissolved Oxygen"
+        },
+        "TPHASE_DOXY": {
+          "score": 25.5,
+          "mean_value": 51.041,
+          "sample_count": 300,
+          "healthy_range": [
+            200,
+            350
+          ],
+          "parameter_name": "Dissolved Oxygen"
+        },
+        "DOXY_ADJUSTED_ERROR": {
+          "score": 0.3,
+          "mean_value": 0.612,
+          "sample_count": 300,
+          "healthy_range": [
+            200,
+            350
+          ],
+          "parameter_name": "Dissolved Oxygen"
+        },
+        "CHLA": {
+          "score": 100,
+          "mean_value": 0.18,
+          "sample_count": 300,
+          "healthy_range": [
+            0.1,
+            10.0
+          ],
+          "parameter_name": "Chlorophyll-a"
+        },
+        "CHLA_ADJUSTED": {
+          "score": 90.1,
+          "mean_value": 0.09,
+          "sample_count": 300,
+          "healthy_range": [
+            0.1,
+            10.0
+          ],
+          "parameter_name": "Chlorophyll-a"
+        },
+        "FLUORESCENCE_CHLA": {
+          "score": 0,
+          "mean_value": 68.68,
+          "sample_count": 300,
+          "healthy_range": [
+            0.1,
+            10.0
+          ],
+          "parameter_name": "Chlorophyll-a"
+        },
+        "BBP700": {
+          "score": 100,
+          "mean_value": 0.001,
+          "sample_count": 300,
+          "healthy_range": [
+            0.0001,
+            0.01
+          ],
+          "parameter_name": "Backscattering"
+        },
+        "TEMP_CPU_CHLA": {
+          "score": 0,
+          "mean_value": 551.627,
+          "sample_count": 300,
+          "healthy_range": [
+            0.1,
+            10.0
+          ],
+          "parameter_name": "Chlorophyll-a"
+        }
+      },
+      "total_profiles": 6,
+      "total_measurements": 1800
+    }
+  },
+  "bgc_parameter_summary": {
+    "CHLA": {
+      "parameter_name": "Chlorophyll-a",
+      "units": "mg/m\u00b3",
+      "healthy_range": [
+        0.1,
+        10.0
+      ],
+      "files_with_parameter": 6
+    },
+    "DOXY": {
+      "parameter_name": "Dissolved Oxygen",
+      "units": "\u00b5mol/kg",
+      "healthy_range": [
+        200,
+        350
+      ],
+      "files_with_parameter": 6
+    },
+    "BBP700": {
+      "parameter_name": "Backscattering",
+      "units": "m\u207b\u00b9",
+      "healthy_range": [
+        0.0001,
+        0.01
+      ],
+      "files_with_parameter": 6
+    },
+    "PH_IN_SITU_TOTAL": {
+      "parameter_name": "pH",
+      "units": "pH units",
+      "healthy_range": [
+        7.8,
+        8.2
+      ],
+      "files_with_parameter": 0
+    },
+    "NITRATE": {
+      "parameter_name": "Nitrate",
+      "units": "\u00b5mol/kg",
+      "healthy_range": [
+        0,
+        30
+      ],
+      "files_with_parameter": 0
+    },
+    "TPHASE_DOXY": {
+      "parameter_name": "Oxygen Phase",
+      "units": "microsec",
+      "healthy_range": [
+        20,
+        50
+      ],
+      "files_with_parameter": 6
+    },
+    "FLUORESCENCE_CHLA": {
+      "parameter_name": "Chlorophyll Fluorescence",
+      "units": "count",
+      "healthy_range": [
+        0,
+        1000
+      ],
+      "files_with_parameter": 6
+    },
+    "TEMP_CPU_CHLA": {
+      "parameter_name": "CPU Temperature",
+      "units": "degC",
+      "healthy_range": [
+        0,
+        40
+      ],
+      "files_with_parameter": 6
+    }
+  },
+  "data_quality_assessment": {
+    "file_coverage": 6,
+    "regional_coverage": 1,
+    "parameter_diversity": 27,
+    "completeness_score": 100
+  }
+}

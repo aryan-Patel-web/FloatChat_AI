@@ -1,0 +1,28 @@
+{
+  "ARGO_10d": {
+    "count": 0,
+    "sample": [],
+    "source": null,
+    "status": "no data"
+  },
+  "ARGO_Monthly": {
+    "count": 0,
+    "sample": [],
+    "source": null,
+    "status": "no data"
+  },
+  "ARGO_Floats": {
+    "count": 0,
+    "sample": [],
+    "source": null,
+    "status": "no data"
+  },
+  "summary": {
+    "timestamp": "2025-09-04T13:49:24.676107+00:00",
+    "datasets": [
+      "ARGO_10d",
+      "ARGO_Monthly",
+      "ARGO_Floats"
+    ]
+  }
+}

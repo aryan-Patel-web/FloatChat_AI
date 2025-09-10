@@ -1,0 +1,31 @@
+[
+  {
+    "email": "user1@example.com",
+    "name": "Research User 1",
+    "location": "Chennai",
+    "alert_types": [
+      "cyclone",
+      "flood"
+    ],
+    "registered": "2025-09-03T14:36:50.051758"
+  },
+  {
+    "email": "user2@example.com",
+    "name": "Research User 2",
+    "location": "Mumbai",
+    "alert_types": [
+      "all"
+    ],
+    "registered": "2025-09-03T14:36:50.051758"
+  },
+  {
+    "email": "test@example.com",
+    "name": "Test User",
+    "location": "Chennai",
+    "alert_types": [
+      "cyclone",
+      "flood"
+    ],
+    "registered": "2025-09-03T14:36:50.052758"
+  }
+]

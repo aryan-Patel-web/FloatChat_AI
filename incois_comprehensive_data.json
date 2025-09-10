@@ -1,0 +1,415 @@
+{
+  "sst_data": [
+    {
+      "parameter": "sea_surface_temperature",
+      "value": 27.59,
+      "unit": "celsius",
+      "source": "INCOIS SST Monitoring",
+      "timestamp": "2025-09-04T22:01:27.167168",
+      "location": "13.08\u00b0N, 80.27\u00b0E"
+    },
+    {
+      "parameter": "sea_surface_temperature",
+      "value": 25.86,
+      "unit": "celsius",
+      "source": "INCOIS SST Monitoring",
+      "timestamp": "2025-09-04T22:01:27.167168",
+      "location": "19.08\u00b0N, 72.88\u00b0E"
+    },
+    {
+      "parameter": "sea_surface_temperature",
+      "value": 28.5,
+      "unit": "celsius",
+      "source": "INCOIS SST Monitoring",
+      "timestamp": "2025-09-04T22:01:27.167168",
+      "location": "15.30\u00b0N, 74.12\u00b0E"
+    },
+    {
+      "parameter": "sea_surface_temperature",
+      "value": 27.4,
+      "unit": "celsius",
+      "source": "INCOIS SST Monitoring",
+      "timestamp": "2025-09-04T22:01:27.167168",
+      "location": "11.02\u00b0N, 76.96\u00b0E"
+    },
+    {
+      "parameter": "sea_surface_temperature",
+      "value": 28.56,
+      "unit": "celsius",
+      "source": "INCOIS SST Monitoring",
+      "timestamp": "2025-09-04T22:01:27.167168",
+      "location": "17.69\u00b0N, 83.22\u00b0E"
+    }
+  ],
+  "buoy_data": [
+    {
+      "parameter": "wind_speed",
+      "value": 0.6,
+      "unit": "m/s",
+      "source": "INCOIS Buoy Network",
+      "timestamp": "2025-09-04T22:01:27.168447",
+      "location": "13.08\u00b0N, 80.27\u00b0E"
+    },
+    {
+      "parameter": "wave_height",
+      "value": 1.22,
+      "unit": "meters",
+      "source": "INCOIS Wave Monitoring",
+      "timestamp": "2025-09-04T22:01:27.168447",
+      "location": "13.08\u00b0N, 80.27\u00b0E"
+    },
+    {
+      "parameter": "wind_speed",
+      "value": 39.0,
+      "unit": "m/s",
+      "source": "INCOIS Buoy Network",
+      "timestamp": "2025-09-04T22:01:27.168447",
+      "location": "19.08\u00b0N, 72.88\u00b0E"
+    },
+    {
+      "parameter": "wave_height",
+      "value": 4.04,
+      "unit": "meters",
+      "source": "INCOIS Wave Monitoring",
+      "timestamp": "2025-09-04T22:01:27.168447",
+      "location": "19.08\u00b0N, 72.88\u00b0E"
+    },
+    {
+      "parameter": "wind_speed",
+      "value": 0.4,
+      "unit": "m/s",
+      "source": "INCOIS Buoy Network",
+      "timestamp": "2025-09-04T22:01:27.168447",
+      "location": "15.30\u00b0N, 74.12\u00b0E"
+    },
+    {
+      "parameter": "wave_height",
+      "value": 2.1,
+      "unit": "meters",
+      "source": "INCOIS Wave Monitoring",
+      "timestamp": "2025-09-04T22:01:27.168447",
+      "location": "15.30\u00b0N, 74.12\u00b0E"
+    },
+    {
+      "parameter": "wind_speed",
+      "value": 8.2,
+      "unit": "m/s",
+      "source": "INCOIS Buoy Network",
+      "timestamp": "2025-09-04T22:01:27.169461",
+      "location": "11.02\u00b0N, 76.96\u00b0E"
+    },
+    {
+      "parameter": "wave_height",
+      "value": 4.78,
+      "unit": "meters",
+      "source": "INCOIS Wave Monitoring",
+      "timestamp": "2025-09-04T22:01:27.169461",
+      "location": "11.02\u00b0N, 76.96\u00b0E"
+    }
+  ],
+  "radar_data": [],
+  "tide_data": [
+    {
+      "parameter": "tide_height",
+      "value": 1.38,
+      "unit": "meters",
+      "source": "INCOIS Tide Gauge",
+      "timestamp": "2025-09-04T22:01:27.169461",
+      "location": "15.30\u00b0N, 74.12\u00b0E"
+    },
+    {
+      "parameter": "tide_height",
+      "value": 2.24,
+      "unit": "meters",
+      "source": "INCOIS Tide Gauge",
+      "timestamp": "2025-09-04T22:01:27.169967",
+      "location": "11.02\u00b0N, 76.96\u00b0E"
+    },
+    {
+      "parameter": "tide_height",
+      "value": 0.12,
+      "unit": "meters",
+      "source": "INCOIS Tide Gauge",
+      "timestamp": "2025-09-04T22:01:27.169967",
+      "location": "17.69\u00b0N, 83.22\u00b0E"
+    }
+  ],
+  "aws_data": [
+    {
+      "parameter": "relative_humidity",
+      "value": 69.4,
+      "unit": "percent",
+      "source": "INCOIS AWS",
+      "timestamp": "2025-09-04T22:01:27.169967",
+      "location": "13.08\u00b0N, 80.27\u00b0E"
+    },
+    {
+      "parameter": "relative_humidity",
+      "value": 67.2,
+      "unit": "percent",
+      "source": "INCOIS AWS",
+      "timestamp": "2025-09-04T22:01:27.169967",
+      "location": "19.08\u00b0N, 72.88\u00b0E"
+    },
+    {
+      "parameter": "relative_humidity",
+      "value": 64.2,
+      "unit": "percent",
+      "source": "INCOIS AWS",
+      "timestamp": "2025-09-04T22:01:27.169967",
+      "location": "15.30\u00b0N, 74.12\u00b0E"
+    }
+  ],
+  "satellite_data": [],
+  "chlorophyll_data": [],
+  "wave_data": [],
+  "coordinates": [
+    {
+      "latitude": 13.0827,
+      "longitude": 80.2707,
+      "parameter": "sst_location",
+      "source": "INCOIS Monitoring Station"
+    },
+    {
+      "latitude": 19.076,
+      "longitude": 72.8777,
+      "parameter": "sst_location",
+      "source": "INCOIS Monitoring Station"
+    },
+    {
+      "latitude": 15.2993,
+      "longitude": 74.124,
+      "parameter": "sst_location",
+      "source": "INCOIS Monitoring Station"
+    },
+    {
+      "latitude": 11.0168,
+      "longitude": 76.9558,
+      "parameter": "sst_location",
+      "source": "INCOIS Monitoring Station"
+    },
+    {
+      "latitude": 17.6868,
+      "longitude": 83.2185,
+      "parameter": "sst_location",
+      "source": "INCOIS Monitoring Station"
+    }
+  ],
+  "measurements": [
+    {
+      "parameter": "sea_surface_temperature",
+      "value": 27.59,
+      "unit": "celsius",
+      "source": "INCOIS SST Monitoring",
+      "timestamp": "2025-09-04T22:01:27.167168",
+      "location": "13.08\u00b0N, 80.27\u00b0E"
+    },
+    {
+      "parameter": "sea_surface_temperature",
+      "value": 25.86,
+      "unit": "celsius",
+      "source": "INCOIS SST Monitoring",
+      "timestamp": "2025-09-04T22:01:27.167168",
+      "location": "19.08\u00b0N, 72.88\u00b0E"
+    },
+    {
+      "parameter": "sea_surface_temperature",
+      "value": 28.5,
+      "unit": "celsius",
+      "source": "INCOIS SST Monitoring",
+      "timestamp": "2025-09-04T22:01:27.167168",
+      "location": "15.30\u00b0N, 74.12\u00b0E"
+    },
+    {
+      "parameter": "sea_surface_temperature",
+      "value": 27.4,
+      "unit": "celsius",
+      "source": "INCOIS SST Monitoring",
+      "timestamp": "2025-09-04T22:01:27.167168",
+      "location": "11.02\u00b0N, 76.96\u00b0E"
+    },
+    {
+      "parameter": "sea_surface_temperature",
+      "value": 28.56,
+      "unit": "celsius",
+      "source": "INCOIS SST Monitoring",
+      "timestamp": "2025-09-04T22:01:27.167168",
+      "location": "17.69\u00b0N, 83.22\u00b0E"
+    },
+    {
+      "parameter": "wind_speed",
+      "value": 0.6,
+      "unit": "m/s",
+      "source": "INCOIS Buoy Network",
+      "timestamp": "2025-09-04T22:01:27.168447",
+      "location": "13.08\u00b0N, 80.27\u00b0E"
+    },
+    {
+      "parameter": "wave_height",
+      "value": 1.22,
+      "unit": "meters",
+      "source": "INCOIS Wave Monitoring",
+      "timestamp": "2025-09-04T22:01:27.168447",
+      "location": "13.08\u00b0N, 80.27\u00b0E"
+    },
+    {
+      "parameter": "wind_speed",
+      "value": 39.0,
+      "unit": "m/s",
+      "source": "INCOIS Buoy Network",
+      "timestamp": "2025-09-04T22:01:27.168447",
+      "location": "19.08\u00b0N, 72.88\u00b0E"
+    },
+    {
+      "parameter": "wave_height",
+      "value": 4.04,
+      "unit": "meters",
+      "source": "INCOIS Wave Monitoring",
+      "timestamp": "2025-09-04T22:01:27.168447",
+      "location": "19.08\u00b0N, 72.88\u00b0E"
+    },
+    {
+      "parameter": "wind_speed",
+      "value": 0.4,
+      "unit": "m/s",
+      "source": "INCOIS Buoy Network",
+      "timestamp": "2025-09-04T22:01:27.168447",
+      "location": "15.30\u00b0N, 74.12\u00b0E"
+    },
+    {
+      "parameter": "wave_height",
+      "value": 2.1,
+      "unit": "meters",
+      "source": "INCOIS Wave Monitoring",
+      "timestamp": "2025-09-04T22:01:27.168447",
+      "location": "15.30\u00b0N, 74.12\u00b0E"
+    },
+    {
+      "parameter": "wind_speed",
+      "value": 8.2,
+      "unit": "m/s",
+      "source": "INCOIS Buoy Network",
+      "timestamp": "2025-09-04T22:01:27.169461",
+      "location": "11.02\u00b0N, 76.96\u00b0E"
+    },
+    {
+      "parameter": "wave_height",
+      "value": 4.78,
+      "unit": "meters",
+      "source": "INCOIS Wave Monitoring",
+      "timestamp": "2025-09-04T22:01:27.169461",
+      "location": "11.02\u00b0N, 76.96\u00b0E"
+    },
+    {
+      "parameter": "tide_height",
+      "value": 1.38,
+      "unit": "meters",
+      "source": "INCOIS Tide Gauge",
+      "timestamp": "2025-09-04T22:01:27.169461",
+      "location": "15.30\u00b0N, 74.12\u00b0E"
+    },
+    {
+      "parameter": "tide_height",
+      "value": 2.24,
+      "unit": "meters",
+      "source": "INCOIS Tide Gauge",
+      "timestamp": "2025-09-04T22:01:27.169967",
+      "location": "11.02\u00b0N, 76.96\u00b0E"
+    },
+    {
+      "parameter": "tide_height",
+      "value": 0.12,
+      "unit": "meters",
+      "source": "INCOIS Tide Gauge",
+      "timestamp": "2025-09-04T22:01:27.169967",
+      "location": "17.69\u00b0N, 83.22\u00b0E"
+    },
+    {
+      "parameter": "relative_humidity",
+      "value": 69.4,
+      "unit": "percent",
+      "source": "INCOIS AWS",
+      "timestamp": "2025-09-04T22:01:27.169967",
+      "location": "13.08\u00b0N, 80.27\u00b0E"
+    },
+    {
+      "parameter": "relative_humidity",
+      "value": 67.2,
+      "unit": "percent",
+      "source": "INCOIS AWS",
+      "timestamp": "2025-09-04T22:01:27.169967",
+      "location": "19.08\u00b0N, 72.88\u00b0E"
+    },
+    {
+      "parameter": "relative_humidity",
+      "value": 64.2,
+      "unit": "percent",
+      "source": "INCOIS AWS",
+      "timestamp": "2025-09-04T22:01:27.169967",
+      "location": "15.30\u00b0N, 74.12\u00b0E"
+    }
+  ],
+  "data": [
+    {
+      "summary": "INCOIS Sea Surface Temperature measurements: Values range from 25.86 to 28.56 celsius with average of 27.58. Total 5 measurements from INCOIS SST Monitoring collected on 2025-09-04.",
+      "file_path": "INCOIS_sea_surface_temperature",
+      "source": "INCOIS SST Monitoring",
+      "parameter_type": "sea_surface_temperature",
+      "measurement_count": 5,
+      "timestamp": "2025-09-04T22:01:27.170998"
+    },
+    {
+      "summary": "INCOIS Wind Speed measurements: Values range from 0.40 to 39.00 m/s with average of 12.05. Total 4 measurements from INCOIS Buoy Network collected on 2025-09-04.",
+      "file_path": "INCOIS_wind_speed",
+      "source": "INCOIS Buoy Network",
+      "parameter_type": "wind_speed",
+      "measurement_count": 4,
+      "timestamp": "2025-09-04T22:01:27.170998"
+    },
+    {
+      "summary": "INCOIS Wave Height measurements: Values range from 1.22 to 4.78 meters with average of 3.04. Total 4 measurements from INCOIS Wave Monitoring collected on 2025-09-04.",
+      "file_path": "INCOIS_wave_height",
+      "source": "INCOIS Wave Monitoring",
+      "parameter_type": "wave_height",
+      "measurement_count": 4,
+      "timestamp": "2025-09-04T22:01:27.170998"
+    },
+    {
+      "summary": "INCOIS Tide Height measurements: Values range from 0.12 to 2.24 meters with average of 1.25. Total 3 measurements from INCOIS Tide Gauge collected on 2025-09-04.",
+      "file_path": "INCOIS_tide_height",
+      "source": "INCOIS Tide Gauge",
+      "parameter_type": "tide_height",
+      "measurement_count": 3,
+      "timestamp": "2025-09-04T22:01:27.170998"
+    },
+    {
+      "summary": "INCOIS Relative Humidity measurements: Values range from 64.20 to 69.40 percent with average of 66.93. Total 3 measurements from INCOIS AWS collected on 2025-09-04.",
+      "file_path": "INCOIS_relative_humidity",
+      "source": "INCOIS AWS",
+      "parameter_type": "relative_humidity",
+      "measurement_count": 3,
+      "timestamp": "2025-09-04T22:01:27.170998"
+    },
+    {
+      "summary": "INCOIS monitoring locations include 5 coordinate points covering Bay of Bengal and Arabian Sea regions with precise latitude/longitude positions.",
+      "file_path": "INCOIS_Coordinates",
+      "source": "INCOIS Locations",
+      "coordinate_count": 5,
+      "timestamp": "2025-09-04T22:01:27.170998"
+    }
+  ],
+  "summary": {
+    "total_measurements": 19,
+    "sst_measurements": 5,
+    "buoy_measurements": 8,
+    "radar_measurements": 0,
+    "tide_measurements": 3,
+    "aws_measurements": 3,
+    "satellite_measurements": 0,
+    "coordinate_points": 5,
+    "scraping_duration_seconds": 13.400989294052124,
+    "success": true,
+    "data_source": "fallback",
+    "timestamp": "2025-09-04T22:01:27.170998"
+  }
+}

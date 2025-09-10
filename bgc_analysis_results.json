@@ -1,0 +1,18 @@
+{
+  "bgc_floats": {},
+  "bgc_profiles": {},
+  "ecosystem_health": {},
+  "summary_report": {
+    "analysis_timestamp": "2025-09-04T11:32:53.189356",
+    "total_bgc_floats": 0,
+    "parameter_summary": {},
+    "regional_analysis": {},
+    "ecosystem_health": {},
+    "data_quality_assessment": {},
+    "recommendations": [
+      "Limited BGC parameter coverage - expand sensor capabilities for comprehensive ecosystem assessment"
+    ]
+  },
+  "rag_summaries": [],
+  "analysis_timestamp": "2025-09-04T11:32:53.248746"
+}

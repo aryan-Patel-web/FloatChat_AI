@@ -1,0 +1,36 @@
+{
+  "system_status": {
+    "last_full_update": null,
+    "last_disaster_check": null,
+    "system_health": "UNHEALTHY",
+    "total_cycles": 0,
+    "errors_count": 0,
+    "success_count": 1,
+    "uptime_start": "2025-09-04T11:33:12.968647"
+  },
+  "automation_history": [
+    {
+      "timestamp": "2025-09-04T11:33:12.971164",
+      "activity": "Enhanced System Health Check",
+      "status": "SUCCESS",
+      "duration_seconds": 0.0,
+      "details": {
+        "overall_health": "UNHEALTHY",
+        "component_availability": "71.4%",
+        "available_components": "5/7",
+        "data_files": 0,
+        "recommendations_count": 2
+      },
+      "system_health": "UNHEALTHY",
+      "component_status": {
+        "argo_scraper": "NOT_AVAILABLE",
+        "incois_scraper": "OK",
+        "ftp_handler": "ERROR: AdvancedFTPHandler.__init__() got an unexpected keyword argument 'max_size_gb'",
+        "data_processor": "OK",
+        "minio_handler": "OK",
+        "disaster_system": "OK",
+        "multilingual": "OK"
+      }
+    }
+  ]
+}

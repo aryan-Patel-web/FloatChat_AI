@@ -1,0 +1,50 @@
+{
+  "SST": {
+    "status": "no data available",
+    "source": null,
+    "count": 0,
+    "sample_values": []
+  },
+  "Chlorophyll": {
+    "status": "no data available",
+    "source": null,
+    "count": 0,
+    "sample_values": []
+  },
+  "Kd490": {
+    "status": "no data available",
+    "source": null,
+    "count": 0,
+    "sample_values": []
+  },
+  "POC": {
+    "status": "no data available",
+    "source": null,
+    "count": 0,
+    "sample_values": []
+  },
+  "PIC": {
+    "status": "no data available",
+    "source": null,
+    "count": 0,
+    "sample_values": []
+  },
+  "AOT": {
+    "status": "no data available",
+    "source": null,
+    "count": 0,
+    "sample_values": []
+  },
+  "summary": {
+    "parameters_scraped": [
+      "SST",
+      "Chlorophyll",
+      "Kd490",
+      "POC",
+      "PIC",
+      "AOT"
+    ],
+    "total_parameters": 6,
+    "timestamp": "2025-09-04T13:47:51.643865+00:00"
+  }
+}
