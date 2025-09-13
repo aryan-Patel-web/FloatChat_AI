@@ -98,5 +98,35 @@
     "download_successful": true,
     "file_hash": "c638f39ca91be2536a16b7f339d9376478487567d1c5777044527be53f875288",
     "attempts": 1
+  },
+  "20250911_prof.nc": {
+    "date_str": "20250911",
+    "download_time": "2025-09-13T15:19:26.105820",
+    "local_path": "daily_dataset\\11sep2025\\20250911_prof.nc",
+    "size": "2025-09-13 11:14",
+    "last_modified": "20250911_prof.nc",
+    "download_successful": true,
+    "file_hash": "071e9a018531f7bc59f3808c5272ffae44323e6ca372bde27ca7f8b5ced9e0ec",
+    "attempts": 1
+  },
+  "20250912_prof.nc": {
+    "date_str": "20250912",
+    "download_time": "2025-09-13T15:19:31.838274",
+    "local_path": "daily_dataset\\12sep2025\\20250912_prof.nc",
+    "size": "2025-09-13 08:58",
+    "last_modified": "20250912_prof.nc",
+    "download_successful": true,
+    "file_hash": "81430b332f8f1e0fa51ec5dfe5748b118c38b486ce0382357f5907f057099990",
+    "attempts": 1
+  },
+  "20250913_prof.nc": {
+    "date_str": "20250913",
+    "download_time": "2025-09-13T15:19:34.477052",
+    "local_path": "daily_dataset\\13sep2025\\20250913_prof.nc",
+    "size": "2025-09-13 11:13",
+    "last_modified": "20250913_prof.nc",
+    "download_successful": true,
+    "file_hash": "479bbab8a7e6c925173f7ba1573a857c6c02d4369fdfc9b8317ceb8f5af77d98",
+    "attempts": 1
   }
 }
