@@ -1,6 +1,8 @@
 # Fixed requirements.txt for FloatChat INCOIS System
 # Install these to fix terminal errors
-
+plotly
+streamlit-folium
+folium
 # Core data processing
 netcdf4==1.6.5
 xarray==2023.11.0

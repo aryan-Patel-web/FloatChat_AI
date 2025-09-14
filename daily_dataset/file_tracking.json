@@ -128,5 +128,15 @@
     "download_successful": true,
     "file_hash": "479bbab8a7e6c925173f7ba1573a857c6c02d4369fdfc9b8317ceb8f5af77d98",
     "attempts": 1
+  },
+  "20250914_prof.nc": {
+    "date_str": "20250914",
+    "download_time": "2025-09-14T09:39:25.123579",
+    "local_path": "daily_dataset\\14sep2025\\20250914_prof.nc",
+    "size": "2025-09-14 05:28",
+    "last_modified": "20250914_prof.nc",
+    "download_successful": true,
+    "file_hash": "0b036c40fd6b4a0f9b3b7edcb5977142fd04e00e61c52bec343593ae608d0222",
+    "attempts": 1
   }
 }

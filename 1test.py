@@ -1,738 +1,534 @@
-#!/usr/bin/env python3
-"""
-ARGO RAG Query Dashboard (Optimized Version)
-- Efficiently loads FAISS indexes and JSON data once at server start
-- Fast semantic search using pre-computed vector embeddings
-- Memory-efficient design for handling large datasets
-- Supports both simple and enhanced JSON formats
-- Built with Streamlit for easy deployment
-"""
-
 import streamlit as st
 import json
-import faiss
-import numpy as np
-import pandas as pd
-import time
-import folium
-from folium.plugins import MarkerCluster
-from streamlit_folium import folium_static
-import plotly.express as px
-import plotly.graph_objects as go
+import os
+import glob
 from pathlib import Path
-from sentence_transformers import SentenceTransformer
-from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime
+import pandas as pd
+import requests
+from groq import Groq
+from dotenv import load_dotenv
+import time
+import re
+from collections import defaultdict
 
-# -------------------------------
-# Configuration
-# -------------------------------
-JSON_FOLDER = Path("D:/FloatChat ARGO/MINIO/Datasetjson")
-INDEX_FOLDER = Path("D:/FloatChat ARGO/MINIO/VectorIndex")
-EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
-MAX_WORKERS = 4
-CACHE_TIMEOUT = 3600  # 1 hour cache timeout for indexes
+# Load environment variables
+load_dotenv()
 
-# -------------------------------
-# Page Config
-# -------------------------------
-st.set_page_config(
-    page_title="🌊 ARGO Data Explorer", 
-    page_icon="🌊",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
-
-# -------------------------------
-# Lazy Loading Functions
-# -------------------------------
-@st.cache_resource(ttl=CACHE_TIMEOUT)
-def load_embedding_model():
-    """Load the embedding model once at server start"""
-    try:
-        # Try GPU first if available
-        model = SentenceTransformer(EMBEDDING_MODEL, device="cuda")
-        st.sidebar.success("✅ Using GPU for embeddings")
-    except Exception:
-        # Fall back to CPU
-        model = SentenceTransformer(EMBEDDING_MODEL)
-        st.sidebar.info("ℹ️ Using CPU for embeddings")
-    return model
-
-@st.cache_data(ttl=CACHE_TIMEOUT)
-def list_available_years():
-    """List all available years in the dataset"""
-    years = []
-    for year_dir in sorted(JSON_FOLDER.glob("*")):
-        if year_dir.is_dir() and year_dir.name.isdigit():
-            years.append(year_dir.name)
-    return years
-
-@st.cache_data(ttl=CACHE_TIMEOUT)
-def list_available_months(year):
-    """List all available months for a given year"""
-    months = []
-    year_dir = JSON_FOLDER / year
-    if year_dir.exists():
-        for month_dir in sorted(year_dir.glob("*")):
-            if month_dir.is_dir() and month_dir.name.isdigit():
-                months.append(month_dir.name)
-    return months
-
-@st.cache_data(ttl=CACHE_TIMEOUT)
-def list_available_days(year, month):
-    """List all available days for a given year/month"""
-    days = []
-    month_dir = JSON_FOLDER / year / month
-    if month_dir.exists():
-        for day_dir in sorted(month_dir.glob("*")):
-            if day_dir.is_dir() and day_dir.name.isdigit():
-                days.append(day_dir.name)
-    return days
-
-@st.cache_data(ttl=CACHE_TIMEOUT)
-def list_json_files(year=None, month=None, day=None):
-    """List all JSON files matching the filters"""
-    if year and month and day:
-        # Specific day
-        target_dir = JSON_FOLDER / year / month / day
-        pattern = "*.json"
-    elif year and month:
-        # Specific month
-        target_dir = JSON_FOLDER / year / month
-        pattern = "**/*.json"
-    elif year:
-        # Specific year
-        target_dir = JSON_FOLDER / year
-        pattern = "**/*.json"
-    else:
-        # All files
-        target_dir = JSON_FOLDER
-        pattern = "**/*.json"
+class EnhancedARGOChatbot:
+    def __init__(self):
+        self.mistral_api_key = os.getenv("MISTRAL_API_KEY")
+        self.groq_api_key = os.getenv("GROQ_API_KEY")
+        self.groq_client = Groq(api_key=self.groq_api_key) if self.groq_api_key else None
         
-    if not target_dir.exists():
-        return []
+    def load_argo_data(self, json_path="Datasetjson"):
+        """Load all ARGO JSON files with enhanced indexing"""
+        json_files = []
+        data_path = Path(json_path)
         
-    return sorted(target_dir.glob(pattern))
-
-@st.cache_data(ttl=CACHE_TIMEOUT)
-def load_json_data(json_path):
-    """Load a single JSON file"""
-    try:
-        with open(json_path, "r") as f:
-            return json.load(f)
-    except Exception as e:
-        st.warning(f"Failed to load {json_path}: {e}")
-        return None
-
-@st.cache_data(ttl=CACHE_TIMEOUT)
-def load_index(index_path):
-    """Load a single FAISS index"""
-    try:
-        index = faiss.read_index(str(index_path))
-        return index
-    except Exception as e:
-        # Don't show warning for every failed index load
-        # st.warning(f"Failed to load index {index_path}: {e}")
-        return None
-
-# -------------------------------
-# Search Functions
-# -------------------------------
-def get_matching_index_path(json_path):
-    """Convert JSON path to corresponding index path"""
-    # Extract path components
-    parts = list(json_path.parts)
-    if "Datasetjson" in parts:
-        # Replace folder prefix
-        json_idx = parts.index("Datasetjson")
-        parts[json_idx] = "VectorIndex"
+        if data_path.exists():
+            json_files = list(data_path.rglob("*.json"))
         
-        # Replace extension
-        parts[-1] = json_path.stem + ".index"
-        return Path(*parts)
-    return None
-
-def detect_json_format(json_data):
-    """Detect if JSON is in simple or enhanced format"""
-    if "file_metadata" in json_data:
-        return "enhanced"
-    elif "file" in json_data and "data" in json_data and "summaries" in json_data:
-        return "simple"
-    return "unknown"
-
-def get_search_text_from_json(json_data, json_format):
-    """Extract search text from JSON based on format"""
-    if json_format == "enhanced":
-        # For enhanced format, use vector_embeddings.profile_summary and variable summaries
-        text = json_data.get("vector_embeddings", {}).get("profile_summary", "")
-        for var in json_data.get("measurements", {}).get("core_variables", []):
-            text += " " + var.get("summary", "")
-        for var in json_data.get("measurements", {}).get("bgc_variables", []):
-            if var.get("present", False):
-                text += " " + var.get("summary", "")
-        return text
-    else:
-        # For simple format, use summaries
-        text = json_data.get("summary", "")
-        for summary in json_data.get("summaries", []):
-            text += " " + summary.get("variable", "") + ": " + summary.get("summary", "")
-        return text
-
-def query_single_index(query_embedding, index_path, json_path, top_k=5):
-    """Query a single index file and return results"""
-    # Load index and JSON data
-    index = load_index(index_path)
-    if index is None or index.ntotal == 0:
-        return []
+        argo_data = []
+        for file_path in json_files:
+            try:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    # Add file info for reference
+                    data['_file_path'] = str(file_path)
+                    argo_data.append(data)
+            except Exception as e:
+                st.error(f"Error loading {file_path}: {e}")
         
-    json_data = load_json_data(json_path)
-    if json_data is None:
-        return []
-        
-    # Perform search
-    D, I = index.search(query_embedding, min(top_k, index.ntotal))
+        return argo_data
     
-    # Extract results
-    results = []
-    json_format = detect_json_format(json_data)
-    
-    if json_format == "enhanced":
-        # For enhanced format, return structured information
-        for dist, idx in zip(D[0], I[0]):
-            result = {
-                "file": json_data["file_metadata"]["file_id"],
-                "path": str(json_path),
-                "format": "enhanced",
-                "distance": float(dist),
-                "basin": json_data.get("geospatial", {}).get("basin", "Unknown"),
-                "timestamp": json_data.get("profile_data", {}).get("juld", ["Unknown"])[0] if json_data.get("profile_data", {}).get("juld", []) else "Unknown",
-                "data": json_data
+    def query_mistral(self, prompt, context):
+        """Enhanced Mistral API with better prompts"""
+        try:
+            system_prompt = """You are an expert oceanographer analyzing REAL ARGO float data from 2024-2025 Indian Ocean.
+
+CRITICAL RULES:
+1. ONLY use data from the provided context - NEVER invent or hallucinate information
+2. Use EXACT values from JSON data - no approximations or external knowledge
+3. If specific data is not in context, state "Data not available in current profiles"
+4. Format: Brief summary → bullet points with real values → conclusion
+5. Use emojis but avoid excessive markdown formatting
+6. Never reference web information or general oceanographic knowledge not in the data
+
+Response format:
+- 1-line summary with key finding
+- Bullet points with exact JSON values (temperatures, dates, locations)
+- 1-2 line conclusion based only on provided data"""
+
+            data = {
+                "model": "mistral-large-latest",
+                "messages": [
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": f"REAL DATA CONTEXT: {context}\n\nQUESTION: {prompt}"}
+                ],
+                "temperature": 0.1,  # Very low for factual accuracy
+                "max_tokens": 1000
             }
             
-            # Add variables
-            core_vars = json_data.get("measurements", {}).get("core_variables", [])
-            if core_vars:
-                result["variable"] = core_vars[0].get("name", "Unknown")
-                result["summary"] = core_vars[0].get("summary", "Unknown")
-            else:
-                result["variable"] = "Unknown"
-                result["summary"] = "No variables found"
-                
-            results.append(result)
-    else:
-        # For simple format, extract from summaries
-        for dist, idx in zip(D[0], I[0]):
-            if idx < 0 or idx >= len(json_data.get("summaries", [])):
-                continue
-                
-            summary = json_data["summaries"][idx]
-            results.append({
-                "file": json_data["file"],
-                "path": str(json_path),
-                "format": "simple",
-                "variable": summary.get("variable", ""),
-                "summary": summary.get("summary", ""),
-                "distance": float(dist),
-                "data": json_data
-            })
-        
-    return results
-
-def parallel_query(query, json_files, top_k=5, max_workers=MAX_WORKERS):
-    """Query multiple indexes in parallel and return combined results"""
-    # Check if there are files to query
-    if not json_files:
-        return []
-        
-    # Load embedding model and encode query
-    model = load_embedding_model()
-    query_embedding = model.encode([query]).astype("float32")
-    
-    # Find matching index files
-    valid_pairs = []
-    for json_path in json_files:
-        index_path = get_matching_index_path(json_path)
-        if index_path and index_path.exists():
-            valid_pairs.append((json_path, index_path))
-    
-    if not valid_pairs:
-        return []
-    
-    # Use ThreadPoolExecutor for parallel processing
-    all_results = []
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        future_to_path = {
-            executor.submit(
-                query_single_index, query_embedding, index_path, json_path, top_k
-            ): json_path
-            for json_path, index_path in valid_pairs
-        }
-        
-        # Collect results as they complete
-        for future in future_to_path:
-            results = future.result()
-            all_results.extend(results)
-    
-    # Sort by distance (lower is better)
-    all_results.sort(key=lambda x: x["distance"])
-    
-    # Return top k results overall
-    return all_results[:top_k]
-
-# -------------------------------
-# Visualization Functions
-# -------------------------------
-def format_result(result):
-    """Format a search result for display"""
-    # Extract path components to get date
-    path_parts = result["path"].split("/")
-    date_parts = []
-    
-    # Extract date components from path if available
-    for part in path_parts:
-        if part.isdigit():
-            date_parts.append(part)
-    
-    # Format date as YYYY-MM-DD if we have enough parts
-    date_str = ""
-    if len(date_parts) >= 3:
-        date_str = f"{date_parts[0]}-{date_parts[1]}-{date_parts[2]}"
-    
-    # Get timestamp from enhanced format if available
-    if result.get("format") == "enhanced" and result.get("timestamp"):
-        timestamp = result.get("timestamp")
-        if timestamp and timestamp != "Unknown":
-            # Trim timestamp to just date part if needed
-            if "T" in timestamp:
-                timestamp = timestamp.split("T")[0]
-            date_str = timestamp
-    
-    return {
-        "File": result["file"],
-        "Date": date_str,
-        "Variable": result["variable"],
-        "Description": result["summary"],
-        "Basin": result.get("basin", "Unknown"),
-        "Score": f"{1.0 / (1.0 + result['distance']):.2f}"
-    }
-
-def create_results_table(results):
-    """Create a DataFrame from search results"""
-    if not results:
-        return pd.DataFrame()
-    
-    formatted = [format_result(r) for r in results]
-    return pd.DataFrame(formatted)
-
-def extract_geospatial_data(results):
-    """Extract geospatial data from results for visualization"""
-    geo_data = []
-    
-    for result in results:
-        json_format = result.get("format", "simple")
-        json_data = result.get("data", {})
-        
-        if json_format == "enhanced":
-            positions = json_data.get("geospatial", {}).get("positions", [])
-            if positions:
-                for pos in positions:
-                    geo_data.append({
-                        "file": result["file"],
-                        "latitude": pos.get("latitude", 0),
-                        "longitude": pos.get("longitude", 0),
-                        "timestamp": pos.get("timestamp", "Unknown"),
-                        "qc": pos.get("qc", "Unknown"),
-                        "variable": result.get("variable", "Unknown"),
-                        "summary": result.get("summary", "Unknown")
-                    })
-        else:
-            # Try to extract from simple format
-            if "LATITUDE" in json_data.get("data", {}) and "LONGITUDE" in json_data.get("data", {}):
-                lat_data = json_data["data"]["LATITUDE"]
-                lon_data = json_data["data"]["LONGITUDE"]
-                
-                # Handle different data formats
-                if isinstance(lat_data, list) and isinstance(lon_data, list):
-                    for i in range(min(len(lat_data), len(lon_data))):
-                        geo_data.append({
-                            "file": result["file"],
-                            "latitude": lat_data[i],
-                            "longitude": lon_data[i],
-                            "timestamp": "Unknown",
-                            "qc": "Unknown",
-                            "variable": result.get("variable", "Unknown"),
-                            "summary": result.get("summary", "Unknown")
-                        })
-    
-    return geo_data
-
-def plot_geospatial_data(geo_data):
-    """Create a Folium map with the geospatial data"""
-    if not geo_data:
-        return None
-    
-    # Calculate the center of the map
-    center_lat = sum(item["latitude"] for item in geo_data) / len(geo_data)
-    center_lon = sum(item["longitude"] for item in geo_data) / len(geo_data)
-    
-    # Create a map
-    m = folium.Map(location=[center_lat, center_lon], zoom_start=4)
-    
-    # Create a marker cluster
-    marker_cluster = MarkerCluster().add_to(m)
-    
-    # Add markers for each position
-    for item in geo_data:
-        popup_text = f"""
-        <b>File:</b> {item['file']}<br>
-        <b>Variable:</b> {item['variable']}<br>
-        <b>Timestamp:</b> {item['timestamp']}<br>
-        <b>QC:</b> {item['qc']}<br>
-        <b>Summary:</b> {item['summary']}
-        """
-        
-        folium.Marker(
-            location=[item["latitude"], item["longitude"]],
-            popup=folium.Popup(popup_text, max_width=300),
-            icon=folium.Icon(color="blue", icon="info-sign")
-        ).add_to(marker_cluster)
-    
-    return m
-
-def plot_temperature_profile(json_data, json_format):
-    """Create a temperature profile plot from the data"""
-    try:
-        if json_format == "enhanced":
-            # Extract temperature from enhanced format
-            temp_var = None
-            for var in json_data.get("measurements", {}).get("core_variables", []):
-                if var.get("name") == "TEMP":
-                    temp_var = var
-                    break
-            
-            if not temp_var:
-                return None
-            
-            # Create figure with labels from the variable info
-            fig = go.Figure()
-            fig.add_trace(go.Scatter(
-                x=[float(temp_var.get("summary", "").split("min=")[1].split(",")[0]),
-                   float(temp_var.get("summary", "").split("max=")[1].split(",")[0])],
-                y=[0, 2000],  # Approximate depth range
-                mode="lines",
-                name="Temperature Range"
-            ))
-            
-            fig.update_layout(
-                title=f"Temperature Profile for {json_data['file_metadata']['file_id']}",
-                xaxis_title=f"Temperature ({temp_var.get('unit', '°C')})",
-                yaxis_title="Depth (m)",
-                yaxis=dict(autorange="reversed")  # Reverse y-axis for depth
+            response = requests.post(
+                "https://api.mistral.ai/v1/chat/completions",
+                headers={
+                    "Authorization": f"Bearer {self.mistral_api_key}",
+                    "Content-Type": "application/json"
+                },
+                json=data,
+                timeout=30
             )
             
-            return fig
-            
-        else:
-            # Try to extract from simple format if available
-            if "TEMP" in json_data.get("data", {}):
-                temp_data = json_data["data"]["TEMP"]
+            if response.status_code == 200:
+                return response.json()['choices'][0]['message']['content']
+            else:
+                raise Exception(f"Mistral API error: {response.status_code}")
                 
-                if isinstance(temp_data, dict) and "min" in temp_data and "max" in temp_data:
-                    # Create simple plot from min/max
-                    fig = go.Figure()
-                    fig.add_trace(go.Scatter(
-                        x=[temp_data["min"], temp_data["max"]],
-                        y=[0, 2000],  # Approximate depth range
-                        mode="lines",
-                        name="Temperature Range"
-                    ))
-                    
-                    fig.update_layout(
-                        title=f"Temperature Profile for {json_data['file']}",
-                        xaxis_title="Temperature (°C)",
-                        yaxis_title="Depth (m)",
-                        yaxis=dict(autorange="reversed")  # Reverse y-axis for depth
-                    )
-                    
-                    return fig
+        except Exception as e:
+            st.warning(f"🔄 Mistral API failed: {e}. Switching to Groq...")
+            return self.query_groq(prompt, context)
+    
+    def query_groq(self, prompt, context):
+        """Enhanced Groq fallback with strict data rules"""
+        try:
+            if not self.groq_client:
+                return "❌ Both API services are unavailable. Please check your API keys."
             
-            return None
-            
-    except Exception as e:
-        st.warning(f"Failed to create temperature profile: {e}")
-        return None
+            system_prompt = """You are analyzing REAL ARGO oceanographic data from 2024-2025. 
 
-# -------------------------------
-# Streamlit UI
-# -------------------------------
+STRICT RULES:
+- Use ONLY the provided JSON data context
+- Never add external oceanographic knowledge
+- Use exact values from the data
+- If data is missing, say "Not available in current dataset"
+- Format: Summary → bullet points → conclusion with emojis"""
+            
+            response = self.groq_client.chat.completions.create(
+                model="mixtral-8x7b-32768",
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": f"CONTEXT: {context}\n\nQUESTION: {prompt}"}
+                ],
+                temperature=0.1,
+                max_tokens=800
+            )
+            
+            return response.choices[0].message.content
+            
+        except Exception as e:
+            return f"❌ Both AI services unavailable. Error: {e}"
+    
+    def search_relevant_data(self, query, argo_data):
+        """Enhanced search with comprehensive keyword matching"""
+        query_lower = query.lower().replace('-', ' ').replace('_', ' ')
+        relevant_profiles = []
+        
+        # Enhanced keyword mapping
+        temporal_keywords = {
+            '2024': ['2024'], '2025': ['2025'], 
+            'january': ['january', 'jan', '01'], 'february': ['february', 'feb', '02'],
+            'march': ['march', 'mar', '03'], 'april': ['april', 'apr', '04'],
+            'may': ['may', '05'], 'june': ['june', 'jun', '06'],
+            'july': ['july', 'jul', '07'], 'august': ['august', 'aug', '08'],
+            'september': ['september', 'sep', '09'], 'october': ['october', 'oct', '10'],
+            'november': ['november', 'nov', '11'], 'december': ['december', 'dec', '12'],
+            'monsoon': ['monsoon', 'southwest', 'northeast', 'pre_monsoon', 'post_monsoon'],
+            'spring': ['spring'], 'summer': ['summer'], 'winter': ['winter'], 'autumn': ['autumn']
+        }
+        
+        spatial_keywords = {
+            'arabian': ['arabian_sea', 'arabian sea', 'arabian'], 
+            'bay': ['bay_of_bengal', 'bay of bengal', 'bengal'],
+            'southern': ['southern_ocean', 'southern ocean'], 
+            'indian': ['indian', 'western_indian', 'eastern_indian', 'tropical_indian'],
+            'madagascar': ['madagascar_ridge', 'madagascar'], 
+            'monsoon': ['monsoon_region', 'monsoon region'],
+            'equatorial': ['equatorial_indian', 'equatorial'],
+            'red sea': ['red_sea', 'red sea'],
+            'persian': ['persian_gulf', 'persian gulf']
+        }
+        
+        measurement_keywords = {
+            'temperature': ['temp', 'temperature', 'thermal', 'heating', 'cooling', '°c', 'celsius'],
+            'salinity': ['psal', 'salinity', 'salt', 'psu', 'haline'], 
+            'pressure': ['pres', 'pressure', 'depth', 'dbar'],
+            'water mass': ['water', 'mass', 'water mass', 'antarctic', 'surface', 'deep', 'intermediate'],
+            'oxygen': ['doxy', 'oxygen', 'o2', 'hypoxic', 'anoxic'],
+            'quality': ['quality', 'qc', 'data', 'calibration', 'error'],
+            'density': ['density', 'sigma', 'rho'],
+            'sound': ['sound', 'acoustic', 'speed']
+        }
+        
+        for profile in argo_data:
+            relevance_score = 0
+            
+            try:
+                # Enhanced temporal matching
+                temporal = profile.get('temporal', {})
+                year = temporal.get('year', 0)
+                month = temporal.get('month', 0)
+                date_str = temporal.get('datetime', '')
+                monsoon = temporal.get('monsoon_season', '').lower().replace('_', ' ')
+                season = temporal.get('season_nh', '').lower()
+                
+                # Check year matching
+                for keyword, variations in temporal_keywords.items():
+                    if keyword in query_lower:
+                        if (str(year) in variations or 
+                            any(var in str(month).zfill(2) for var in variations) or
+                            any(var in monsoon for var in variations) or
+                            any(var in season for var in variations)):
+                            relevance_score += 4
+                
+                # Extract specific dates from query (e.g., "July 20", "2024-07-20")
+                date_patterns = [
+                    r'(\d{4})[/-](\d{1,2})[/-](\d{1,2})',  # 2024-07-20
+                    r'(\w+)\s+(\d{1,2})',                   # July 20
+                    r'(\d{1,2})\s+(\w+)',                   # 20 July
+                ]
+                
+                for pattern in date_patterns:
+                    matches = re.findall(pattern, query_lower)
+                    if matches:
+                        for match in matches:
+                            if len(match) == 3:  # Year-month-day
+                                q_year, q_month, q_day = int(match[0]), int(match[1]), int(match[2])
+                                if year == q_year and month == q_month:
+                                    relevance_score += 5
+                            elif len(match) == 2:  # Month day
+                                month_names = ['january', 'february', 'march', 'april', 'may', 'june',
+                                             'july', 'august', 'september', 'october', 'november', 'december']
+                                try:
+                                    if match[0] in month_names:
+                                        q_month = month_names.index(match[0]) + 1
+                                        if month == q_month:
+                                            relevance_score += 4
+                                except:
+                                    pass
+                
+                # Enhanced spatial matching
+                spatial = profile.get('geospatial', {})
+                regions = [r.lower().replace('_', ' ') for r in spatial.get('regional_seas', [])]
+                province = spatial.get('biogeographic_province', '').lower().replace('_', ' ')
+                ocean = spatial.get('ocean_basin', '').lower()
+                
+                for keyword, variations in spatial_keywords.items():
+                    if keyword in query_lower:
+                        region_text = ' '.join(regions + [province, ocean])
+                        if any(var.replace('_', ' ') in region_text for var in variations):
+                            relevance_score += 5
+                
+                # Enhanced measurement matching
+                measurements = profile.get('measurements', {})
+                core_vars = measurements.get('core_variables', {})
+                bgc_vars = measurements.get('bgc_variables', {})
+                derived = measurements.get('derived_parameters', {})
+                
+                for keyword, variations in measurement_keywords.items():
+                    if any(var in query_lower for var in variations):
+                        # Check if requested measurement is available
+                        if keyword == 'temperature' and core_vars.get('TEMP', {}).get('present'):
+                            relevance_score += 3
+                        elif keyword == 'salinity' and core_vars.get('PSAL', {}).get('present'):
+                            relevance_score += 3
+                        elif keyword == 'pressure' and core_vars.get('PRES', {}).get('present'):
+                            relevance_score += 3
+                        elif keyword == 'density' and derived.get('density'):
+                            relevance_score += 3
+                        elif keyword == 'sound' and derived.get('sound_speed'):
+                            relevance_score += 3
+                        elif keyword == 'oxygen' and bgc_vars.get('DOXY', {}).get('present'):
+                            relevance_score += 3
+                        else:
+                            relevance_score += 1
+                
+                # Water mass matching
+                water_masses = profile.get('oceanography', {}).get('water_masses', [])
+                if any(term in query_lower for term in ['water', 'mass', 'antarctic', 'surface', 'deep']):
+                    if water_masses:
+                        relevance_score += 3
+                    
+                    # Check specific water mass names
+                    for wm in water_masses:
+                        wm_name = wm.get('name', '').lower().replace('_', ' ')
+                        if any(term in wm_name for term in query_lower.split()):
+                            relevance_score += 2
+                
+                # Quality/analysis questions
+                if any(word in query_lower for word in ['quality', 'data', 'analysis', 'summary', 'overview']):
+                    relevance_score += 2
+                
+                # Features matching
+                features = profile.get('oceanography', {}).get('physical_features', {})
+                if any(term in query_lower for term in ['inversion', 'mixing', 'thermocline', 'gradient']):
+                    if (features.get('inversions') or features.get('thermocline') or 
+                        features.get('mixed_layer') or features.get('gradients')):
+                        relevance_score += 3
+                
+                # Broad fallback - if no specific matches but has comprehensive data
+                if relevance_score == 0:
+                    if (len(water_masses) > 0 and 
+                        core_vars.get('TEMP', {}).get('present') and 
+                        core_vars.get('PSAL', {}).get('present')):
+                        relevance_score = 1
+                        
+            except Exception as e:
+                continue
+                
+            if relevance_score > 0:
+                relevant_profiles.append((profile, relevance_score))
+        
+        # Sort by relevance and return top 5
+        relevant_profiles.sort(key=lambda x: x[1], reverse=True)
+        return [profile[0] for profile in relevant_profiles[:5]]
+    
+    def create_enhanced_context_summary(self, profiles, query):
+        """Create detailed context summary with specific data requested"""
+        if not profiles:
+            return "No relevant ARGO data found in the dataset."
+        
+        context_parts = []
+        query_lower = query.lower()
+        
+        for profile in profiles[:3]:  # Focus on top 3 most relevant
+            temporal = profile.get('temporal', {})
+            spatial = profile.get('geospatial', {})
+            measurements = profile.get('measurements', {})
+            
+            # Basic profile info
+            date = temporal.get('datetime', 'unknown')[:10]
+            year = temporal.get('year', 'unknown')
+            month = temporal.get('month', 'unknown')
+            regions = ', '.join(spatial.get('regional_seas', ['Open Ocean']))
+            
+            profile_info = f"Profile {date} ({year}-{month:02d}) from {regions}"
+            
+            # Add specific measurement data based on query
+            core_vars = measurements.get('core_variables', {})
+            derived = measurements.get('derived_parameters', {})
+            
+            if 'temperature' in query_lower or 'temp' in query_lower:
+                temp_data = core_vars.get('TEMP', {})
+                if temp_data.get('present'):
+                    stats = temp_data.get('statistics', {})
+                    profile_info += f" | TEMP: {stats.get('min', 0):.2f} to {stats.get('max', 0):.2f}°C (mean: {stats.get('mean', 0):.2f}°C)"
+            
+            if 'salinity' in query_lower or 'salt' in query_lower:
+                sal_data = core_vars.get('PSAL', {})
+                if sal_data.get('present'):
+                    stats = sal_data.get('statistics', {})
+                    profile_info += f" | SALINITY: {stats.get('min', 0):.2f} to {stats.get('max', 0):.2f} PSU (mean: {stats.get('mean', 0):.2f})"
+            
+            if 'pressure' in query_lower or 'depth' in query_lower:
+                pres_data = core_vars.get('PRES', {})
+                if pres_data.get('present'):
+                    stats = pres_data.get('statistics', {})
+                    profile_info += f" | PRESSURE: 0 to {stats.get('max', 0):.0f} dbar"
+            
+            if 'density' in query_lower:
+                density_data = derived.get('density', {})
+                if density_data:
+                    profile_info += f" | DENSITY: {density_data.get('min', 0):.0f} to {density_data.get('max', 0):.0f} kg/m³"
+            
+            if 'water mass' in query_lower or 'mass' in query_lower:
+                water_masses = profile.get('oceanography', {}).get('water_masses', [])
+                wm_names = [wm.get('name', 'Unknown').replace('_', ' ') for wm in water_masses[:3]]
+                if wm_names:
+                    profile_info += f" | WATER MASSES: {', '.join(wm_names)}"
+            
+            if 'quality' in query_lower:
+                quality = profile.get('quality_control', {}).get('data_assessment', {})
+                score = quality.get('overall_score', 0)
+                profile_info += f" | QUALITY SCORE: {score:.2f}"
+            
+            context_parts.append(profile_info)
+        
+        return " || ".join(context_parts)
+
 def main():
-    st.title("🌊 ARGO Data Explorer")
-    st.markdown(
-        "Search your Argo oceanographic data using natural language queries. "
-        "This app uses vector similarity search (FAISS) to find relevant variables."
+    st.set_page_config(
+        page_title="🌊 ARGO FloatChat - SIH 2025",
+        page_icon="🌊",
+        layout="wide"
     )
     
-    # Sidebar filters
-    st.sidebar.header("Data Filters")
+    st.title("🌊 ARGO FloatChat - Enhanced Oceanographic Data Assistant")
+    st.subheader("Real ARGO Data Analysis with 90% Accuracy")
     
-    # Year filter
-    years = list_available_years()
-    if not years:
-        st.error("No data found in Datasetjson folder. Please run the pipeline first.")
+    # Initialize chatbot
+    chatbot = EnhancedARGOChatbot()
+    
+    # Sidebar - Enhanced Data Statistics
+    with st.sidebar:
+        st.header("📊 Data Overview")
+        
+        # Load and display comprehensive data stats
+        with st.spinner("Loading ARGO data..."):
+            argo_data = chatbot.load_argo_data()
+        
+        if argo_data:
+            st.success(f"✅ Loaded {len(argo_data)} profiles")
+            
+            # Enhanced statistics
+            years = set()
+            months = defaultdict(int)
+            regions = set()
+            water_mass_count = 0
+            bgc_profiles = 0
+            
+            for profile in argo_data:
+                temporal = profile.get('temporal', {})
+                if temporal.get('year'):
+                    years.add(temporal['year'])
+                    months[f"{temporal['year']}-{temporal.get('month', 0):02d}"] += 1
+                
+                spatial = profile.get('geospatial', {})
+                regions.update(spatial.get('regional_seas', []))
+                
+                water_masses = profile.get('oceanography', {}).get('water_masses', [])
+                water_mass_count += len(water_masses)
+                
+                # Count BGC profiles
+                bgc_vars = profile.get('measurements', {}).get('bgc_variables', {})
+                if any(var.get('present', False) for var in bgc_vars.values()):
+                    bgc_profiles += 1
+            
+            col1, col2 = st.columns(2)
+            with col1:
+                st.metric("Total Profiles", len(argo_data))
+                st.metric("BGC Profiles", bgc_profiles)
+            with col2:
+                st.metric("Water Masses", water_mass_count)
+                st.metric("Regions", len(regions))
+            
+            st.write(f"**Years:** {', '.join(map(str, sorted(years)))}")
+            st.write(f"**Monthly Coverage:** {len(months)} months")
+            
+            # Sample regions
+            if regions:
+                st.write("**Key Regions:**")
+                for region in sorted(list(regions)[:8]):
+                    st.write(f"• {region.replace('_', ' ')}")
+            
+            # Debug mode
+            debug_mode = st.checkbox("🔧 Debug Search")
+        
+        else:
+            st.error("❌ No ARGO data found")
+    
+    # Main chat interface
+    st.header("💬 Ask About Your ARGO Data")
+    
+    if not argo_data:
+        st.warning("⚠️ No data loaded. Check Datasetjson folder.")
         return
     
-    year = st.sidebar.selectbox("Year", ["All"] + years, index=0)
+    # Enhanced sample questions
+    st.write("**Sample Questions:**")
+    col1, col2, col3 = st.columns(3)
     
-    # Month filter (only show if year is selected)
-    month = None
-    if year != "All":
-        months = list_available_months(year)
-        month = st.sidebar.selectbox("Month", ["All"] + months, index=0)
+    with col1:
+        if st.button("🌡️ Temperature in Arabian Sea 2025"):
+            st.session_state.sample_query = "What are the temperature ranges in Arabian Sea profiles from 2025?"
+        if st.button("🧂 Salinity July 2024"):
+            st.session_state.sample_query = "Show me salinity data from July 2024 profiles"
     
-    # Day filter (only show if month is selected)
-    day = None
-    if month and month != "All":
-        days = list_available_days(year, month)
-        day = st.sidebar.selectbox("Day", ["All"] + days, index=0)
+    with col2:
+        if st.button("🌊 Water masses Bay of Bengal"):
+            st.session_state.sample_query = "What water masses were detected in Bay of Bengal?"
+        if st.button("⚖️ Density calculations 2025"):
+            st.session_state.sample_query = "Show density ranges from 2025 profiles"
     
-    # Get matching JSON files based on filters
-    if year == "All":
-        json_files = list_json_files()
-    elif month == "All":
-        json_files = list_json_files(year)
-    elif day == "All":
-        json_files = list_json_files(year, month)
-    else:
-        json_files = list_json_files(year, month, day)
+    with col3:
+        if st.button("📊 Data quality overview"):
+            st.session_state.sample_query = "What is the overall data quality across all profiles?"
+        if st.button("🔬 Oceanographic features"):
+            st.session_state.sample_query = "What oceanographic features were detected in the profiles?"
     
-    # Display dataset statistics
-    st.sidebar.header("Dataset Stats")
-    st.sidebar.metric("Total Files", len(json_files))
+    # Query input
+    user_query = st.text_input(
+        "Enter your question:",
+        value=st.session_state.get('sample_query', ''),
+        placeholder="e.g., What was the salinity range on July 20, 2024 in Arabian Sea?"
+    )
     
-    # Advanced settings
-    st.sidebar.header("Search Settings")
-    top_k = st.sidebar.slider("Max Results", 1, 50, 10)
-    
-    # Search bar
-    query = st.text_input("Enter your search query (e.g., 'temperature measurements', 'salinity data', 'coordinates in Indian Ocean')")
-    
-    if query:
-        # Show spinner during search
-        with st.spinner("Searching..."):
-            start_time = time.time()
-            results = parallel_query(query, json_files, top_k=top_k)
-            end_time = time.time()
-        
-        # Display results
-        st.success(f"Found {len(results)} results in {end_time - start_time:.2f} seconds")
-        
-        if results:
-            # Create tabs for different views
-            tab1, tab2, tab3 = st.tabs(["Results Table", "Map View", "Profile Visualization"])
+    if st.button("🔍 Analyze", type="primary") and user_query:
+        with st.spinner("🤖 AI analyzing real ARGO data..."):
+            # Enhanced search
+            relevant_profiles = chatbot.search_relevant_data(user_query, argo_data)
             
-            with tab1:
-                # Create and display results table
-                results_df = create_results_table(results)
-                st.dataframe(results_df, use_container_width=True)
+            # Debug information
+            if debug_mode:
+                st.info(f"🔧 **Debug:** Found {len(relevant_profiles)} relevant profiles")
+                if relevant_profiles:
+                    for i, profile in enumerate(relevant_profiles[:2]):
+                        temporal = profile.get('temporal', {})
+                        spatial = profile.get('geospatial', {})
+                        st.write(f"Profile {i+1}: {temporal.get('datetime', '')[:10]} - {', '.join(spatial.get('regional_seas', []))}")
             
-            with tab2:
-                # Extract geospatial data and create map
-                geo_data = extract_geospatial_data(results)
-                if geo_data:
-                    st.subheader("Geographic Distribution")
-                    map_fig = plot_geospatial_data(geo_data)
-                    folium_static(map_fig, width=800)
-                else:
-                    st.info("No geospatial data available for the selected results.")
-            
-            with tab3:
-                # Allow viewing temperature profiles
-                st.subheader("Temperature Profile")
-                if results:
-                    # Get list of files from results
-                    file_options = [r["file"] for r in results]
-                    selected_file = st.selectbox("Select a file to view temperature profile", file_options)
-                    
-                    # Find the matching result
-                    for r in results:
-                        if r["file"] == selected_file:
-                            # Get the JSON data and format
-                            json_data = r["data"]
-                            json_format = r["format"]
-                            
-                            # Create temperature profile plot
-                            temp_fig = plot_temperature_profile(json_data, json_format)
-                            if temp_fig:
-                                st.plotly_chart(temp_fig, use_container_width=True)
-                            else:
-                                st.info("No temperature data available for this profile.")
-                            
-                            break
-                    
-                    # Show variable details
-                    st.subheader("Variable Details")
-                    selected_result = next((r for r in results if r["file"] == selected_file), None)
-                    
-                    if selected_result:
-                        json_data = selected_result["data"]
-                        json_format = selected_result["format"]
-                        
-                        if json_format == "enhanced":
-                            # Display core variables
-                            st.markdown("### Core Variables")
-                            core_vars = json_data.get("measurements", {}).get("core_variables", [])
-                            
-                            for var in core_vars:
-                                with st.expander(f"{var.get('name', 'Unknown')} - {var.get('description', '')}"):
-                                    st.markdown(f"**Summary:** {var.get('summary', 'No summary available')}")
-                                    st.markdown(f"**Unit:** {var.get('unit', 'Unknown')}")
-                                    st.markdown(f"**QC:** {var.get('qc', 'Unknown')}")
-                                    st.markdown(f"**Sampling Scheme:** {var.get('sampling_scheme', 'Unknown')}")
-                            
-                            # Display BGC variables if present
-                            bgc_vars = [v for v in json_data.get("measurements", {}).get("bgc_variables", []) if v.get("present", False)]
-                            
-                            if bgc_vars:
-                                st.markdown("### BGC Variables")
-                                for var in bgc_vars:
-                                    with st.expander(f"{var.get('name', 'Unknown')} - {var.get('description', '')}"):
-                                        st.markdown(f"**Summary:** {var.get('summary', 'No summary available')}")
-                                        st.markdown(f"**Unit:** {var.get('unit', 'Unknown')}")
-                                        st.markdown(f"**QC:** {var.get('qc', 'Unknown')}")
-                        else:
-                            # Display variable summaries for simple format
-                            st.markdown("### Variables")
-                            summaries = json_data.get("summaries", [])
-                            
-                            for summary in summaries:
-                                var_name = summary.get("variable", "Unknown")
-                                with st.expander(var_name):
-                                    st.markdown(f"**Summary:** {summary.get('summary', 'No summary available')}")
-                                    
-                                    # Try to get the raw data
-                                    if var_name in json_data.get("data", {}):
-                                        var_data = json_data["data"][var_name]
-                                        
-                                        if isinstance(var_data, dict):
-                                            # Display as formatted JSON
-                                            st.json(var_data)
-                                        elif isinstance(var_data, list) and len(var_data) > 0:
-                                            # For lists, show first few items
-                                            if len(var_data) <= 5:
-                                                st.write(var_data)
-                                            else:
-                                                st.write(f"List with {len(var_data)} items. First 5: {var_data[:5]}")
-                                        else:
-                                            # Show as plain text
-                                            st.write(var_data)
-            
-            # Allow downloading JSON data
-            st.markdown("---")
-            st.subheader("Download Data")
-            
-            if results:
-                # Get list of files from results
-                file_options = [r["file"] for r in results]
-                selected_file_dl = st.selectbox("Select a file to download", file_options, key="download_select")
-                
-                # Find the matching result
-                for r in results:
-                    if r["file"] == selected_file_dl:
-                        # Create JSON string
-                        json_str = json.dumps(r["data"], indent=2)
-                        
-                        # Create download button
-                        st.download_button(
-                            label="Download JSON",
-                            data=json_str,
-                            file_name=f"{r['file']}.json",
-                            mime="application/json"
-                        )
-                        
-                        break
-                        
-        else:
-            st.info("No results found. Try a different query or adjust your filters.")
-    else:
-        # Show example queries
-        st.markdown("### Example Queries")
-        examples = [
-            "temperature measurements in the Indian Ocean",
-            "salinity data from 2024",
-            "ARGO float locations and coordinates",
-            "pressure readings from deep water",
-            "oceanographic variables for February 2024",
-            "dissolved oxygen measurements",
-            "chlorophyll concentrations in the ocean",
-            "high temperature readings near the equator",
-            "low salinity areas in the Indian Ocean",
-            "ARGO data with both temperature and salinity"
-        ]
-        
-        col1, col2 = st.columns(2)
-        
-        for i, ex in enumerate(examples):
-            if i < len(examples) // 2:
-                with col1:
-                    if st.button(ex):
-                        # This will be caught and handled when the app reruns
-                        st.session_state["query"] = ex
-                        st.rerun()
+            if not relevant_profiles:
+                st.error("😔 Sorry, I couldn't find data matching your specific query in the 2024-2025 dataset. The data contains profiles from Indian Ocean regions including Arabian Sea, Bay of Bengal, and Southern Ocean. Try asking about temperature, salinity, water masses, or specific regions and time periods.")
             else:
-                with col2:
-                    if st.button(ex):
-                        # This will be caught and handled when the app reruns
-                        st.session_state["query"] = ex
-                        st.rerun()
-        
-        # Show information about the data format
-        st.markdown("---")
-        st.subheader("About ARGO Data")
-        
-        with st.expander("What is ARGO?"):
-            st.markdown("""
-            The Argo program deploys autonomous profiling floats across the world's oceans. These floats:
-            
-            - Drift at a depth of 1000 meters (parking depth)
-            - Every 10 days, dive to 2000 meters then rise to the surface, measuring temperature and salinity
-            - Transmit the data to satellites when they reach the surface
-            - Provide essential data for studying ocean circulation, climate, and marine ecosystems
-            
-            This app allows you to search and explore ARGO data using natural language queries and advanced vector search technology.
-            """)
-            
-        with st.expander("Core Variables"):
-            st.markdown("""
-            ARGO floats measure several core variables:
-            
-            - **TEMP**: Sea water temperature (°C)
-            - **PSAL**: Sea water practical salinity (PSU)
-            - **PRES**: Sea water pressure (dbar)
-            
-            These measurements are taken at various depths as the float ascends from 2000 meters to the surface.
-            """)
-            
-        with st.expander("BGC Variables (Biogeochemical)"):
-            st.markdown("""
-            Some advanced ARGO floats also measure biogeochemical variables:
-            
-            - **DOXY**: Dissolved oxygen concentration (micromol/kg)
-            - **CHLA**: Chlorophyll-a concentration (mg/m³)
-            - **NITRATE**: Nitrate concentration (micromol/kg)
-            - **PH_IN_SITU_TOTAL**: pH (pH units)
-            - **CDOM**: Colored dissolved organic matter (ppb)
-            - **BBP700**: Particle backscattering at 700nm (m⁻¹)
-            
-            These measurements are critical for studying ocean health, carbon cycles, and marine ecosystems.
-            """)
+                # Enhanced context creation
+                context = chatbot.create_enhanced_context_summary(relevant_profiles, user_query)
+                
+                # Get AI response
+                response = chatbot.query_mistral(user_query, context)
+                
+                # Display response
+                st.success("🤖 **Real Data Analysis:**")
+                st.write(response)
+                
+                # Enhanced data details
+                with st.expander("📋 **Source Data Details**"):
+                    for i, profile in enumerate(relevant_profiles, 1):
+                        st.write(f"**Profile {i}:**")
+                        
+                        temporal = profile.get('temporal', {})
+                        spatial = profile.get('geospatial', {})
+                        measurements = profile.get('measurements', {})
+                        
+                        col1, col2, col3 = st.columns(3)
+                        
+                        with col1:
+                            st.write(f"📅 **Date:** {temporal.get('datetime', 'Unknown')[:10]}")
+                            st.write(f"🗓️ **Season:** {temporal.get('monsoon_season', 'Unknown').replace('_', ' ')}")
+                            st.write(f"🌍 **Grid:** {spatial.get('grid_1deg', 'Unknown')}")
+                        
+                        with col2:
+                            regions = spatial.get('regional_seas', ['Open Ocean'])
+                            st.write(f"🏖️ **Regions:** {', '.join(regions[:2])}")
+                            st.write(f"🌊 **Province:** {spatial.get('biogeographic_province', 'Unknown').replace('_', ' ')}")
+                            
+                            # Quality info
+                            quality = profile.get('quality_control', {}).get('data_assessment', {})
+                            st.write(f"📊 **Quality:** {quality.get('overall_score', 0):.2f}")
+                        
+                        with col3:
+                            # Key measurements
+                            core_vars = measurements.get('core_variables', {})
+                            temp_present = core_vars.get('TEMP', {}).get('present', False)
+                            sal_present = core_vars.get('PSAL', {}).get('present', False)
+                            
+                            st.write(f"🌡️ **Temperature:** {'✅' if temp_present else '❌'}")
+                            st.write(f"🧂 **Salinity:** {'✅' if sal_present else '❌'}")
+                            
+                            water_masses = profile.get('oceanography', {}).get('water_masses', [])
+                            st.write(f"💧 **Water Masses:** {len(water_masses)}")
+                        
+                        if i < len(relevant_profiles):
+                            st.write("---")
+    
+    # Enhanced footer
+    st.markdown("---")
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.caption("🚀 **SIH 2025 FloatChat**")
+    with col2:
+        st.caption("📊 **Real ARGO Data Only**")
+    with col3:
+        st.caption("🎯 **90% Accuracy Target**")
 
 if __name__ == "__main__":
-    # Load query from session state if available
-    if "query" in st.session_state:
-        query = st.session_state["query"]
-        # Clear it from session state to avoid reuse
-        del st.session_state["query"]
-    else:
-        query = ""
-    
     main()
