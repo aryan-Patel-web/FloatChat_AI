@@ -19,32 +19,107 @@ from export_utils import (export_ascii, export_csv, export_json,
 
 load_dotenv()
 
-# ChatGPT-style CSS with fixed input at bottom
+st.set_page_config(
+    page_title="FloatChat AI",
+    page_icon="🌊",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
+# CSS copied from 1map.py - exact same styling
 def inject_custom_css():
     st.markdown("""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+    .stApp { background: #0a0a0a; }
+    .main { padding: 0 !important; }
+    .block-container { padding: 1rem 1.5rem !important; max-width: 100% !important; }
     
-    * {
-        font-family: 'Inter', sans-serif;
+    h1 { color: #00b4d8; font-size: 1.6rem; margin-bottom: 0.3rem; }
+    h3 { color: #90e0ef; font-size: 1rem; margin: 0.5rem 0; }
+    
+    /* SIDEBAR - Purple Dark Theme */
+    section[data-testid="stSidebar"] {
+        background: linear-gradient(180deg, #1a1625 0%, #0f0a1e 100%);
+        border-right: 2px solid #2d1b69;
     }
     
-    .stApp {
-        background: #1a1a1a;
+    section[data-testid="stSidebar"] > div {
+        background: transparent;
+        padding: 1.5rem 1rem;
     }
     
-    /* Main container with bottom padding for fixed input */
-    .main .block-container {
-        padding: 0 !important;
-        max-width: 100% !important;
-        padding-bottom: 100px !important;
+    /* Sidebar Headers */
+    section[data-testid="stSidebar"] h3 {
+        color: #9d84c7 !important;
+        font-size: 0.9rem;
+        margin: 1rem 0 0.6rem 0;
+        font-weight: 600;
+        letter-spacing: 0.5px;
     }
     
-    /* Header styling */
+    /* Sidebar Buttons - Equal Size & Purple Theme */
+    section[data-testid="stSidebar"] .stButton button {
+        background: linear-gradient(145deg, #2d1b69, #1a0f3d) !important;
+        color: #b8a3d9 !important;
+        border: 1px solid #3d2472 !important;
+        border-radius: 8px !important;
+        padding: 0.65rem 1rem !important;
+        font-size: 0.85rem !important;
+        font-weight: 500 !important;
+        width: 100% !important;
+        height: 42px !important;
+        min-width: 100% !important;
+        box-shadow: 0 2px 8px rgba(45, 27, 105, 0.4) !important;
+        transition: all 0.3s ease !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+    
+    section[data-testid="stSidebar"] .stButton button:hover {
+        background: linear-gradient(145deg, #4a2f8c, #2d1b69) !important;
+        border-color: #6a4ba8 !important;
+        color: #e0d4f7 !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 4px 12px rgba(106, 75, 168, 0.5) !important;
+    }
+    
+    section[data-testid="stSidebar"] .stButton button:active {
+        transform: translateY(0) !important;
+    }
+    
+    /* Sidebar Stats Text */
+    section[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] {
+        color: #9d84c7 !important;
+    }
+    
+    /* Sidebar Dividers */
+    section[data-testid="stSidebar"] hr {
+        border-color: #2d1b69;
+        margin: 1rem 0;
+        opacity: 0.5;
+    }
+    
+    /* Sidebar Text Colors */
+    section[data-testid="stSidebar"] p,
+    section[data-testid="stSidebar"] span,
+    section[data-testid="stSidebar"] div {
+        color: #b8a3d9 !important;
+    }
+    
+    section[data-testid="stSidebar"] .stCaption {
+        color: #6a4ba8 !important;
+        font-size: 0.75rem !important;
+    }
+    
+    /* Header */
     .main-header {
-        background: #1a1a1a;
+        background: #0a0a0a;
         padding: 1rem 2rem;
-        border-bottom: 1px solid #2a2a2a;
+        border-bottom: 1px solid #00b4d8;
         position: sticky;
         top: 0;
         z-index: 100;
@@ -52,289 +127,166 @@ def inject_custom_css():
     }
     
     .main-header h1 {
-        color: #ececec;
-        font-size: 1.25rem;
+        color: #00b4d8;
+        font-size: 1.5rem;
         font-weight: 600;
         margin: 0;
     }
     
     .main-header p {
-        color: #8e8e8e;
-        font-size: 0.875rem;
+        color: #90e0ef;
+        font-size: 0.9rem;
         margin: 0.25rem 0 0 0;
     }
     
-    /* Chat messages container */
+    /* Chat messages */
     .chat-container {
         max-width: 900px;
         margin: 0 auto;
-        padding: 2rem 1rem;
+        padding: 1.5rem 1rem;
     }
     
     .chat-message {
-        padding: 0.75rem 1rem;
+        padding: 0.8rem 1.1rem;
         margin-bottom: 1rem;
         border-radius: 16px;
         animation: fadeIn 0.3s ease-out;
         width: fit-content;
-        max-width: 65%;
+        max-width: 70%;
     }
     
     @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(10px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
     }
     
-    /* User message - compact, right-aligned, dark green */
     .user-message {
-        background: #1a472a;
-        border: 1px solid #1f5633;
-        color: #ececec;
+        background: linear-gradient(135deg, #0077b6 0%, #00b4d8 100%);
+        border: 1px solid #0096c7;
+        color: #ffffff;
         margin-left: auto;
         margin-right: 0;
-        max-width: 60%;
+        max-width: 65%;
+        box-shadow: 0 4px 12px rgba(0,119,182,0.3);
     }
     
-    /* AI message - left-aligned */
     .assistant-message {
-        background: #2a2a2a;
-        border: 1px solid #3a3a3a;
-        color: #d1d1d1;
+        background: #16213e;
+        border: 1px solid #0f3460;
+        color: #caf0f8;
         margin-right: auto;
         margin-left: 0;
         max-width: 85%;
+        box-shadow: 0 4px 12px rgba(15,52,96,0.4);
     }
     
     .message-avatar {
         font-size: 0.7rem;
-        margin-bottom: 0.25rem;
+        margin-bottom: 0.3rem;
         font-weight: 600;
+        opacity: 0.9;
     }
     
     .user-message .message-avatar {
-        color: #10b981;
+        color: #e6f4ff;
     }
     
     .assistant-message .message-avatar {
-        color: #0099cc;
+        color: #00b4d8;
     }
     
     .message-content {
-        line-height: 1.6;
-        font-size: 0.875rem;
+        line-height: 1.7;
+        font-size: 0.9rem;
     }
     
-                
-
-
-
-
-
-                
-    /* ChatGPT-style fixed input - CRITICAL FIX */
-    div[data-testid="column"] {
-        padding: 0 !important;
+    /* Chat input */
+    .stChatInput { 
+        border: 2px solid #0077b6 !important; 
+        border-radius: 12px !important; 
+        background: #16213e !important;
     }
     
-    /* Fixed container at bottom */
-    .main > div:last-child {
-        position: fixed !important;
-        bottom: 0 !important;
-        left: 320px !important;
-        right: 0 !important;
-        background: #1a1a1a !important;
-        border-top: 1px solid #2a2a2a !important;
-        padding: 0.75rem 2rem !important;
-        z-index: 1000 !important;
+    .stChatInput input {
+        color: #caf0f8 !important;
+        font-size: 0.95rem !important;
+        background: #16213e !important;
     }
     
-    /* Input styling */
-    .stTextInput {
-        margin: 0 !important;
+    .stChatInput input::placeholder {
+        color: #4a7c9c !important;
     }
     
-    .stTextInput > div {
-        margin: 0 !important;
+    .stChatInput button {
+        background: linear-gradient(135deg, #0077b6 0%, #00b4d8 100%) !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 8px !important;
+        padding: 0.5rem 1rem !important;
+        font-size: 0.9rem !important;
+        font-weight: 600 !important;
     }
     
-    .stTextInput > div > div {
-        margin: 0 !important;
+    .stChatInput button:hover {
+        background: linear-gradient(135deg, #00b4d8 0%, #90e0ef 100%) !important;
     }
     
-    .stTextInput input {
-        background: #2a2a2a !important;
-        border: 1px solid #3a3a3a !important;
-        border-radius: 12px !important;
-        color: #ececec !important;
-        padding: 0.5rem 0.875rem !important;
-        font-size: 0.875rem !important;
-        transition: all 0.15s ease !important;
-        height: 44px !important;
-    }
-    
-    .stTextInput input:focus {
-        background: #2f2f2f !important;
-        border-color: #565656 !important;
-        box-shadow: 0 0 0 1px rgba(86, 86, 86, 0.3) !important;
-        outline: none !important;
-    }
-    
-    .stTextInput input::placeholder {
-        color: #6a6a6a !important;
-    }
-    
-                
-
-
-
-                
-    /* Send button - compact and visible */
-    .stButton button {
-        background: #2a2a2a !important;
-        color: #ececec !important;
-        border: 1px solid #3a3a3a !important;
-        border-radius: 10px !important;
-        padding: 0 !important;
-        font-weight: 500 !important;
-        font-size: 1.1rem !important;
-        transition: all 0.15s ease !important;
-        cursor: pointer !important;
-        width: 45px !important;
-        height: 44px !important;
-        min-width: 45px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-    
-    .stButton button:hover {
-        background: #3a3a3a !important;
-        border-color: #4a4a4a !important;
-    }
-    
-    .stButton button:active {
-        transform: scale(0.95) !important;
-    }
-                
-    
- /* === Sidebar Styling === */
-                
-
-section[data-testid="stSidebar"] {
-    background: linear-gradient(180deg, #1e1e1e, #161616);
-    border-right: 1px solid #2a2a2a;
-    padding-top: 1rem;
-}
-
-/* Sidebar content spacing */
-section[data-testid="stSidebar"] > div {
-    background: transparent;
-    padding: 1.5rem 1.25rem;
-}
-
-/* Sidebar text */
-section[data-testid="stSidebar"] h1,
-section[data-testid="stSidebar"] h2,
-section[data-testid="stSidebar"] h3,
-section[data-testid="stSidebar"] p {
-    color: #f2f2f2 !important;
-    font-family: "Segoe UI", Roboto, sans-serif !important;
-    line-height: 1.4;
-}
-
-/* === Sidebar Buttons === */
-section[data-testid="stSidebar"] .stButton button {
-    background: linear-gradient(145deg, #2b2b2b, #232323) !important;
-    color: #e0e0e0 !important;
-    border: 1px solid #3c3c3c !important;
-    border-radius: 10px !important;
-    padding: 0.6rem 1rem !important;
-    font-size: 0.9rem !important;
-    font-weight: 500 !important;
-    letter-spacing: 0.5px !important;
-    transition: all 0.2s ease-in-out !important;
-    box-shadow: 0px 2px 6px rgba(0,0,0,0.4) !important;
-    margin-bottom: 0.75rem !important;
-    width: 100% !important; /* Makes all buttons same width */
-}
-
-/* Hover effect */
-section[data-testid="stSidebar"] .stButton button:hover {
-    background: linear-gradient(145deg, #3c3c3c, #2b2b2b) !important;
-    border-color: #5a5a5a !important;
-    color: #ffffff !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.6) !important;
-}
-
-                
-
-
-
-
-
-
-
-
     /* File uploader */
     .stFileUploader {
-        background: #2a2a2a;
-        border: 2px dashed #3a3a3a;
-        border-radius: 12px;
+        background: #1a0f3d;
+        border: 2px dashed #3d2472;
+        border-radius: 10px;
         padding: 1rem;
     }
     
     /* Expander */
     .streamlit-expanderHeader {
-        background: #2a2a2a;
-        border: 1px solid #3a3a3a;
+        background: #16213e;
+        border: 1px solid #0077b6;
         border-radius: 8px;
-        color: #ececec;
-        padding: 0.6rem 0.875rem;
-        font-size: 0.875rem;
+        color: #90e0ef;
+        padding: 0.6rem 0.9rem;
+        font-size: 0.85rem;
     }
     
     .streamlit-expanderHeader:hover {
-        background: #2f2f2f;
-        border-color: #0099cc;
+        background: #1a2a4e;
+        border-color: #00b4d8;
     }
     
     .streamlit-expanderContent {
-        background: #1e1e1e;
-        border: 1px solid #2a2a2a;
+        background: #0f1f3e;
+        border: 1px solid #0f3460;
         border-top: none;
-        color: #d1d1d1;
-        padding: 0.875rem;
+        color: #caf0f8;
+        padding: 0.9rem;
     }
     
     /* Messages */
     .stSuccess {
-        background: rgba(0, 153, 204, 0.1);
-        border: 1px solid rgba(0, 153, 204, 0.3);
-        color: #0099cc;
+        background: rgba(0,180,216,0.15);
+        border: 1px solid rgba(0,180,216,0.4);
+        color: #00b4d8;
         border-radius: 8px;
-        font-size: 0.85rem;
-        padding: 0.5rem 0.75rem;
     }
     
     .stError {
-        background: rgba(239, 68, 68, 0.1);
-        border: 1px solid rgba(239, 68, 68, 0.3);
+        background: rgba(239,68,68,0.15);
+        border: 1px solid rgba(239,68,68,0.4);
         color: #ef4444;
         border-radius: 8px;
-        font-size: 0.85rem;
-        padding: 0.5rem 0.75rem;
+    }
+    
+    .stInfo {
+        background: rgba(144,224,239,0.15);
+        border: 1px solid rgba(144,224,239,0.4);
+        color: #90e0ef;
+        border-radius: 8px;
     }
     
     /* Spinner */
     .stSpinner > div {
-        border-color: #0099cc transparent transparent transparent !important;
+        border-color: #00b4d8 transparent transparent transparent !important;
     }
     
     /* Scrollbar */
@@ -343,32 +295,29 @@ section[data-testid="stSidebar"] .stButton button:hover {
     }
     
     ::-webkit-scrollbar-track {
-        background: #1a1a1a;
+        background: #0a0a0a;
     }
     
     ::-webkit-scrollbar-thumb {
-        background: #3a3a3a;
+        background: #0077b6;
         border-radius: 4px;
     }
     
     ::-webkit-scrollbar-thumb:hover {
-        background: #4a4a4a;
+        background: #00b4d8;
     }
     
     hr {
-        border-color: #2a2a2a;
+        border-color: #0f3460;
         margin: 1rem 0;
     }
     
-    /* Hide default streamlit elements */
+    /* Hide default elements */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
     </style>
     """, unsafe_allow_html=True)
-
-
-
 
 
 class EnhancedARGOChatbot:
@@ -398,151 +347,88 @@ class EnhancedARGOChatbot:
         return argo_data
     
     def query_mistral_streaming(self, prompt, context):
-        """Query Mistral API with enhanced context-aware streaming"""
+        """Query Mistral API with streaming"""
         try:
             system_prompt = """You are an expert oceanographer analyzing REAL ARGO float data from Indian Ocean regions.
 
+
+
+
+
+
 CRITICAL RULES:
 1. Use ONLY data from the provided context - NEVER fabricate data
-2. If asked to compare dates/periods NOT in context, respond: "Data for [date] not available. I can only analyze: [list available dates from context]"
-3. NEVER invent comparison tables or fake historical data
-4. For single profiles, state: "Only one profile available, comparison requires multiple time periods"
+2. When data is NOT available for the requested date/region/parameter:
+   - Clearly state: "No data available for [specific request]"
+   - Suggest alternatives: "Available data for nearby periods: [list actual dates]"
+   - DO NOT use placeholder values like X.XX or Y.YY
+3. NEVER invent comparison tables with missing data
 
-GEOGRAPHIC INTELLIGENCE:
-- West Bengal coast → Bay of Bengal data
-- Tamil Nadu coast → Bay of Bengal data  
-- Kerala/Karnataka coast → Arabian Sea data
-- Mumbai/Gujarat coast → Arabian Sea data
-- Andaman Islands → Bay of Bengal/Andaman Sea
-- If user asks about landlocked areas, respond: "This is a landlocked region. Please specify coastal areas or ocean regions"
-- If location outside Indian Ocean domain, respond: "Data limited to Indian Ocean region. Try: Arabian Sea, Bay of Bengal, Southern Ocean, or Equatorial Indian Ocean"
+RESPONSE FORMAT:
 
-ABBREVIATIONS & SYNONYMS:
-- Temperature = temp = thermal = heat = SST = sea surface temperature
-- Salinity = salt = PSAL = saltiness = salinity levels
-- Pressure = depth = PRES = water column
-- Summary = overview = analyze = tell me about = what's in = describe
-- Table = tabular = comparison table = side-by-side = versus
-- Compare = difference = vs = versus = comparison = changes between
+For MISSING DATA queries:
+**Query Summary**
 
-RESPONSE FORMAT (MANDATORY):
+[User's question]
 
-For COMPARISON queries (2022 vs 2023, difference between years, etc.):
+**Data Availability**
 
-**📋 Query Summary**
-Comparing [Parameter] between [Year1] and [Year2] in [Region]
+❌ No data found for: [specific date/region/parameter]
 
-**📊 Comparison Table**
+✅ Available alternatives:
+* [Nearby date 1]: [Region] - [Parameters available]
+* [Nearby date 2]: [Region] - [Parameters available]
+
+**Suggestion**
+
+Try querying: "[suggested alternative query]"
+
+For COMPARISON queries with COMPLETE data:
+**Query Summary**
+
+Comparing [Parameter] between [Year1] and [Year2]
+
+**Comparison Table**
 
 | Parameter | [Year1] | [Year2] | Difference |
 |-----------|---------|---------|------------|
-| Salinity Mean | X.XX PSU | Y.YY PSU | ±Z.ZZ PSU |
-| Salinity Range | X.X-Y.Y PSU | A.A-B.B PSU | - |
-| Temperature Mean | X.X°C | Y.Y°C | ±Z.Z°C |
-| Temperature Range | X-Y°C | A-B°C | - |
-| Depth Coverage | 0-Xm | 0-Ym | - |
+| Salinity Mean | 32.15 PSU | 33.42 PSU | +1.27 PSU |
 
-**🔍 Analysis**
-* **[Year1] Characteristics:** [Key observations]
-* **[Year2] Characteristics:** [Key observations]
-* **Notable Changes:** [Significant differences]
-* **Trend:** [Increasing/Decreasing/Stable]
+**Analysis**
 
-**✅ Conclusion**
-[2-3 sentences summarizing the comparison and significance]
+* [Key observation 1 with REAL numbers]
+* [Key observation 2 with REAL numbers]
 
----
+For SUMMARY queries with COMPLETE data:
 
-For SUMMARY/OVERVIEW queries:
+**Query Summary**
 
-**📋 Query Summary**
-[Restate user's question in one line]
+[Question]
 
-**📊 Profile Overview**
-* **Date:** [Date(s)]
-* **Location:** [Coordinates]
-* **Region:** [Region names]
-* **Source:** [Filename]
+**Profile Overview**
 
-**🌡️ Measurements**
-* **Temperature:** Min: [Min]°C, Max: [Max]°C (Mean: [Mean]°C, Std Dev: [Std]°C)
-* **Salinity:** Min: [Min] PSU, Max: [Max] PSU (Mean: [Mean] PSU, Std Dev: [Std] PSU)
-* **Pressure/Depth:** 0 to [Max]m
+* Date: [Actual date from data]
+* Location: [Actual coordinates]
+* Region: [Actual region names]
 
-**🔍 Key Findings**
-* [Specific finding 1]
-* [Specific finding 2]
-* [Specific finding 3]
+**Measurements**
 
-**✅ Conclusion**
-[1-2 sentence summary]
+* Temperature: Min [X]°C, Max [Y]°C, Mean [Z]°C
+* Salinity: Min [X] PSU, Max [Y] PSU, Mean [Z] PSU
+* Depth: 0 to [Max]m
 
----
+**Key Findings**
 
-For FILE UPLOADS with missing variables:
+* [Finding 1 with specific values]
+* [Finding 2 with specific values]
 
-**🌊 Variables in Your File**
-* **Temperature** → ✅ Present (Range: X-Y°C) / ❌ Not available
-* **Salinity** → ✅ Present (Range: X-Y PSU) / ❌ Not available  
-* **Pressure** → ✅ Present (Depth: 0-Xm) / ❌ Not available
-* **Other parameters** → [List if available]
+GEOGRAPHIC BOUNDARIES:
+- If user asks about Delhi, Mumbai, or non-coastal cities: "This system contains only ocean data. [City] is not in our dataset."
+- If user asks about Atlantic/Pacific: "This system focuses on Indian Ocean regions only."
 
----
+Be scientifically accurate and honest about data limitations."""
 
-For SPECIFIC PARAMETER queries (temp/salinity only):
 
-**📋 Query: [Parameter] in [Region]**
-
-**📊 Results**
-* **Mean [Parameter]:** X.XX [units]
-* **Range:** Min X.X to Max Y.Y [units]
-* **Standard Deviation:** Z.Z [units]
-* **Depth Range:** 0-Xm
-* **Observation Period:** [Date range]
-
-**🔍 Notable Patterns**
-* [Pattern 1]
-* [Pattern 2]
-
----
-
-COMPARISON QUERY TYPES TO HANDLE:
-1. **Year vs Year:** "compare 2022 vs 2023" → Show table with both years
-2. **Multiple Years:** "compare 2022, 2023, 2024" → Show multi-column table
-3. **Month vs Month:** "January vs July" → Monthly comparison table
-4. **Region vs Region:** "Arabian Sea vs Bay of Bengal" → Regional comparison
-5. **Season vs Season:** "monsoon vs winter" → Seasonal comparison
-6. **Trend Analysis:** "changes over time" → Time series summary
-7. **Parameter Difference:** "salinity difference between..." → Focus on one parameter
-8. **Multi-parameter:** "temperature and salinity difference..." → Show both parameters
-
-TABLE FORMAT RULES:
-- Always use markdown table format with | separators
-- Include units in all values (°C, PSU, m)
-- Calculate actual differences (Year2 - Year1)
-- Use ± for differences showing direction
-- Round to 2 decimal places for precision
-- If data missing for a year, state "No data available for [Year]"
-
-CONVERSATION CONTEXT:
-- Remember previous questions
-- Build on conversation history for coherent dialogue
-- If user says "compare that with", reference the previous query region/parameter
-- If user asks "what about [Year]" after a query, add that year to comparison
-
-QUERY HANDLING:
-- Generic questions → Show ALL parameters in structured format
-- Location-based → Auto-map to appropriate ocean region
-- Time comparisons → Check if multiple dates exist; if not, explain limitation and show available years
-- Missing data → Explicitly state what years/regions have data vs don't
-
-CRITICAL: 
-- NEVER show fake data in tables
-- If comparison impossible (missing data), say: "Comparison not possible. Available data: [list what exists]"
-- Always calculate real differences from context data
-- Use exact values from context, never estimate
-
-Be scientifically accurate, context-aware, and honest about limitations. ALWAYS use bullet points and tables with proper formatting."""
 
 
 
@@ -551,7 +437,7 @@ Be scientifically accurate, context-aware, and honest about limitations. ALWAYS 
                 "model": "open-mistral-7b",
                 "messages": [
                     {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": f"REAL DATA CONTEXT: {context}\n\nUSER QUESTION: {prompt}"}
+                    {"role": "user", "content": f"REAL DATA: {context}\n\nQUESTION: {prompt}"}
                 ],
                 "temperature": 0.3,
                 "max_tokens": 1000,
@@ -586,7 +472,7 @@ Be scientifically accurate, context-aware, and honest about limitations. ALWAYS 
             response = self.groq_client.chat.completions.create(
                 model="llama-3.3-70b-versatile",
                 messages=[
-                    {"role": "system", "content": "You are an oceanographer analyzing REAL ARGO data. For summaries use bullet points. Be concise, honest about limitations, and use specific values."},
+                    {"role": "system", "content": "You are an oceanographer analyzing REAL ARGO data. Be concise, use bullet points, and provide specific values."},
                     {"role": "user", "content": f"REAL DATA: {context}\n\nQUESTION: {prompt}"}
                 ],
                 temperature=0.3,
@@ -597,16 +483,78 @@ Be scientifically accurate, context-aware, and honest about limitations. ALWAYS 
             
         except Exception as e:
             return f"Error: {str(e)}"
+        
+
+
+
+
+
+
+
     
-    # def search_relevant_data(self, query, argo_data):
+    def _month_to_number(self, month_str):
+        """Convert month name to number"""
+        months_map = {
+            'january': 1, 'jan': 1, 'february': 2, 'feb': 2, 'march': 3, 'mar': 3,
+            'april': 4, 'apr': 4, 'may': 5, 'june': 6, 'jun': 6,
+            'july': 7, 'jul': 7, 'august': 8, 'aug': 8, 'september': 9, 'sep': 9,
+            'october': 10, 'oct': 10, 'november': 11, 'nov': 11, 'december': 12, 'dec': 12
+        }
+        return months_map.get(month_str.lower(), 1)
+    
     def search_relevant_data(self, query, argo_data):
-        """Search relevant profiles"""
+        """Search relevant profiles with flexible temporal matching including specific dates"""
         query_lower = query.lower()
         relevant_profiles = []
         
         # Extract years from query
-        import re
         years_in_query = re.findall(r'\b(20\d{2})\b', query)
+        
+        # Extract specific dates (e.g., "15 aug 2023", "august 15 2023", "2023-08-15")
+        date_patterns = [
+            r'(\d{1,2})\s+(january|jan|february|feb|march|mar|april|apr|may|june|jun|july|jul|august|aug|september|sep|october|oct|november|nov|december|dec)\s+(20\d{2})',
+            r'(january|jan|february|feb|march|mar|april|apr|may|june|jun|july|jul|august|aug|september|sep|october|oct|november|nov|december|dec)\s+(\d{1,2})\s+(20\d{2})',
+            r'(20\d{2})-(\d{1,2})-(\d{1,2})'
+        ]
+        
+        specific_date = None
+        for pattern in date_patterns:
+            match = re.search(pattern, query_lower)
+            if match:
+                groups = match.groups()
+                if len(groups) == 3:
+                    if groups[0].isdigit() and len(groups[0]) == 4:  # ISO format
+                        year, month, day = int(groups[0]), int(groups[1]), int(groups[2])
+                    elif groups[2].startswith('20'):  # Day Month Year
+                        day, month_str, year = int(groups[0]), groups[1], int(groups[2])
+                        month = self._month_to_number(month_str)
+                    else:  # Month Day Year
+                        month_str, day, year = groups[0], int(groups[1]), int(groups[2])
+                        month = self._month_to_number(month_str)
+                    
+                    specific_date = {'year': year, 'month': month, 'day': day}
+                    break
+        
+        # Month extraction
+        months_map = {
+            'january': 1, 'jan': 1, 'february': 2, 'feb': 2, 'march': 3, 'mar': 3,
+            'april': 4, 'apr': 4, 'may': 5, 'june': 6, 'jun': 6,
+            'july': 7, 'jul': 7, 'august': 8, 'aug': 8, 'september': 9, 'sep': 9,
+            'october': 10, 'oct': 10, 'november': 11, 'nov': 11, 'december': 12, 'dec': 12
+        }
+        
+        months_in_query = []
+        if not specific_date:
+            for month_name, month_num in months_map.items():
+                if month_name in query_lower:
+                    months_in_query.append(month_num)
+        
+        # Handle "last X months" queries
+        last_months_match = re.search(r'last\s+(\d+)\s+months?', query_lower)
+        if last_months_match:
+            num_months = int(last_months_match.group(1))
+            if years_in_query:
+                months_in_query = list(range(max(1, 13 - num_months), 13))
         
         is_generic_query = any(keyword in query_lower for keyword in 
                               ['summary', 'overview', 'tell me about', 'show me', 
@@ -621,32 +569,79 @@ Be scientifically accurate, context-aware, and honest about limitations. ALWAYS 
                 measurements = profile.get('measurements', {})
                 
                 profile_year = temporal.get('year')
+                profile_month = temporal.get('month')
+                profile_day = temporal.get('day')
                 
+                # Uploaded file priority
                 if is_generic_query and profile.get('_is_uploaded'):
                     relevance_score += 10
                 
-                # If specific years mentioned, match those years
-                if years_in_query:
+                # SPECIFIC DATE MATCHING (highest priority)
+                if specific_date:
+                    if (profile_year == specific_date['year'] and 
+                        profile_month == specific_date['month']):
+                        
+                        # Exact day match
+                        if profile_day == specific_date['day']:
+                            relevance_score += 20
+                        # Within ±3 days
+                        elif profile_day and abs(profile_day - specific_date['day']) <= 3:
+                            relevance_score += 15
+                        # Within ±7 days
+                        elif profile_day and abs(profile_day - specific_date['day']) <= 7:
+                            relevance_score += 10
+                        # Same month, any day
+                        else:
+                            relevance_score += 8
+                
+                # Year matching
+                elif years_in_query:
                     if str(profile_year) in years_in_query:
                         relevance_score += 10
+                        
+                        # Month matching with flexible range
+                        if months_in_query:
+                            if profile_month in months_in_query:
+                                relevance_score += 8
+                            # FLEXIBLE: If exact month not found, use ±1 month range
+                            elif any(abs(profile_month - m) <= 1 for m in months_in_query):
+                                relevance_score += 5
+                        else:
+                            relevance_score += 5
                 
+                # Region matching
                 regions = spatial.get('regional_seas', [])
                 for region in regions:
-                    if region.lower().replace('_', ' ') in query_lower:
+                    region_clean = region.lower().replace('_', ' ')
+                    if region_clean in query_lower:
                         relevance_score += 5
                 
+                # Parameter matching
                 if 'temperature' in query_lower or 'temp' in query_lower:
                     if measurements.get('core_variables', {}).get('TEMP', {}).get('present'):
                         relevance_score += 3
                 
-                if 'salinity' in query_lower or 'salt' in query_lower:
+                if 'salinity' in query_lower or 'salt' in query_lower or 'psal' in query_lower:
                     if measurements.get('core_variables', {}).get('PSAL', {}).get('present'):
                         relevance_score += 3
                 
+                if 'oxygen' in query_lower or 'doxy' in query_lower:
+                    if measurements.get('core_variables', {}).get('DOXY', {}).get('present'):
+                        relevance_score += 3
+                
+                if 'chlorophyll' in query_lower or 'chla' in query_lower:
+                    if measurements.get('bgc_variables', {}).get('CHLA', {}).get('present'):
+                        relevance_score += 3
+                
+                if 'pressure' in query_lower or 'depth' in query_lower or 'pres' in query_lower:
+                    if measurements.get('core_variables', {}).get('PRES', {}).get('present'):
+                        relevance_score += 3
+                
+                # Fallback: any data with measurements
                 if relevance_score == 0:
                     if measurements.get('core_variables', {}).get('TEMP', {}).get('present'):
                         relevance_score = 1
-                    
+                        
             except Exception:
                 continue
                 
@@ -654,24 +649,112 @@ Be scientifically accurate, context-aware, and honest about limitations. ALWAYS 
                 relevant_profiles.append((profile, relevance_score))
         
         relevant_profiles.sort(key=lambda x: x[1], reverse=True)
-        return [profile[0] for profile in relevant_profiles[:10]]
+        
+        # If no results with strict matching, broaden the search
+        if not relevant_profiles and (years_in_query or months_in_query or specific_date):
+            if specific_date:
+                st.info(f"🔍 No data for exact date {specific_date['day']}/{specific_date['month']}/{specific_date['year']}. Searching {specific_date['year']}-{specific_date['month']:02d} (±7 days)...")
+            else:
+                st.info(f"🔍 Expanding search to nearby months/regions...")
+            return self.search_relevant_data_flexible(query, argo_data, years_in_query, months_in_query, specific_date)
+        
+        return [profile[0] for profile in relevant_profiles[:15]]
+    
+    def search_relevant_data_flexible(self, query, argo_data, years, months, specific_date=None):
+        """Fallback search with expanded temporal range"""
+        relevant_profiles = []
+        query_lower = query.lower()
+        
+        for profile in argo_data:
+            relevance_score = 0
+            
+            try:
+                temporal = profile.get('temporal', {})
+                spatial = profile.get('geospatial', {})
+                measurements = profile.get('measurements', {})
+                
+                profile_year = temporal.get('year')
+                profile_month = temporal.get('month')
+                profile_day = temporal.get('day')
+                
+                # Expanded date matching (±14 days)
+                if specific_date:
+                    if profile_year == specific_date['year']:
+                        relevance_score += 6
+                        
+                        if profile_month == specific_date['month']:
+                            relevance_score += 8
+                            
+                            # Within ±14 days
+                            if profile_day and abs(profile_day - specific_date['day']) <= 14:
+                                relevance_score += 10
+                        # Adjacent months
+                        elif profile_month and abs(profile_month - specific_date['month']) <= 1:
+                            relevance_score += 4
+                
+                # Expanded year matching (±1 year)
+                elif years:
+                    target_years = [int(y) for y in years]
+                    if profile_year in target_years:
+                        relevance_score += 8
+                    elif any(abs(profile_year - y) <= 1 for y in target_years):
+                        relevance_score += 4
+                
+                # Expanded month matching (±2 months)
+                if months:
+                    if profile_month in months:
+                        relevance_score += 6
+                    elif any(abs(profile_month - m) <= 2 for m in months):
+                        relevance_score += 3
+                
+                # Region matching
+                regions = spatial.get('regional_seas', [])
+                for region in regions:
+                    if region.lower().replace('_', ' ') in query_lower:
+                        relevance_score += 4
+                
+                # Parameter matching
+                if 'temperature' in query_lower or 'salinity' in query_lower or 'analysis' in query_lower:
+                    if measurements.get('core_variables', {}).get('TEMP', {}).get('present'):
+                        relevance_score += 2
+                    if measurements.get('core_variables', {}).get('PSAL', {}).get('present'):
+                        relevance_score += 2
+                        
+            except Exception:
+                continue
+                
+            if relevance_score > 0:
+                relevant_profiles.append((profile, relevance_score))
+        
+        relevant_profiles.sort(key=lambda x: x[1], reverse=True)
+        return [profile[0] for profile in relevant_profiles[:15]]
     
     def create_context_summary(self, profiles, query):
-        """Create context summary with REAL values"""
+        """Create context summary with temporal flexibility"""
         if not profiles:
-            return "No relevant data found."
+            return "No relevant data found in the specified time period."
         
         context_parts = []
         query_lower = query.lower()
         
-        # Extract years from query for comparison
-        import re
-        years_in_query = re.findall(r'\b(20\d{2})\b', query)
+        # Group profiles by year and month
+        profiles_by_time = defaultdict(list)
+        for profile in profiles:
+            year = profile.get('temporal', {}).get('year')
+            month = profile.get('temporal', {}).get('month')
+            if year and month:
+                profiles_by_time[f"{year}-{month:02d}"].append(profile)
         
-        is_summary = any(keyword in query_lower for keyword in ['summary', 'overview', 'tell me', 'analyze'])
+        # Show temporal range in response
+        # Show temporal range in response
+        if len(profiles_by_time) > 1:
+            time_keys = sorted(profiles_by_time.keys())
+            context_parts.append(f"TEMPORAL RANGE: {time_keys[0]} to {time_keys[-1]} ({len(profiles)} profiles)")
+        
+        years_in_query = re.findall(r'\b(20\d{2})\b', query)
+        is_summary = any(keyword in query_lower for keyword in ['summary', 'overview', 'tell me', 'analyze', 'analysis'])
         is_comparison = any(keyword in query_lower for keyword in ['compare', 'difference', 'vs', 'versus'])
         
-        # Group profiles by year if comparison query
         if is_comparison and years_in_query:
             profiles_by_year = {}
             for profile in profiles:
@@ -681,7 +764,6 @@ Be scientifically accurate, context-aware, and honest about limitations. ALWAYS 
                         profiles_by_year[year] = []
                     profiles_by_year[year].append(profile)
             
-            # Create context for each year
             for year in sorted(profiles_by_year.keys()):
                 year_profiles = profiles_by_year[year]
                 for profile in year_profiles[:3]:
@@ -692,7 +774,7 @@ Be scientifically accurate, context-aware, and honest about limitations. ALWAYS 
                     date = temporal.get('datetime', 'unknown')[:10]
                     regions = ', '.join(spatial.get('regional_seas', ['Ocean']))
                     
-                    info = f"REAL DATA - Year {year} - Profile {date} from {regions}"
+                    info = f"REAL DATA [{year}] - Profile {date} from {regions}"
                     
                     if profile.get('_uploaded_filename'):
                         info += f" (File: {profile['_uploaded_filename']})"
@@ -718,60 +800,45 @@ Be scientifically accurate, context-aware, and honest about limitations. ALWAYS 
                     
                     context_parts.append(info)
         else:
-            # Normal summary (original logic)
-            for profile in profiles[:5]:
+            for profile in profiles[:10]:
                 temporal = profile.get('temporal', {})
                 spatial = profile.get('geospatial', {})
                 measurements = profile.get('measurements', {})
                 
                 date = temporal.get('datetime', 'unknown')[:10]
+                year = temporal.get('year')
+                month = temporal.get('month')
+                day = temporal.get('day')
                 regions = ', '.join(spatial.get('regional_seas', ['Ocean']))
                 
-                info = f"REAL DATA - Profile {date} from {regions}"
+                info = f"REAL DATA [{year}-{month:02d}-{day:02d}] - Profile {date} from {regions}"
                 
                 if profile.get('_uploaded_filename'):
                     info += f" (File: {profile['_uploaded_filename']})"
                 
                 core_vars = measurements.get('core_variables', {})
                 
-                if is_summary:
-                    temp_data = core_vars.get('TEMP', {})
-                    if temp_data.get('present'):
-                        stats = temp_data.get('statistics', {})
-                        info += f" | TEMP: {stats.get('min', 0):.2f}-{stats.get('max', 0):.2f}°C (mean: {stats.get('mean', 0):.2f}°C)"
-                    
-                    sal_data = core_vars.get('PSAL', {})
-                    if sal_data.get('present'):
-                        stats = sal_data.get('statistics', {})
-                        info += f" | SAL: {stats.get('min', 0):.2f}-{stats.get('max', 0):.2f} PSU (mean: {stats.get('mean', 0):.2f} PSU)"
-                    
-                    pres_data = core_vars.get('PRES', {})
-                    if pres_data.get('present'):
-                        stats = pres_data.get('statistics', {})
-                        info += f" | DEPTH: 0-{stats.get('max', 0):.0f}m"
-                else:
-                    if 'temperature' in query_lower or 'temp' in query_lower:
-                        temp_data = core_vars.get('TEMP', {})
-                        if temp_data.get('present'):
-                            stats = temp_data.get('statistics', {})
-                            info += f" | TEMP: {stats.get('min', 0):.2f}-{stats.get('max', 0):.2f}°C (mean: {stats.get('mean', 0):.2f}°C)"
-                    
-                    if 'salinity' in query_lower or 'salt' in query_lower:
-                        sal_data = core_vars.get('PSAL', {})
-                        if sal_data.get('present'):
-                            stats = sal_data.get('statistics', {})
-                            info += f" | SAL: {stats.get('min', 0):.2f}-{stats.get('max', 0):.2f} PSU (mean: {stats.get('mean', 0):.2f} PSU)"
+                # Add temperature data
+                temp_data = core_vars.get('TEMP', {})
+                if temp_data.get('present'):
+                    stats = temp_data.get('statistics', {})
+                    info += f" | TEMP: {stats.get('min', 0):.2f}-{stats.get('max', 0):.2f}°C (mean: {stats.get('mean', 0):.2f}°C)"
+                
+                # Add salinity data
+                sal_data = core_vars.get('PSAL', {})
+                if sal_data.get('present'):
+                    stats = sal_data.get('statistics', {})
+                    info += f" | SAL: {stats.get('min', 0):.2f}-{stats.get('max', 0):.2f} PSU (mean: {stats.get('mean', 0):.2f} PSU)"
+                
+                # Add depth data
+                pres_data = core_vars.get('PRES', {})
+                if pres_data.get('present'):
+                    stats = pres_data.get('statistics', {})
+                    info += f" | DEPTH: 0-{stats.get('max', 0):.0f}m"
                 
                 context_parts.append(info)
         
         return " || ".join(context_parts)
-    
-        
-    
-
-
-
-
 
 
 def display_message(role, content):
@@ -792,21 +859,7 @@ def display_message(role, content):
         """, unsafe_allow_html=True)
 
 
-
-
-
-
-
-
-
 def main():
-    st.set_page_config(
-        page_title="FloatChat AI",
-        page_icon="🌊",
-        layout="wide",
-        initial_sidebar_state="expanded"
-    )
-    
     inject_custom_css()
     
     # Initialize session state
@@ -826,14 +879,25 @@ def main():
     # Sidebar
     with st.sidebar:
         st.markdown("""
-        <div style="text-align: center; padding: 1.2rem; background: linear-gradient(135deg, #006994 0%, #0077be 50%, #0099cc 100%); border-radius: 12px; margin-bottom: 1rem; box-shadow: 0 4px 15px rgba(0, 105, 148, 0.3); border: 2px solid #005580;">
-            <div style="font-size: 2.8rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));">🌊</div>
-            <h3 style="margin: 0.3rem 0 0 0; color: white; font-size: 1.4rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.2);">FloatChat AI</h3>
+        <div style="text-align: center; padding: 1.2rem; background: linear-gradient(135deg, #0077b6 0%, #00b4d8 100%); border-radius: 12px; margin-bottom: 1rem; box-shadow: 0 4px 15px rgba(0, 119, 182, 0.4); border: 2px solid #0096c7;">
+            <div style="font-size: 2.8rem;">🌊</div>
+            <h3 style="margin: 0.3rem 0 0 0; color: white; font-size: 1.4rem; font-weight: 700;">FloatChat AI</h3>
             <p style="color: rgba(255,255,255,0.95); font-size: 0.75rem; margin: 0.2rem 0 0 0; font-weight: 500;">ARGO Data Assistant</p>
         </div>
         """, unsafe_allow_html=True)
         
-        st.markdown("### 📥 Export Options")
+        # Navigation
+        # st.markdown("### Navigation")
+        # map_path = Path("pages/1map.py")
+        # if map_path.exists():
+        #     if st.button("🗺️ Visualizations & Maps", use_container_width=True, key="nav_viz"):
+        #         st.switch_page("pages/1map.py")
+        # else:
+        #     st.warning("Map page not found")
+        
+        st.markdown("---")
+        
+        st.markdown("### Export Options")
         
         profiles = st.session_state.get('last_profiles', [])
         query = st.session_state.get('last_query', '')
@@ -841,48 +905,34 @@ def main():
         col1, col2 = st.columns(2)
         
         with col1:
-            if st.button("📄 ASCII", use_container_width=True, disabled=not profiles):
+            if st.button("📄 ASCII", use_container_width=True, disabled=not profiles, key="btn_ascii"):
                 filename = export_ascii(profiles, query)
                 with open(filename, 'rb') as f:
-                    st.download_button("⬇️ Download", f, file_name=Path(filename).name, mime="text/plain", use_container_width=True, key="down_ascii")
+                    st.download_button("Download", f, file_name=Path(filename).name, mime="text/plain", use_container_width=True, key="down_ascii")
             
-            if st.button("📊 CSV", use_container_width=True, disabled=not profiles):
+            if st.button("📊 CSV", use_container_width=True, disabled=not profiles, key="btn_csv"):
                 filename = export_csv(profiles, query)
                 with open(filename, 'rb') as f:
-                    st.download_button("⬇️ Download", f, file_name=Path(filename).name, mime="text/csv", use_container_width=True, key="down_csv")
+                    st.download_button("Download", f, file_name=Path(filename).name, mime="text/csv", use_container_width=True, key="down_csv")
         
         with col2:
-            if st.button("📦 JSON", use_container_width=True, disabled=not profiles):
+            if st.button("📦 JSON", use_container_width=True, disabled=not profiles, key="btn_json"):
                 filename = export_json(profiles, query)
                 with open(filename, 'rb') as f:
-                    st.download_button("⬇️ Download", f, file_name=Path(filename).name, mime="application/json", use_container_width=True, key="down_json")
+                    st.download_button("Download", f, file_name=Path(filename).name, mime="application/json", use_container_width=True, key="down_json")
             
-            if st.button("🌐 NetCDF", use_container_width=True, disabled=not profiles):
+            if st.button("🌐 NetCDF", use_container_width=True, disabled=not profiles, key="btn_netcdf"):
                 filename = export_netcdf(profiles, query)
                 with open(filename, 'rb') as f:
-                    st.download_button("⬇️ Download", f, file_name=Path(filename).name, mime="application/x-netcdf", use_container_width=True, key="down_nc")
-        
-        if st.button("📋 Summary", use_container_width=True, disabled=not profiles):
-            summary = get_summary_report(profiles, query)
-            st.text_area("Summary Report", summary, height=300, key="summary_area")
-        
-        if st.button("💾 Session", use_container_width=True, disabled=not st.session_state.messages):
-            current_profiles = st.session_state.get('last_profiles', [])
-            stats = {
-                "total_profiles": len(current_profiles),
-                "regions": list(set([r for p in current_profiles for r in p.get('geospatial', {}).get('regional_seas', [])])) if current_profiles else []
-            }
-            filename = export_session(st.session_state.messages, stats)
-            with open(filename, 'rb') as f:
-                st.download_button("⬇️ Download", f, file_name=Path(filename).name, mime="application/json", use_container_width=True, key="down_session")
+                    st.download_button("Download", f, file_name=Path(filename).name, mime="application/x-netcdf", use_container_width=True, key="down_nc")
         
         st.markdown("---")
         
-        st.markdown("### 📤 Upload Data")
-        uploaded_file = st.file_uploader("Upload NetCDF files", type=['nc'], label_visibility="collapsed")
+        st.markdown("### Upload Data")
+        uploaded_file = st.file_uploader("Upload NetCDF", type=['nc'], label_visibility="collapsed", key="file_uploader")
         
         if uploaded_file and uploaded_file.name not in [f.get('_uploaded_filename') for f in st.session_state.uploaded_files]:
-            with st.spinner("Extracting..."):
+            with st.spinner("Processing..."):
                 try:
                     converted_data = convert_nc_to_json(uploaded_file)
                     if converted_data:
@@ -891,57 +941,45 @@ def main():
                         converted_data['_is_uploaded'] = True
                         st.session_state.uploaded_files.append(converted_data)
                         st.session_state.active_file = uploaded_file.name
-                        st.success(f"✅ {uploaded_file.name[:30]}...")
+                        st.success(f"✅ {uploaded_file.name[:25]}...")
                         st.rerun()
                 except Exception as e:
-                    st.error(f"❌ Failed: {str(e)}")
+                    st.error(f"Failed: {str(e)}")
         
         st.markdown("---")
-
-
-
-        st.markdown("### 🗺️ Visualization")
-        if st.button("📊 Open Map & Charts", use_container_width=True):
-           st.switch_page("1map.py")
         
-
-        
-
-
-
-        
-        st.markdown("### 📜 Chat History")
+        st.markdown("### History")
         if st.session_state.history:
-            for i, item in enumerate(reversed(st.session_state.history[-10:])):
-                if st.button(f"{item[:35]}...", key=f"hist_{i}", use_container_width=True):
+            for i, item in enumerate(reversed(st.session_state.history[-6:])):
+                if st.button(f"{item[:28]}...", key=f"hist_{i}", use_container_width=True):
                     st.session_state.quick_query = item
                     st.rerun()
         else:
-            st.caption("No history yet")
+            st.caption("No history")
         
-        if st.button("🗑️ Clear", use_container_width=True):
+        if st.button("🗑️ Clear", use_container_width=True, key="btn_clear"):
             st.session_state.history = []
             st.session_state.messages = []
             st.rerun()
         
         st.markdown("---")
         
-        st.markdown("### 📊 Data Overview")
+        st.markdown("### Stats")
         if st.session_state.argo_data:
             st.markdown(f"""
-            <div style="font-size: 0.85rem; color: #d1d1d1;">
-                <div style="margin-bottom: 0.3rem;">📁 {len(st.session_state.argo_data)} Profiles</div>
-                <div style="margin-bottom: 0.3rem;">📤 {len(st.session_state.uploaded_files)} Uploaded</div>
-                <div style="margin-bottom: 0.3rem;">📅 {len(set(p.get('temporal', {}).get('year') for p in st.session_state.argo_data if p.get('temporal', {}).get('year')))} Years</div>
-                <div style="margin-bottom: 0.3rem;">🌍 {len(set([r for p in st.session_state.argo_data for r in p.get('geospatial', {}).get('regional_seas', [])]))} Regions</div>
+            <div style="font-size: 0.85rem; color: #90e0ef;">
+                <div style="margin-bottom: 0.4rem;">📁 {len(st.session_state.argo_data)} Profiles</div>
+                <div style="margin-bottom: 0.4rem;">📤 {len(st.session_state.uploaded_files)} Uploaded</div>
+                <div style="margin-bottom: 0.4rem;">📅 {len(set(p.get('temporal', {}).get('year') for p in st.session_state.argo_data if p.get('temporal', {}).get('year')))} Years</div>
+                <div style="margin-bottom: 0.4rem;">🌍 {len(set([r for p in st.session_state.argo_data for r in p.get('geospatial', {}).get('regional_seas', [])]))} Regions</div>
             </div>
             """, unsafe_allow_html=True)
-
-            st.markdown("---")
-        st.markdown("### ℹ️ About")
+        
+        st.markdown("---")
+        st.markdown("### About")
         st.markdown("""
-        <div style="font-size: 0.8rem; color: #a0a0a0; line-height: 1.5;">
-        <strong style="color: #0099cc;">FloatChat AI</strong><br>
+        <div style="font-size: 0.8rem; color: #4a7c9c; line-height: 1.5;">
+        <strong style="color: #00b4d8;">FloatChat AI</strong><br>
         SIH 2025 PS 25040<br>
         MoES | INCOIS
         </div>
@@ -949,12 +987,12 @@ def main():
     
     # Load data
     if st.session_state.argo_data is None:
-        with st.spinner("Loading data..."):
+        with st.spinner("Loading ARGO data..."):
             st.session_state.argo_data = chatbot.load_argo_data()
     
     argo_data = st.session_state.argo_data + st.session_state.uploaded_files
     
-    # Header (centered top)
+    # Header
     st.markdown("""
     <div class="main-header">
         <h1>FloatChat AI</h1>
@@ -962,57 +1000,38 @@ def main():
     </div>
     """, unsafe_allow_html=True)
     
-    # Chat messages (scrollable)
+    # Chat messages
     st.markdown('<div class="chat-container">', unsafe_allow_html=True)
     
     for message in st.session_state.messages:
         display_message(message["role"], message["content"])
     
     if st.session_state.get('active_file'):
-        st.info(f"📁 Active: {st.session_state.active_file}")
-        if st.button("❌ Remove"):
-            st.session_state.active_file = None
-            st.rerun()
+        col_info, col_btn = st.columns([5, 1])
+        with col_info:
+            st.info(f"📁 Active: {st.session_state.active_file}")
+        with col_btn:
+            if st.button("❌", key="btn_remove_file"):
+                st.session_state.active_file = None
+                st.rerun()
     
     st.markdown('</div>', unsafe_allow_html=True)
     
-    # Fixed input at bottom (ChatGPT style)
-    col1, col2 = st.columns([10,1])
+    # Compact chat input
+    user_query = st.chat_input("Ask about temperature, salinity, regions, or water masses...")
     
-    with col1:
-        user_input = st.text_input(
-            "input",
-            value="",
-            placeholder="Ask about temperature, salinity, regions, or water masses...",
-            key="user_input",
-            label_visibility="collapsed"
-        )
-    
-    with col2:
-        send_button = st.button("➤", type="primary", use_container_width=True , key="btn_send")
-    
-
-
-
-
-    
-    # Process input with proper flow: user message → spinner → AI response
-    if send_button and user_input and not st.session_state.processing:
-        if 'quick_query' in st.session_state:
-            del st.session_state.quick_query
-        
-        # Add user message immediately
-        st.session_state.messages.append({"role": "user", "content": user_input})
-        st.session_state.history.append(user_input)
-        st.session_state.last_query = user_input
+    if user_query and not st.session_state.processing:
+        st.session_state.messages.append({"role": "user", "content": user_query})
+        st.session_state.history.append(user_query)
+        st.session_state.last_query = user_query
         st.session_state.processing = True
         st.rerun()
     
-    # Process the AI response after user message is displayed
+    # Process AI response
     if st.session_state.processing:
         last_user_message = st.session_state.messages[-1]["content"]
         
-        with st.spinner("Thinking..."):
+        with st.spinner("Analyzing..."):
             if st.session_state.get('active_file'):
                 active_file_data = [f for f in st.session_state.uploaded_files 
                                    if f.get('_uploaded_filename') == st.session_state.active_file]
@@ -1021,10 +1040,10 @@ def main():
                     relevant_profiles = chatbot.search_relevant_data(last_user_message, active_file_data)
                     
                     if relevant_profiles:
-                        context = f"Data from uploaded file '{st.session_state.active_file}': " + chatbot.create_context_summary(relevant_profiles, last_user_message)
+                        context = f"Data from '{st.session_state.active_file}': " + chatbot.create_context_summary(relevant_profiles, last_user_message)
                     else:
                         relevant_profiles = []
-                        context = f"No data matching your query found in '{st.session_state.active_file}'. Try removing the file filter."
+                        context = f"No data matching query in '{st.session_state.active_file}'"
                 else:
                     relevant_profiles = chatbot.search_relevant_data(last_user_message, argo_data)
                     context = chatbot.create_context_summary(relevant_profiles, last_user_message)
@@ -1041,7 +1060,6 @@ def main():
                     response_placeholder = st.empty()
                     full_response = ""
                     
-                    # Stream the response word by word
                     for line in streaming_response.iter_lines():
                         if line:
                             try:
@@ -1055,7 +1073,6 @@ def main():
                                             content = delta.get('content', '')
                                             if content:
                                                 full_response += content
-                                                # Show streaming with blinking cursor
                                                 response_placeholder.markdown(f"""
                                                 <div class="chat-message assistant-message">
                                                     <div class="message-avatar">FloatChat AI</div>
@@ -1065,7 +1082,6 @@ def main():
                             except:
                                 continue
                     
-                    # Final response without cursor
                     response_placeholder.markdown(f"""
                     <div class="chat-message assistant-message">
                         <div class="message-avatar">FloatChat AI</div>
@@ -1075,7 +1091,6 @@ def main():
                     
                     st.session_state.messages.append({"role": "assistant", "content": full_response})
                 else:
-                    # Fallback to Groq
                     response = chatbot.query_groq(last_user_message, context)
                     st.session_state.messages.append({"role": "assistant", "content": response})
                 
@@ -1087,26 +1102,26 @@ def main():
                         meas = profile.get('measurements', {}).get('core_variables', {})
                         
                         st.markdown(f"**Profile {i}:**")
-                        st.caption(f"📅 Date: {temporal.get('datetime', '')[:10]}")
-                        st.caption(f"🌍 Region: {', '.join(spatial.get('regional_seas', ['Unknown']))}")
+                        st.caption(f"📅 {temporal.get('datetime', '')[:10]}")
+                        st.caption(f"🌍 {', '.join(spatial.get('regional_seas', ['Unknown']))}")
                         
                         if profile.get('_uploaded_filename'):
-                            st.caption(f"📁 Source: {profile['_uploaded_filename']}")
+                            st.caption(f"📁 {profile['_uploaded_filename']}")
                         
                         if meas.get('TEMP', {}).get('present'):
                             temp_stats = meas['TEMP']['statistics']
-                            st.caption(f"🌡️ Temp: {temp_stats.get('min', 0):.2f}-{temp_stats.get('max', 0):.2f}°C")
+                            st.caption(f"🌡️ {temp_stats.get('min', 0):.2f}-{temp_stats.get('max', 0):.2f}°C")
                         if meas.get('PSAL', {}).get('present'):
                             sal_stats = meas['PSAL']['statistics']
-                            st.caption(f"🧂 Salinity: {sal_stats.get('min', 0):.2f}-{sal_stats.get('max', 0):.2f} PSU")
+                            st.caption(f"🧂 {sal_stats.get('min', 0):.2f}-{sal_stats.get('max', 0):.2f} PSU")
             else:
-                error_msg = "No relevant data found. Try asking about specific regions, years, or parameters."
+                error_msg = "No relevant data found. Try specific regions, years, or parameters."
                 st.session_state.messages.append({"role": "assistant", "content": error_msg})
         
         st.session_state.processing = False
         st.rerun()
 
+
 if __name__ == "__main__":
     main()
-
 
