@@ -7,3 +7,4 @@ python-dotenv==1.0.0
 requests==2.31.0
 netCDF4==1.6.5
 xarray==2024.1.0
+google-cloud-storage==2.14.0

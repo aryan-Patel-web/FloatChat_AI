@@ -5,6 +5,8 @@ from pathlib import Path
 import pandas as pd
 import numpy as np
 import requests
+import base64
+from google.cloud import storage
 from groq import Groq
 from dotenv import load_dotenv
 import time
@@ -18,6 +20,7 @@ from export_utils import (export_ascii, export_csv, export_json,
                           export_netcdf, export_session, get_summary_report)
 
 load_dotenv()
+
 
 st.set_page_config(
     page_title="FloatChat AI",

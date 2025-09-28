@@ -266,6 +266,25 @@ generated_reports/
 visualization_cache/
 
 
+gcs-key.json
+gcs-base64.txt
+.env
+
+
+.env
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+ENV/
 
 Datasetjson/
 Dataset/
