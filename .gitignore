@@ -269,6 +269,8 @@ visualization_cache/
 gcs-key.json
 gcs-base64.txt
 .env
+# Ignore local MinIO key generator
+MINIO/create_key.py
 
 
 .env
