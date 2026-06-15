@@ -1,0 +1,26 @@
+{
+  "netcdf_files": [],
+  "parameters_data": {
+    "sst": [],
+    "kd490": [],
+    "poc": [],
+    "pic": [],
+    "aot": [],
+    "chlorophyll": []
+  },
+  "data_links": [],
+  "coordinates": [],
+  "processing_log": [],
+  "extraction_metadata": {
+    "source_url": "https://incois.gov.in/OON/index.jsp",
+    "extraction_timestamp": "2025-09-04T22:21:44.215532",
+    "target_parameters": [
+      "sst",
+      "kd490",
+      "poc",
+      "pic",
+      "aot",
+      "chlorophyll"
+    ]
+  }
+}

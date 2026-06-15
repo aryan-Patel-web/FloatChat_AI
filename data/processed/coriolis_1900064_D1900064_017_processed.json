@@ -1,0 +1,2131 @@
+{
+  "file_info": {
+    "filename": "coriolis_1900064_D1900064_017.nc",
+    "file_path": "D:\\FloatChat ARGO\\MINIO\\data\\argo\\coriolis_1900064_D1900064_017.nc",
+    "processing_date": "2025-09-04 18:06:44.419607",
+    "variables": [
+      "DATA_TYPE",
+      "FORMAT_VERSION",
+      "HANDBOOK_VERSION",
+      "REFERENCE_DATE_TIME",
+      "DATE_CREATION",
+      "DATE_UPDATE",
+      "PLATFORM_NUMBER",
+      "PROJECT_NAME",
+      "PI_NAME",
+      "STATION_PARAMETERS",
+      "CYCLE_NUMBER",
+      "DIRECTION",
+      "DATA_CENTRE",
+      "DC_REFERENCE",
+      "DATA_STATE_INDICATOR",
+      "DATA_MODE",
+      "PLATFORM_TYPE",
+      "FLOAT_SERIAL_NO",
+      "FIRMWARE_VERSION",
+      "WMO_INST_TYPE",
+      "JULD",
+      "JULD_QC",
+      "JULD_LOCATION",
+      "LATITUDE",
+      "LONGITUDE",
+      "POSITION_QC",
+      "POSITIONING_SYSTEM",
+      "VERTICAL_SAMPLING_SCHEME",
+      "CONFIG_MISSION_NUMBER",
+      "PROFILE_CNDC_QC",
+      "PROFILE_PRES_QC",
+      "PROFILE_PSAL_QC",
+      "PROFILE_TEMP_QC",
+      "CNDC",
+      "CNDC_QC",
+      "CNDC_ADJUSTED",
+      "CNDC_ADJUSTED_QC",
+      "CNDC_ADJUSTED_ERROR",
+      "PRES",
+      "PRES_QC",
+      "PRES_ADJUSTED",
+      "PRES_ADJUSTED_QC",
+      "PRES_ADJUSTED_ERROR",
+      "PSAL",
+      "PSAL_QC",
+      "PSAL_ADJUSTED",
+      "PSAL_ADJUSTED_QC",
+      "PSAL_ADJUSTED_ERROR",
+      "TEMP",
+      "TEMP_QC",
+      "TEMP_ADJUSTED",
+      "TEMP_ADJUSTED_QC",
+      "TEMP_ADJUSTED_ERROR",
+      "PARAMETER",
+      "SCIENTIFIC_CALIB_EQUATION",
+      "SCIENTIFIC_CALIB_COEFFICIENT",
+      "SCIENTIFIC_CALIB_COMMENT",
+      "SCIENTIFIC_CALIB_DATE",
+      "HISTORY_INSTITUTION",
+      "HISTORY_STEP",
+      "HISTORY_SOFTWARE",
+      "HISTORY_SOFTWARE_RELEASE",
+      "HISTORY_REFERENCE",
+      "HISTORY_DATE",
+      "HISTORY_ACTION",
+      "HISTORY_PARAMETER",
+      "HISTORY_START_PRES",
+      "HISTORY_STOP_PRES",
+      "HISTORY_PREVIOUS_VALUE",
+      "HISTORY_QCTEST"
+    ],
+    "success": true
+  },
+  "profiles": [
+    {
+      "float_id": "unknown_0",
+      "cycle_number": 17,
+      "latitude": 26.775000000000002,
+      "longitude": -20.808,
+      "region": "Indian Ocean",
+      "file_source": "D:\\FloatChat ARGO\\MINIO\\data\\argo\\coriolis_1900064_D1900064_017.nc",
+      "measurements": [
+        {
+          "parameter": "TEMP",
+          "depth": 15.0,
+          "value": 23.780000686645508,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810eb0"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 25.0,
+          "value": 23.68000030517578,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810eb1"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 35.0,
+          "value": 23.6200008392334,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810eb2"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 45.0,
+          "value": 23.360000610351562,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810eb3"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 55.0,
+          "value": 22.59000015258789,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810eb4"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 65.0,
+          "value": 21.81999969482422,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810eb5"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 75.0,
+          "value": 20.649999618530273,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810eb6"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 85.0,
+          "value": 20.190000534057617,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810eb7"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 95.0,
+          "value": 19.799999237060547,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810eb8"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 105.0,
+          "value": 19.450000762939453,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810eb9"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 115.0,
+          "value": 19.15999984741211,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810eba"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 126.0,
+          "value": 18.75,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ebb"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 135.0,
+          "value": 18.5,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ebc"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 145.0,
+          "value": 18.09000015258789,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ebd"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 155.0,
+          "value": 17.829999923706055,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ebe"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 165.0,
+          "value": 17.6200008392334,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ebf"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 175.0,
+          "value": 17.389999389648438,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ec0"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 185.0,
+          "value": 17.209999084472656,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ec1"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 195.0,
+          "value": 17.030000686645508,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ec2"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 212.0,
+          "value": 16.6200008392334,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ec3"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 237.0,
+          "value": 16.100000381469727,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ec4"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 263.0,
+          "value": 15.649999618530273,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ec5"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 288.0,
+          "value": 15.079999923706055,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ec6"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 312.0,
+          "value": 14.569999694824219,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ec7"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 337.0,
+          "value": 14.15999984741211,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ec8"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 362.0,
+          "value": 13.779999732971191,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ec9"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 387.0,
+          "value": 13.489999771118164,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810eca"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 412.0,
+          "value": 13.1899995803833,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ecb"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 438.0,
+          "value": 12.819999694824219,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ecc"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 462.0,
+          "value": 12.420000076293945,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ecd"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 487.0,
+          "value": 12.050000190734863,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ece"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 512.0,
+          "value": 11.859999656677246,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ecf"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 538.0,
+          "value": 11.630000114440918,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ed0"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 563.0,
+          "value": 11.430000305175781,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ed1"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 588.0,
+          "value": 11.170000076293945,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ed2"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 612.0,
+          "value": 10.890000343322754,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ed3"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 637.0,
+          "value": 10.550000190734863,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ed4"
+        },
+        {
+          "parameter": "TEMP",
+          "depth": 662.0,
+          "value": 10.3100004196167,
+          "units": "\u00b0C",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ed5"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 15.0,
+          "value": 37.07500076293945,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ed6"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 25.0,
+          "value": 37.07899856567383,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ed7"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 35.0,
+          "value": 37.08000183105469,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ed8"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 45.0,
+          "value": 37.07099914550781,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ed9"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 55.0,
+          "value": 37.08000183105469,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810eda"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 65.0,
+          "value": 37.03900146484375,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810edb"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 75.0,
+          "value": 36.95899963378906,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810edc"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 85.0,
+          "value": 36.915000915527344,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810edd"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 95.0,
+          "value": 36.874000549316406,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ede"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 105.0,
+          "value": 36.82099914550781,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810edf"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 115.0,
+          "value": 36.77199935913086,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ee0"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 126.0,
+          "value": 36.70100021362305,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ee1"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 135.0,
+          "value": 36.65700149536133,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ee2"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 145.0,
+          "value": 36.57500076293945,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ee3"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 155.0,
+          "value": 36.52000045776367,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ee4"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 165.0,
+          "value": 36.48899841308594,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ee5"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 175.0,
+          "value": 36.44900131225586,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ee6"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 185.0,
+          "value": 36.415000915527344,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ee7"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 195.0,
+          "value": 36.38999938964844,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ee8"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 212.0,
+          "value": 36.323001861572266,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ee9"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 237.0,
+          "value": 36.23500061035156,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810eea"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 263.0,
+          "value": 36.15999984741211,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810eeb"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 288.0,
+          "value": 36.08399963378906,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810eec"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 312.0,
+          "value": 36.01300048828125,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810eed"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 337.0,
+          "value": 35.948001861572266,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810eee"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 362.0,
+          "value": 35.89899826049805,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810eef"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 387.0,
+          "value": 35.8489990234375,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ef0"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 412.0,
+          "value": 35.80799865722656,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ef1"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 438.0,
+          "value": 35.75400161743164,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ef2"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 462.0,
+          "value": 35.70899963378906,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ef3"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 487.0,
+          "value": 35.6510009765625,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ef4"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 512.0,
+          "value": 35.625999450683594,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ef5"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 538.0,
+          "value": 35.60900115966797,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ef6"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 563.0,
+          "value": 35.58300018310547,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ef7"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 588.0,
+          "value": 35.55400085449219,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ef8"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 612.0,
+          "value": 35.513999938964844,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810ef9"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 637.0,
+          "value": 35.48099899291992,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810efa"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 662.0,
+          "value": 35.45000076293945,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810efb"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 687.0,
+          "value": 35.42399978637695,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810efc"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 713.0,
+          "value": 35.37799835205078,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810efd"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 737.0,
+          "value": 35.323001861572266,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810efe"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 762.0,
+          "value": 35.292999267578125,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810eff"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 788.0,
+          "value": 35.26499938964844,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f00"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 813.0,
+          "value": 35.25299835205078,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f01"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 837.0,
+          "value": 35.24300003051758,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f02"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 863.0,
+          "value": 35.242000579833984,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f03"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 888.0,
+          "value": 35.220001220703125,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f04"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 912.0,
+          "value": 35.22800064086914,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f05"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 937.0,
+          "value": 35.22800064086914,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f06"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 963.0,
+          "value": 35.2239990234375,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f07"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 987.0,
+          "value": 35.220001220703125,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f08"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1012.0,
+          "value": 35.236000061035156,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f09"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1037.0,
+          "value": 35.22999954223633,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f0a"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1062.0,
+          "value": 35.23500061035156,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f0b"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1088.0,
+          "value": 35.24100112915039,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f0c"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1113.0,
+          "value": 35.244998931884766,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f0d"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1137.0,
+          "value": 35.26100158691406,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f0e"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1163.0,
+          "value": 35.263999938964844,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f0f"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1188.0,
+          "value": 35.26599884033203,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f10"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1213.0,
+          "value": 35.26300048828125,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f11"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1238.0,
+          "value": 35.27799987792969,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f12"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1262.0,
+          "value": 35.257999420166016,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f13"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1288.0,
+          "value": 35.27399826049805,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f14"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1313.0,
+          "value": 35.266998291015625,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f15"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1337.0,
+          "value": 35.257999420166016,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f16"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1362.0,
+          "value": 35.25600051879883,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f17"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1387.0,
+          "value": 35.244998931884766,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f18"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1412.0,
+          "value": 35.24399948120117,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f19"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1437.0,
+          "value": 35.236000061035156,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f1a"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1463.0,
+          "value": 35.224998474121094,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f1b"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1488.0,
+          "value": 35.20399856567383,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f1c"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1512.0,
+          "value": 35.202999114990234,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f1d"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1537.0,
+          "value": 35.207000732421875,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f1e"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1563.0,
+          "value": 35.185001373291016,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f1f"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1588.0,
+          "value": 35.17300033569336,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f20"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1612.0,
+          "value": 35.165000915527344,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f21"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1636.0,
+          "value": 35.16899871826172,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f22"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1661.0,
+          "value": 35.16299819946289,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f23"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1687.0,
+          "value": 35.150001525878906,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f24"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1712.0,
+          "value": 35.15700149536133,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f25"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1737.0,
+          "value": 35.14699935913086,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f26"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1763.0,
+          "value": 35.13999938964844,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f27"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1788.0,
+          "value": 35.138999938964844,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f28"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1812.0,
+          "value": 35.13199996948242,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f29"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1836.0,
+          "value": 35.132999420166016,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f2a"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1862.0,
+          "value": 35.117000579833984,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f2b"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1888.0,
+          "value": 35.12099838256836,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f2c"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1912.0,
+          "value": 35.1150016784668,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f2d"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1937.0,
+          "value": 35.0989990234375,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f2e"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1963.0,
+          "value": 35.0880012512207,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f2f"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 1987.0,
+          "value": 35.09199905395508,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f30"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 2000.0,
+          "value": 35.08300018310547,
+          "units": "PSU",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f31"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 15.0,
+          "value": 15.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f32"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 25.0,
+          "value": 25.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f33"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 35.0,
+          "value": 35.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f34"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 45.0,
+          "value": 45.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f35"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 55.0,
+          "value": 55.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f36"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 65.0,
+          "value": 65.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f37"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 75.0,
+          "value": 75.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f38"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 85.0,
+          "value": 85.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f39"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 95.0,
+          "value": 95.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f3a"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 105.0,
+          "value": 105.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f3b"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 115.0,
+          "value": 115.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f3c"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 126.0,
+          "value": 126.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f3d"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 135.0,
+          "value": 135.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f3e"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 145.0,
+          "value": 145.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f3f"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 155.0,
+          "value": 155.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f40"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 165.0,
+          "value": 165.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f41"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 175.0,
+          "value": 175.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f42"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 185.0,
+          "value": 185.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f43"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 195.0,
+          "value": 195.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f44"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 212.0,
+          "value": 212.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f45"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 237.0,
+          "value": 237.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f46"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 263.0,
+          "value": 263.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f47"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 288.0,
+          "value": 288.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f48"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 312.0,
+          "value": 312.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f49"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 337.0,
+          "value": 337.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f4a"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 362.0,
+          "value": 362.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f4b"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 387.0,
+          "value": 387.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f4c"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 412.0,
+          "value": 412.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f4d"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 438.0,
+          "value": 438.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f4e"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 462.0,
+          "value": 462.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f4f"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 487.0,
+          "value": 487.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f50"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 512.0,
+          "value": 512.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f51"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 538.0,
+          "value": 538.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f52"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 563.0,
+          "value": 563.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f53"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 588.0,
+          "value": 588.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f54"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 612.0,
+          "value": 612.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f55"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 637.0,
+          "value": 637.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f56"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 662.0,
+          "value": 662.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f57"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 687.0,
+          "value": 687.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f58"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 713.0,
+          "value": 713.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f59"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 737.0,
+          "value": 737.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f5a"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 762.0,
+          "value": 762.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f5b"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 788.0,
+          "value": 788.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f5c"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 813.0,
+          "value": 813.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f5d"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 837.0,
+          "value": 837.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f5e"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 863.0,
+          "value": 863.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f5f"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 888.0,
+          "value": 888.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f60"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 912.0,
+          "value": 912.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f61"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 937.0,
+          "value": 937.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f62"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 963.0,
+          "value": 963.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f63"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 987.0,
+          "value": 987.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f64"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1012.0,
+          "value": 1012.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f65"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1037.0,
+          "value": 1037.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f66"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1062.0,
+          "value": 1062.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f67"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1088.0,
+          "value": 1088.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f68"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1113.0,
+          "value": 1113.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f69"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1137.0,
+          "value": 1137.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f6a"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1163.0,
+          "value": 1163.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f6b"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1188.0,
+          "value": 1188.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f6c"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1213.0,
+          "value": 1213.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f6d"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1238.0,
+          "value": 1238.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f6e"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1262.0,
+          "value": 1262.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f6f"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1288.0,
+          "value": 1288.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f70"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1313.0,
+          "value": 1313.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f71"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1337.0,
+          "value": 1337.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f72"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1362.0,
+          "value": 1362.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f73"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1387.0,
+          "value": 1387.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f74"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1412.0,
+          "value": 1412.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f75"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1437.0,
+          "value": 1437.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f76"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1463.0,
+          "value": 1463.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f77"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1488.0,
+          "value": 1488.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f78"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1512.0,
+          "value": 1512.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f79"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1537.0,
+          "value": 1537.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f7a"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1563.0,
+          "value": 1563.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f7b"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1588.0,
+          "value": 1588.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f7c"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1612.0,
+          "value": 1612.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f7d"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1636.0,
+          "value": 1636.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f7e"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1661.0,
+          "value": 1661.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f7f"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1687.0,
+          "value": 1687.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f80"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1712.0,
+          "value": 1712.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f81"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1737.0,
+          "value": 1737.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f82"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1763.0,
+          "value": 1763.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f83"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1788.0,
+          "value": 1788.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f84"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1812.0,
+          "value": 1812.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f85"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1836.0,
+          "value": 1836.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f86"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1862.0,
+          "value": 1862.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f87"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1888.0,
+          "value": 1888.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f88"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1912.0,
+          "value": 1912.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f89"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1937.0,
+          "value": 1937.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f8a"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1963.0,
+          "value": 1963.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f8b"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 1987.0,
+          "value": 1987.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f8c"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 2000.0,
+          "value": 2000.0,
+          "units": "dbar",
+          "profile_id": "unknown_0_17",
+          "measurement_date": "2025-09-04 18:06:44.426607",
+          "_id": "68b9d534d26f6534fc810f8d"
+        }
+      ]
+    },
+    {
+      "float_id": "unknown_1",
+      "cycle_number": 17,
+      "latitude": 26.775000000000002,
+      "longitude": -20.808,
+      "region": "Indian Ocean",
+      "file_source": "D:\\FloatChat ARGO\\MINIO\\data\\argo\\coriolis_1900064_D1900064_017.nc",
+      "measurements": [
+        {
+          "parameter": "TEMP",
+          "depth": 5.0,
+          "value": 23.8700008392334,
+          "units": "\u00b0C",
+          "profile_id": "unknown_1_17",
+          "measurement_date": "2025-09-04 18:06:44.429620",
+          "_id": "68b9d534d26f6534fc810f8e"
+        },
+        {
+          "parameter": "PSAL",
+          "depth": 5.0,
+          "value": 37.08000183105469,
+          "units": "PSU",
+          "profile_id": "unknown_1_17",
+          "measurement_date": "2025-09-04 18:06:44.429620",
+          "_id": "68b9d534d26f6534fc810f8f"
+        },
+        {
+          "parameter": "PRES",
+          "depth": 5.0,
+          "value": 5.0,
+          "units": "dbar",
+          "profile_id": "unknown_1_17",
+          "measurement_date": "2025-09-04 18:06:44.429620",
+          "_id": "68b9d534d26f6534fc810f90"
+        }
+      ]
+    }
+  ],
+  "processing_stats": {
+    "profiles_created": 2,
+    "measurements_created": 225
+  }
+}

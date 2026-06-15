@@ -1,0 +1,34 @@
+================================================================================
+ARGO FLOAT PROFILE EXPORT - REAL DATA
+================================================================================
+Generated: 2025-09-26 16:40:33
+Query: "give me summary of this file and pressure is present on this file or not"
+Total Profiles: 1
+Source: Uploaded files - 20250924_prof.nc
+================================================================================
+
+Profile 1 - REAL MEASURED DATA
+--------------------------------------------------------------------------------
+  Source File: 20250924_prof.nc
+  Upload Time: 2025-09-26T16:39:36
+  Date: 2025-09-26 (Year: 2025, Month: 9)
+  Location: -31.2932°S, 83.0773°E
+  Region: Uploaded Data
+  Ocean Basin: Unknown
+  Temperature (REAL):
+    Min: -1.819°C
+    Max: 29.829°C
+    Mean: 7.404°C
+    Std Dev: 5.479°C
+  Salinity (REAL):
+    Min: 28.300 PSU
+    Max: 36.842 PSU
+    Mean: 34.614 PSU
+    Std Dev: 1.019 PSU
+  Depth Range (REAL): 0 - 4547.1m
+  Quality Score: 7.50/10
+
+================================================================================
+NOTE: All values are REAL measurements from ARGO floats
+Data format complies with ARGO standards
+================================================================================

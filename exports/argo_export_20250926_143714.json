@@ -1,0 +1,44 @@
+{
+  "metadata": {
+    "query": "now give year ",
+    "timestamp": "2025-09-26T14:37:14.340068",
+    "total_profiles": 1,
+    "export_format": "JSON"
+  },
+  "profiles": [
+    {
+      "temporal": {
+        "datetime": "2025-09-26T14:30:48.633661",
+        "year": 2025,
+        "month": 9,
+        "day": 26,
+        "season_nh": "autumn"
+      },
+      "geospatial": {
+        "regional_seas": [
+          "Uploaded Data"
+        ],
+        "ocean_basin": "Unknown"
+      },
+      "measurements": {
+        "core_variables": {}
+      },
+      "platform": {
+        "platform_number": "UPLOADED"
+      },
+      "oceanography": {
+        "water_masses": []
+      },
+      "quality_control": {
+        "data_assessment": {
+          "overall_score": 7.5,
+          "status": "uploaded"
+        }
+      },
+      "_source": "uploaded_nc_file",
+      "_uploaded_filename": "VIIRS-SNPP-Aug2025-d05-4KM-PICountries-SST (2).nc",
+      "_upload_timestamp": "2025-09-26T14:30:48.638273",
+      "_is_uploaded": true
+    }
+  ]
+}

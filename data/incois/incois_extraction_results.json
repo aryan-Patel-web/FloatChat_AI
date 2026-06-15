@@ -1,0 +1,31 @@
+{
+  "parameters": {
+    "sst": [],
+    "kd490": [],
+    "poc": [],
+    "pic": [],
+    "aot": [],
+    "chlorophyll": []
+  },
+  "netcdf_files": [],
+  "data_endpoints": [],
+  "coordinates": [],
+  "extraction_metadata": {
+    "source": "INCOIS_OON_REAL",
+    "extraction_time": "2025-09-04T22:47:08.529097",
+    "success": false,
+    "errors": [],
+    "duration_seconds": 1.5263612270355225,
+    "endpoints_discovered": 0,
+    "parameters_extracted": {
+      "sst": 0,
+      "kd490": 0,
+      "poc": 0,
+      "pic": 0,
+      "aot": 0,
+      "chlorophyll": 0
+    },
+    "total_data_points": 0,
+    "netcdf_files_processed": 0
+  }
+}

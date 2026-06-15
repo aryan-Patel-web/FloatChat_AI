@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "query": "summary of this file",
+    "timestamp": "2025-09-27T10:07:16.105527",
+    "total_profiles": 1,
+    "export_format": "JSON"
+  },
+  "profiles": [
+    {
+      "temporal": {
+        "datetime": "2025-09-27T10:06:05.927491",
+        "year": 2025,
+        "month": 9,
+        "day": 27
+      },
+      "geospatial": {
+        "regional_seas": [
+          "Southern_Ocean"
+        ],
+        "ocean_basin": "Southern_Ocean",
+        "latitude": -56.8887,
+        "longitude": 96.3241,
+        "grid_1deg": "S56E096"
+      },
+      "measurements": {
+        "core_variables": {
+          "TEMP": {
+            "present": true,
+            "statistics": {
+              "min": -1.7549999952316284,
+              "max": 29.707000732421875,
+              "mean": 7.603464126586914,
+              "std": 5.53663444519043,
+              "count": 47570
+            }
+          },
+          "PSAL": {
+            "present": true,
+            "statistics": {
+              "min": 26.886999130249023,
+              "max": 37.03200149536133,
+              "mean": 34.63151550292969,
+              "std": 1.121090054512024,
+              "count": 46053
+            }
+          },
+          "PRES": {
+            "present": true,
+            "statistics": {
+              "min": 0.0,
+              "max": 5044.10009765625,
+              "mean": 921.2353515625,
+              "std": 705.225341796875,
+              "count": 47569
+            }
+          }
+        }
+      },
+      "platform": {
+        "platform_number": "[b'2' b'9' b'0' b'3' b'8' b'7' b'0' --]"
+      },
+      "oceanography": {
+        "water_masses": []
+      },
+      "quality_control": {
+        "data_assessment": {
+          "overall_score": 7.5,
+          "status": "uploaded"
+        }
+      },
+      "_source": "uploaded_nc_file",
+      "_uploaded_filename": "20250914_prof.nc",
+      "_upload_timestamp": "2025-09-27T10:06:05.944777",
+      "_is_uploaded": true
+    }
+  ]
+}

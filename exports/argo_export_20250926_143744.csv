@@ -1,0 +1,2 @@
+date,year,month,latitude,longitude,region,ocean_basin,temp_min_C,temp_max_C,temp_mean_C,sal_min_PSU,sal_max_PSU,sal_mean_PSU,depth_max_m,water_masses,quality_score
+2025-09-26,2025,9,0,0,Uploaded Data,Unknown,,,,,,,,0,7.5

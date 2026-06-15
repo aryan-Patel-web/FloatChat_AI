@@ -1,16 +1,3 @@
-{
-  "name": "ARGO Chat Dashboard",
-  "short_name": "ARGO Chat",
-  "description": "Real oceanographic data analysis dashboard",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#0f172a",
-  "theme_color": "#3b82f6",
-  "icons": [
-    {
-      "src": "/favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    }
-  ]
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:6cb842846990e3494034907fc5e2de052595578954458738df4fa6594c5e0df6
+size 365

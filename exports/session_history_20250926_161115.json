@@ -1,0 +1,25 @@
+{
+  "session_id": "20250926_161115",
+  "start_time": "2025-09-26T16:11:15.192873",
+  "total_queries": 1,
+  "conversation": [
+    {
+      "timestamp": "2025-09-26T16:11:15.192873",
+      "role": "user",
+      "content": "temp near bay of bengal"
+    },
+    {
+      "timestamp": "2025-09-26T16:11:15.192873",
+      "role": "assistant",
+      "content": "**Query:** What is the temperature near the Bay of Bengal?\n\n**Profile Overview:**\n- Date: 2023-02-13\n- Location: 12.00°N, 90.00°E, Bay of Bengal\n- Source: Bay_of_Bengal_2023-02-13.dat\n\n**Measurements:**\n- Temperature: -2.00°C to 28.91°C (Mean: 6.70°C, Std Dev: 6.00°C)\n\n**Key Findings:**\n- The minimum temperature was -2.00°C, while the maximum temperature was 28.91°C.\n- The mean temperature was 6.70°C, with a standard deviation of 6.00°C.\n\n**Conclusion:**\nThe temperature near the Bay of Bengal on 2023-02-13 ranged from -2.00°C to 28.91°C, with a mean of 6.70°C. This indicates a relatively cooler temperature compared to the later periods in the same region."
+    }
+  ],
+  "statistics": {
+    "total_profiles": 5,
+    "regions": [
+      "Monsoon_Region",
+      "Tropical_Indian",
+      "Bay_of_Bengal"
+    ]
+  }
+}

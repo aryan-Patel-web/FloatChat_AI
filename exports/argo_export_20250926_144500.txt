@@ -1,0 +1,34 @@
+================================================================================
+ARGO FLOAT PROFILE EXPORT - REAL DATA
+================================================================================
+Generated: 2025-09-26 14:45:00
+Query: "comapare with january 26, 2023    with 2025  in table form"
+Total Profiles: 1
+Source: Uploaded files - 20250922_prof.nc
+================================================================================
+
+Profile 1 - REAL MEASURED DATA
+--------------------------------------------------------------------------------
+  Source File: 20250922_prof.nc
+  Upload Time: 2025-09-26T14:42:54
+  Date: 2025-09-26 (Year: 2025, Month: 9)
+  Location: -41.6725°S, 137.3206°E
+  Region: Southern_Ocean
+  Ocean Basin: Southern_Ocean
+  Temperature (REAL):
+    Min: -1.773°C
+    Max: 30.139°C
+    Mean: 7.376°C
+    Std Dev: 5.926°C
+  Salinity (REAL):
+    Min: 29.349 PSU
+    Max: 36.632 PSU
+    Mean: 34.791 PSU
+    Std Dev: 0.395 PSU
+  Depth Range (REAL): 0 - 2044.4m
+  Quality Score: 7.50/10
+
+================================================================================
+NOTE: All values are REAL measurements from ARGO floats
+Data format complies with ARGO standards
+================================================================================

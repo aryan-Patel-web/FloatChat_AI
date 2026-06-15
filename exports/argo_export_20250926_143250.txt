@@ -1,0 +1,23 @@
+================================================================================
+ARGO FLOAT PROFILE EXPORT - REAL DATA
+================================================================================
+Generated: 2025-09-26 14:32:50
+Query: "give me summary of this file uploaded"
+Total Profiles: 1
+Source: Uploaded files - VIIRS-SNPP-Aug2025-d05-4KM-PICountries-SST (2).nc
+================================================================================
+
+Profile 1 - REAL MEASURED DATA
+--------------------------------------------------------------------------------
+  Source File: VIIRS-SNPP-Aug2025-d05-4KM-PICountries-SST (2).nc
+  Upload Time: 2025-09-26T14:30:48
+  Date: 2025-09-26 (Year: 2025, Month: 9)
+  Location: 0.0000°N, 0.0000°E
+  Region: Uploaded Data
+  Ocean Basin: Unknown
+  Quality Score: 7.50/10
+
+================================================================================
+NOTE: All values are REAL measurements from ARGO floats
+Data format complies with ARGO standards
+================================================================================

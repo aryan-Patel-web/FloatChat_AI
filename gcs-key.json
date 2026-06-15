@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "socialauto-472509",
+  "private_key_id": "44981060d38ed3437320e96bece730a4988c2e66",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC5z2PV4LtlwG6E\nDox8P2EuhGDNeszekywSHgwvVSeHOaE274RZM/ms/PIrvkkC8eUoe8Us49Mc/WLh\ntnKt+LHLNiv+QoyyBT6fCMOQXm8qb46OWkQCZhjA6aiGmpWqRc+ymx7ExXMFNwMR\nD8/NfbaspfZwwqwkdN07XsZVx0f67wXA1/7ZMJoZFHlg37eFESfrGCbGHG9U+lpW\nwTRNxVlpcbOHfqmjKQTmQLrMS8aZJGUkX27HmpDP/0ocpyF9W6sdJzsRiow9qHeT\ndZyN65WMDdyNT/cwje82Kwn0Ls7H+Y56NXJ0jdIepSh2VN4bVm4MpRvDig0jSA2F\nyUlc0KQPAgMBAAECggEARJg9YP2/8MZjhjjgwBWdyNBx9Cl7bEeko2OYV/j1yMQL\nsf4mO9AmQih3NpLe3UlzschPeEz66N7aHD2AhJ0k9cIf55Ol4Spyfb98gtV58I6S\ncBb+uGv8g2s/HcH/soZnMKZ3a2kBF1HBvhC6REA+qeny2pnjdun1qi9IxO32srnb\nvL61xURjxNYdojsFMHVW5g+fyeo2CG+Tn8+8cOLl9cByoRBn8Gc+8XLeHcPoKu0b\nE6Rm8CwXGujWqgFngfvDcwsq/Wi60UsYXGlaaCW4kshsNoxn4d7xAIYTgf/0INXV\nRjBbTAk85B1g/4N0VabDtf7MRrjDOfMPoD6K4b4e4QKBgQD/Pwd+BvWcJ2oK0vGK\nDozEmpw0emgearaJKEhnF4eOvZ9BEKv5rUNipcD98VZ/88yx/4hqoX4QkF9dWxZT\nEG8Y4aG6LVKJ3IeB0tvNZz8RWHrPj+bgbGS6cCBvxV8huTlAFfIHaOXj4ObVpUKh\n7VUdbFUGISC+g5ZqnGt+mtDjqQKBgQC6W92jt9F3RocV/JS7Fh4N0z2E9IQLpOYs\nZbu8NkT/wqxJmt9fxKPODO2zlFxLa3NGMU9cIrF9ss/BjhO+EtKnR8oBYffM8cYX\nw+0jNoB9w0bgj1wyUQz3aJ6nN8+XCl760lUNQAxQi/o+R6N+mKwqKpTsKVS86f3Y\noPftFHqc9wKBgH80VTKMm1jQF7v/Nprb93F/r/tDSaJnAkNGjRa7ljYf8D8H5P0Q\nSTXfb1ffL4Gi6c+Hjt+9TctJeA1ZeL26wfM/d08GiUzlV67ue9ZY7whg9Qt+JsyP\nmH+Fo9SwI2H2Ij768NyafX9ctQ2iR5vVYIbCV3kvh1cK0yqce8Hju9jJAoGABdc3\nPRhXwks9lJzT9IEe9AP425/mO48xf5a4qY9x3io1yCDIe3HoSF7zXDt8IQj/FeYZ\nvKOBuJTQGhrf14czfvarCBwP7iZttPT5C697m3VxVTxpAVK0+1QWFNuU8ADtNSM+\ncyncuPGKKEWKhD84tiGbhUNOWpVi1VVGL/ICXcUCgYEAjKFmqegsX+fUuNChaFti\nZv23at86OFh+LQ56hp7ZLplMj4WugbJPoojc1XfTiS9RfbQlVeB1A81txqFrazoG\nzAl+5tPwBJn5y4SDUbFg7kgz6VLpvg66zxD8Gxtc3H4MIOXn5r8cKvKcOmagxyJC\nEJKSRvei3bnwHZ/T8vEWjUk=\n-----END PRIVATE KEY-----\n",
+  "client_email": "floatchat-storage@socialauto-472509.iam.gserviceaccount.com",
+  "client_id": "100687612550612458037",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/floatchat-storage%40socialauto-472509.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "query": "give me summary of this file and pressure is present on this file or not",
+    "timestamp": "2025-09-26T16:40:49.958404",
+    "total_profiles": 1,
+    "export_format": "JSON"
+  },
+  "profiles": [
+    {
+      "temporal": {
+        "datetime": "2025-09-26T16:39:36.471628",
+        "year": 2025,
+        "month": 9,
+        "day": 26
+      },
+      "geospatial": {
+        "regional_seas": [
+          "Uploaded Data"
+        ],
+        "ocean_basin": "Unknown",
+        "latitude": -31.29319,
+        "longitude": 83.07728,
+        "grid_1deg": "S31E083"
+      },
+      "measurements": {
+        "core_variables": {
+          "TEMP": {
+            "present": true,
+            "statistics": {
+              "min": -1.8194999694824219,
+              "max": 29.82900047302246,
+              "mean": 7.403588771820068,
+              "std": 5.479013919830322,
+              "count": 40851
+            }
+          },
+          "PSAL": {
+            "present": true,
+            "statistics": {
+              "min": 28.299999237060547,
+              "max": 36.84199905395508,
+              "mean": 34.61358642578125,
+              "std": 1.018635630607605,
+              "count": 39335
+            }
+          },
+          "PRES": {
+            "present": true,
+            "statistics": {
+              "min": 0.0,
+              "max": 4547.10009765625,
+              "mean": 882.584716796875,
+              "std": 587.1737060546875,
+              "count": 40851
+            }
+          }
+        }
+      },
+      "platform": {
+        "platform_number": "[b'4' b'9' b'0' b'3' b'6' b'2' b'6' --]"
+      },
+      "oceanography": {
+        "water_masses": []
+      },
+      "quality_control": {
+        "data_assessment": {
+          "overall_score": 7.5,
+          "status": "uploaded"
+        }
+      },
+      "_source": "uploaded_nc_file",
+      "_uploaded_filename": "20250924_prof.nc",
+      "_upload_timestamp": "2025-09-26T16:39:36.481628",
+      "_is_uploaded": true
+    }
+  ]
+}

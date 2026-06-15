@@ -1,0 +1,516 @@
+{
+  "metadata": {
+    "file_info": {
+      "file_id": "20210331_prof",
+      "processing_timestamp": "2025-09-27T10:53:52.330585",
+      "processor_version": "SIH2025_Fixed_v1.0",
+      "file_size_bytes": 5146804,
+      "data_format": "NetCDF-4"
+    }
+  },
+  "platform": {
+    "platform_number": "1902218",
+    "cycle_number": 108,
+    "data_mode": "D",
+    "positioning_system": "GPS",
+    "profile_direction": "A"
+  },
+  "temporal": {
+    "datetime": "2021-03-31T23:54:11",
+    "year": 2021,
+    "month": 3,
+    "day": 31,
+    "season_nh": "spring",
+    "season_sh": "autumn",
+    "monsoon_season": "northeast_monsoon",
+    "decade": "2020s",
+    "quarter": "Q1",
+    "julian_day": 90,
+    "week_of_year": 13
+  },
+  "geospatial": {
+    "regional_seas": [
+      "Southern_Ocean"
+    ],
+    "ocean_basin": "Indian",
+    "geographic_zone": "Temperate",
+    "grid_1deg": "S46E039",
+    "grid_5deg": "S50E035",
+    "biogeographic_province": "Southern_Ocean_Province",
+    "distance_to_coast_km": 3495.0
+  },
+  "measurements": {
+    "core_variables": {
+      "TEMP": {
+        "present": true,
+        "statistics": {
+          "count": 53590,
+          "min": -1.5149999856948853,
+          "max": 30.35700035095215,
+          "mean": 7.156257152557373,
+          "median": 5.34975004196167,
+          "std": 5.756495952606201,
+          "p25": 2.7929999828338623,
+          "p75": 9.805999755859375,
+          "skewness": 1.512110586629482,
+          "kurtosis": 2.399391533297158
+        },
+        "unit": "degrees_C",
+        "data_range": {
+          "min": -1.5149999856948853,
+          "max": 30.35700035095215
+        },
+        "quality_score": 0.9585370404926292
+      },
+      "PSAL": {
+        "present": true,
+        "statistics": {
+          "count": 53590,
+          "min": 2.9932000637054443,
+          "max": 36.803001403808594,
+          "mean": 33.511531829833984,
+          "median": 34.66999816894531,
+          "std": 5.372504234313965,
+          "p25": 34.45505142211914,
+          "p75": 34.800150871276855,
+          "skewness": -4.703005349975845,
+          "kurtosis": 21.116629931158574
+        },
+        "unit": "PSU",
+        "data_range": {
+          "min": 2.9932000637054443,
+          "max": 36.803001403808594
+        },
+        "quality_score": 0.8302668408285128
+      },
+      "PRES": {
+        "present": true,
+        "statistics": {
+          "count": 53590,
+          "min": 0.0,
+          "max": 4516.10009765625,
+          "mean": 868.6810913085938,
+          "median": 776.0,
+          "std": 626.21484375,
+          "p25": 360.29998779296875,
+          "p75": 1300.0,
+          "skewness": 1.060607288023309,
+          "kurtosis": 2.5443981982627157
+        },
+        "unit": "dbar",
+        "data_range": {
+          "min": 0.0,
+          "max": 4516.10009765625
+        },
+        "quality_score": 0.9906699011009517
+      }
+    },
+    "bgc_variables": {
+      "DOXY": {
+        "present": false,
+        "reason": "Variable not in dataset"
+      },
+      "CHLA": {
+        "present": false,
+        "reason": "Variable not in dataset"
+      },
+      "NITRATE": {
+        "present": false,
+        "reason": "Variable not in dataset"
+      },
+      "PH_IN_SITU_TOTAL": {
+        "present": false,
+        "reason": "Variable not in dataset"
+      },
+      "CDOM": {
+        "present": false,
+        "reason": "Variable not in dataset"
+      },
+      "BBP700": {
+        "present": false,
+        "reason": "Variable not in dataset"
+      },
+      "BBP532": {
+        "present": false,
+        "reason": "Variable not in dataset"
+      },
+      "DOWNWELLING_PAR": {
+        "present": false,
+        "reason": "Variable not in dataset"
+      },
+      "DOWN_IRRADIANCE380": {
+        "present": false,
+        "reason": "Variable not in dataset"
+      },
+      "DOWN_IRRADIANCE412": {
+        "present": false,
+        "reason": "Variable not in dataset"
+      },
+      "DOWN_IRRADIANCE490": {
+        "present": false,
+        "reason": "Variable not in dataset"
+      },
+      "TURBIDITY": {
+        "present": false,
+        "reason": "Variable not in dataset"
+      },
+      "ALKALINITY": {
+        "present": false,
+        "reason": "Variable not in dataset"
+      },
+      "DIC": {
+        "present": false,
+        "reason": "Variable not in dataset"
+      },
+      "PHOSPHATE": {
+        "present": false,
+        "reason": "Variable not in dataset"
+      },
+      "SILICATE": {
+        "present": false,
+        "reason": "Variable not in dataset"
+      }
+    },
+    "derived_parameters": {
+      "density": {
+        "count": 51645,
+        "min": 988.7171020507812,
+        "max": 1002.8294677734375,
+        "mean": 1001.2337036132812,
+        "median": 1001.5881958007812,
+        "std": 1.5380045175552368,
+        "p25": 1000.8355712890625,
+        "p75": 1002.171630859375,
+        "skewness": -3.274558036040605,
+        "kurtosis": 14.759888729751466
+      },
+      "potential_temperature": {
+        "count": 51645,
+        "min": -1.5235999822616577,
+        "max": 30.35601043701172,
+        "mean": 7.0105156898498535,
+        "median": 5.213200092315674,
+        "std": 5.766169548034668,
+        "p25": 2.6084001064300537,
+        "p75": 9.718199729919434,
+        "skewness": 1.5138055911598274,
+        "kurtosis": 2.4496460316985615
+      },
+      "sound_speed": {
+        "count": 51645,
+        "min": 1365.5546875,
+        "max": 4463.05126953125,
+        "mean": 1648.15185546875,
+        "median": 1578.27978515625,
+        "std": 328.81256103515625,
+        "p25": 1539.6805419921875,
+        "p75": 1612.2362060546875,
+        "skewness": 5.366024302045452,
+        "kurtosis": 31.602134916582756
+      },
+      "stability_frequency": {
+        "max_n2": 0.000999164069071412,
+        "mean_n2": -2.0123114154557697e-05,
+        "stable_layers": 2217
+      },
+      "spice": {
+        "count": 51645,
+        "min": -33.615997314453125,
+        "max": 32.55999755859375,
+        "mean": 15.567546844482422,
+        "median": 19.133398056030273,
+        "std": 11.487190246582031,
+        "p25": 10.31450080871582,
+        "p75": 24.28820037841797,
+        "skewness": -1.5380428637555217,
+        "kurtosis": 2.581416903797086
+      },
+      "status": "success"
+    }
+  },
+  "oceanography": {
+    "water_masses": [
+      {
+        "name": "Indian_Surface_Water",
+        "core_temperature": 27.025625228881836,
+        "core_salinity": 35.106021881103516,
+        "depth_range": [
+          0.0,
+          130.0
+        ],
+        "thickness": 130.0,
+        "strength": 0.019169329073482427,
+        "points_count": 990
+      },
+      {
+        "name": "Indian_Central_Water",
+        "core_temperature": 10.065592765808105,
+        "core_salinity": 34.886260986328125,
+        "depth_range": [
+          150.0,
+          1200.0
+        ],
+        "thickness": 1050.0,
+        "strength": 0.3299835414851389,
+        "points_count": 17042
+      },
+      {
+        "name": "Red_Sea_Water",
+        "core_temperature": 17.625106811523438,
+        "core_salinity": 35.864830017089844,
+        "depth_range": [
+          200.1999969482422,
+          600.2999877929688
+        ],
+        "thickness": 400.0999755859375,
+        "strength": 0.0016071255687869106,
+        "points_count": 83
+      },
+      {
+        "name": "Antarctic_Intermediate",
+        "core_temperature": 4.024900436401367,
+        "core_salinity": 34.44236755371094,
+        "depth_range": [
+          800.0,
+          1500.0
+        ],
+        "thickness": 700.0,
+        "strength": 0.1192564623874528,
+        "points_count": 6159
+      },
+      {
+        "name": "Circumpolar_Deep",
+        "core_temperature": 2.298454999923706,
+        "core_salinity": 34.7151985168457,
+        "depth_range": [
+          1500.0,
+          3497.199951171875
+        ],
+        "thickness": 1997.199951171875,
+        "strength": 0.04166908703649918,
+        "points_count": 2152
+      },
+      {
+        "name": "Antarctic_Bottom",
+        "core_temperature": 0.5605444312095642,
+        "core_salinity": 34.691307067871094,
+        "depth_range": [
+          3941.199951171875,
+          4516.10009765625
+        ],
+        "thickness": 574.900146484375,
+        "strength": 0.0027882660470519897,
+        "points_count": 144
+      }
+    ],
+    "physical_features": {
+      "inversions": [
+        {
+          "depth": 0.0,
+          "strength": 4.499000549316406,
+          "type": "temperature_inversion"
+        },
+        {
+          "depth": 0.4000000059604645,
+          "strength": 10.831001281738281,
+          "type": "temperature_inversion"
+        },
+        {
+          "depth": 0.4000000059604645,
+          "strength": 0.2259998321533203,
+          "type": "temperature_inversion"
+        },
+        {
+          "depth": 0.9599999785423279,
+          "strength": 22.121000289916992,
+          "type": "temperature_inversion"
+        },
+        {
+          "depth": 1.0,
+          "strength": 0.1660003662109375,
+          "type": "temperature_inversion"
+        },
+        {
+          "depth": 1.0,
+          "strength": 0.39299964904785156,
+          "type": "temperature_inversion"
+        },
+        {
+          "depth": 1.0,
+          "strength": 3.7919998168945312,
+          "type": "temperature_inversion"
+        },
+        {
+          "depth": 1.0,
+          "strength": 4.437999725341797,
+          "type": "temperature_inversion"
+        },
+        {
+          "depth": 1.0399999618530273,
+          "strength": 1.946000099182129,
+          "type": "temperature_inversion"
+        },
+        {
+          "depth": 1.0399999618530273,
+          "strength": 14.234000205993652,
+          "type": "temperature_inversion"
+        }
+      ],
+      "extrema": [
+        {
+          "depth": 0.0,
+          "value": 36.00299835205078,
+          "type": "salinity_maximum"
+        },
+        {
+          "depth": 0.4000000059604645,
+          "value": 33.132999420166016,
+          "type": "salinity_minimum"
+        },
+        {
+          "depth": 0.9200000166893005,
+          "value": 35.07360076904297,
+          "type": "salinity_maximum"
+        },
+        {
+          "depth": 0.9599999785423279,
+          "value": 33.7333984375,
+          "type": "salinity_minimum"
+        },
+        {
+          "depth": 1.0,
+          "value": 34.34700012207031,
+          "type": "salinity_maximum"
+        }
+      ],
+      "gradients": {
+        "temperature": {
+          "max_gradient": NaN,
+          "mean_gradient": NaN,
+          "gradient_depth": 0.0
+        },
+        "salinity": {
+          "max_gradient": NaN,
+          "mean_gradient": NaN,
+          "gradient_depth": 0.0
+        }
+      },
+      "mixed_layer": {
+        "depth": 0.0,
+        "surface_temp": 24.941999435424805,
+        "criterion": "temperature_0.2C"
+      },
+      "thermocline": {
+        "depth": 0.0,
+        "strength": NaN,
+        "temperature": 29.44099998474121
+      }
+    },
+    "mixed_layer_analysis": {
+      "depth": 0.0,
+      "surface_temp": 24.941999435424805,
+      "criterion": "temperature_0.2C"
+    },
+    "thermocline_analysis": {
+      "depth": 0.0,
+      "strength": NaN,
+      "temperature": 29.44099998474121
+    }
+  },
+  "quality_control": {
+    "calibration": {
+      "delayed_mode_processing": true,
+      "data_mode": "D",
+      "qc_procedures": [
+        "JULD_QC",
+        "POSITION_QC",
+        "PROFILE_PRES_QC",
+        "PROFILE_TEMP_QC",
+        "PROFILE_PSAL_QC",
+        "PRES_QC",
+        "PRES_ADJUSTED_QC",
+        "TEMP_QC",
+        "TEMP_ADJUSTED_QC",
+        "PSAL_QC",
+        "PSAL_ADJUSTED_QC",
+        "HISTORY_QCTEST"
+      ],
+      "calibration_applied": true,
+      "platform_calibrated": true
+    },
+    "data_assessment": {
+      "data_completeness": 100.0,
+      "bgc_completeness": 0.0,
+      "vertical_coverage": 53590,
+      "pressure_range": [
+        0.0,
+        4516.10009765625
+      ],
+      "processing_level": "delayed_mode",
+      "overall_score": 0.9264912608073645
+    },
+    "processing_flags": {
+      "real_data_only": true,
+      "no_demo_content": true,
+      "comprehensive_analysis": true
+    }
+  },
+  "rag_optimization": {
+    "search_terms": [
+      "2021",
+      "2020s",
+      "northeast_monsoon",
+      "spring",
+      "Indian",
+      "Temperate",
+      "Southern_Ocean_Province",
+      "Southern_Ocean",
+      "indian_surface_water_detected",
+      "indian_central_water_detected",
+      "red_sea_water_detected",
+      "antarctic_intermediate_detected",
+      "circumpolar_deep_detected",
+      "antarctic_bottom_detected",
+      "temperature_inversions",
+      "mixed_layer_analysis"
+    ],
+    "summary": "ARGO profile from Indian Ocean (Southern_Ocean) collected on 2021-03-31 during northeast_monsoon. Contains 3 core parameters. Identified 6 water mass signatures with 10 temperature inversions detected",
+    "keywords": [
+      "temperate_waters",
+      "indian_surface_water_detected",
+      "spring",
+      "circumpolar_deep_detected",
+      "indian_central_water_detected",
+      "2020s",
+      "water_mass_identification",
+      "mixed_layer_analysis",
+      "PRES_profile",
+      "antarctic_bottom_detected",
+      "PSAL_profile",
+      "Temperate",
+      "TEMP_profile",
+      "red_sea_water_detected",
+      "2021_data",
+      "Indian",
+      "oceanographic_analysis",
+      "temperature_inversions",
+      "Southern_Ocean",
+      "Southern_Ocean_Province",
+      "2021",
+      "northeast_monsoon",
+      "vertical_profiling",
+      "antarctic_intermediate_detected"
+    ],
+    "profile_classification": {
+      "spatial": "Indian_Temperate",
+      "temporal": "2021_northeast_monsoon",
+      "data_type": "core_only"
+    },
+    "scientific_relevance": {
+      "water_mass_analysis": true,
+      "biogeochemical_data": false,
+      "oceanographic_features": true,
+      "regional_significance": true
+    }
+  }
+}

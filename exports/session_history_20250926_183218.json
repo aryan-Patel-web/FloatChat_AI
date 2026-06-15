@@ -1,0 +1,26 @@
+{
+  "session_id": "20250926_183218",
+  "start_time": "2025-09-26T18:32:18.682996",
+  "total_queries": 1,
+  "conversation": [
+    {
+      "timestamp": "2025-09-26T18:32:18.682996",
+      "role": "user",
+      "content": "give me temperature of arabia sea and compare with bay of bengal ? "
+    },
+    {
+      "timestamp": "2025-09-26T18:32:18.682996",
+      "role": "assistant",
+      "content": "**📋 Query Summary**\nComparing Temperature between Arabian Sea and Bay of Bengal in [2022]\n\n**📊 Comparison Table**\n\n| Parameter | Arabian Sea | Bay of Bengal | Difference |\n|-----------|-------------|--------------|------------|\n| Temperature Mean | X.XX°C | Y.YY°C | ±Z.ZZ°C |\n\n**🔍 Analysis**\n* **Arabian Sea [2022] Characteristics:** [Data unavailable for Arabian Sea in 2022]\n* **Bay of Bengal [2022] Characteristics:** [Profiles available: 4]\n  - Profile 1: Min: -1.78°C, Max: 30.82°C (Mean: 7.53°C, Std Dev: 4.36°C)\n  - Profile 2: Min: -1.86°C, Max: 30.57°C (Mean: 7.17°C, Std Dev: 4.26°C)\n  - Profile 3: Min: -1.09°C, Max: 31.20°C (Mean: 7.24°C, Std Dev: 4.32°C)\n  - Profile 4: Min: -2.00°C, Max: 31.25°C (Mean: 7.07°C, Std Dev: 4.34°C)\n* **Notable Changes:** [N/A]\n* **Trend:** [N/A]\n\n**✅ Conclusion**\nData for Arabian Sea in 2022 was not available. In Bay of Bengal, temperatures ranged from -2.00°C to 31.82°C, with an average of 7.32°C. The difference between the average temperatures in Arabian Sea and Bay of Bengal could not be determined due to missing data."
+    }
+  ],
+  "statistics": {
+    "total_profiles": 10,
+    "regions": [
+      "Equatorial_Indian",
+      "Tropical_Indian",
+      "Bay_of_Bengal",
+      "Monsoon_Region"
+    ]
+  }
+}

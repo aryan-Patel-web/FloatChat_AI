@@ -1,18 +1,3 @@
-{
-  "bgc_floats": {},
-  "bgc_profiles": {},
-  "ecosystem_health": {},
-  "summary_report": {
-    "analysis_timestamp": "2025-09-04T11:32:53.189356",
-    "total_bgc_floats": 0,
-    "parameter_summary": {},
-    "regional_analysis": {},
-    "ecosystem_health": {},
-    "data_quality_assessment": {},
-    "recommendations": [
-      "Limited BGC parameter coverage - expand sensor capabilities for comprehensive ecosystem assessment"
-    ]
-  },
-  "rag_summaries": [],
-  "analysis_timestamp": "2025-09-04T11:32:53.248746"
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:2510c7893529acf89efd0a758c5d5888d34192716e3d13176ac2d2e938726726
+size 516

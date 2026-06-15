@@ -1,0 +1,223 @@
+2025-09-11 00:36:46,513 - DailyArgoExtractor - INFO - Folder structure created successfully
+2025-09-11 00:36:46,513 - DailyArgoExtractor - INFO - Daily ARGO Extractor initialized
+2025-09-11 00:36:46,514 - DailyArgoExtractor - INFO - Base folder: daily_dataset
+2025-09-11 00:36:46,514 - DailyArgoExtractor - INFO - Check interval: 3600 seconds
+2025-09-11 00:36:46,514 - DailyArgoExtractor - INFO - Starting continuous monitoring...
+2025-09-11 00:36:46,514 - DailyArgoExtractor - INFO - Will check for new data every 3600 seconds
+2025-09-11 00:36:46,514 - DailyArgoExtractor - INFO - Starting check for new data...
+2025-09-11 00:36:46,514 - DailyArgoExtractor - INFO - Checking 2025/09 for new files...
+2025-09-11 00:36:46,515 - DailyArgoExtractor - INFO - Scanning directory: https://data-argo.ifremer.fr/geo/indian_ocean/2025/09/
+2025-09-11 00:36:47,867 - DailyArgoExtractor - INFO - Found 10 files in 2025/09
+2025-09-11 00:36:47,867 - DailyArgoExtractor - INFO - Found 10 new files in 2025/09
+2025-09-11 00:36:47,871 - DailyArgoExtractor - INFO - Downloading 20250901_prof.nc (attempt 1/4)
+2025-09-11 00:36:52,188 - DailyArgoExtractor - INFO - Successfully downloaded 20250901_prof.nc to 01sep2025
+2025-09-11 00:36:53,190 - DailyArgoExtractor - INFO - Downloading 20250902_prof.nc (attempt 1/4)
+2025-09-11 00:36:55,706 - DailyArgoExtractor - INFO - Successfully downloaded 20250902_prof.nc to 02sep2025
+2025-09-11 00:36:56,708 - DailyArgoExtractor - INFO - Downloading 20250903_prof.nc (attempt 1/4)
+2025-09-11 00:37:01,613 - DailyArgoExtractor - INFO - Successfully downloaded 20250903_prof.nc to 03sep2025
+2025-09-11 00:37:02,614 - DailyArgoExtractor - INFO - Downloading 20250904_prof.nc (attempt 1/4)
+2025-09-11 00:37:05,726 - DailyArgoExtractor - INFO - Successfully downloaded 20250904_prof.nc to 04sep2025
+2025-09-11 00:37:06,728 - DailyArgoExtractor - INFO - Downloading 20250905_prof.nc (attempt 1/4)
+2025-09-11 00:37:11,528 - DailyArgoExtractor - INFO - Successfully downloaded 20250905_prof.nc to 05sep2025
+2025-09-11 00:37:12,531 - DailyArgoExtractor - INFO - Downloading 20250906_prof.nc (attempt 1/4)
+2025-09-11 00:37:17,384 - DailyArgoExtractor - INFO - Successfully downloaded 20250906_prof.nc to 06sep2025
+2025-09-11 00:37:18,386 - DailyArgoExtractor - INFO - Downloading 20250907_prof.nc (attempt 1/4)
+2025-09-11 00:37:20,867 - DailyArgoExtractor - INFO - Successfully downloaded 20250907_prof.nc to 07sep2025
+2025-09-11 00:37:21,869 - DailyArgoExtractor - INFO - Downloading 20250908_prof.nc (attempt 1/4)
+2025-09-11 00:37:24,199 - DailyArgoExtractor - INFO - Successfully downloaded 20250908_prof.nc to 08sep2025
+2025-09-11 00:37:25,201 - DailyArgoExtractor - INFO - Downloading 20250909_prof.nc (attempt 1/4)
+2025-09-11 00:37:29,785 - DailyArgoExtractor - INFO - Successfully downloaded 20250909_prof.nc to 09sep2025
+2025-09-11 00:37:30,786 - DailyArgoExtractor - INFO - Downloading 20250910_prof.nc (attempt 1/4)
+2025-09-11 00:37:34,269 - DailyArgoExtractor - INFO - Successfully downloaded 20250910_prof.nc to 10sep2025
+2025-09-11 00:37:35,272 - DailyArgoExtractor - INFO - Check completed. Downloaded 10 new files
+2025-09-11 00:37:35,272 - DailyArgoExtractor - INFO - Downloaded 10 new files
+2025-09-11 00:37:35,272 - DailyArgoExtractor - INFO - Waiting 3600 seconds until next check...
+2025-09-11 00:40:41,190 - DailyArgoExtractor - INFO - Monitoring stopped by user
+2025-09-11 00:40:44,627 - DailyArgoExtractor - INFO - Folder structure created successfully
+2025-09-11 00:40:44,643 - DailyArgoExtractor - INFO - Daily ARGO Extractor initialized
+2025-09-11 00:40:44,644 - DailyArgoExtractor - INFO - Base folder: daily_dataset
+2025-09-11 00:40:44,644 - DailyArgoExtractor - INFO - Check interval: 3600 seconds
+2025-09-11 00:40:44,644 - DailyArgoExtractor - INFO - Starting continuous monitoring...
+2025-09-11 00:40:44,644 - DailyArgoExtractor - INFO - Will check for new data every 3600 seconds
+2025-09-11 00:40:44,644 - DailyArgoExtractor - INFO - Starting check for new data...
+2025-09-11 00:40:44,645 - DailyArgoExtractor - INFO - Checking 2025/09 for new files...
+2025-09-11 00:40:44,645 - DailyArgoExtractor - INFO - Scanning directory: https://data-argo.ifremer.fr/geo/indian_ocean/2025/09/
+2025-09-11 00:40:45,957 - DailyArgoExtractor - INFO - Found 10 files in 2025/09
+2025-09-11 00:40:45,957 - DailyArgoExtractor - INFO - No new data found in 2025/09
+2025-09-11 00:40:45,958 - DailyArgoExtractor - INFO - Check completed. Downloaded 0 new files
+2025-09-11 00:40:45,958 - DailyArgoExtractor - INFO - No new data available
+2025-09-11 00:40:45,958 - DailyArgoExtractor - INFO - Waiting 3600 seconds until next check...
+2025-09-11 00:41:41,114 - DailyArgoExtractor - INFO - Monitoring stopped by user
+2025-09-11 00:43:34,244 - DailyArgoExtractor - INFO - Folder structure created successfully
+2025-09-11 00:43:34,245 - DailyArgoExtractor - INFO - Daily ARGO Extractor initialized
+2025-09-11 00:43:34,245 - DailyArgoExtractor - INFO - Base folder: daily_dataset
+2025-09-11 00:43:34,245 - DailyArgoExtractor - INFO - Check interval: 3600 seconds
+2025-09-11 00:43:34,245 - DailyArgoExtractor - INFO - Starting continuous monitoring...
+2025-09-11 00:43:34,245 - DailyArgoExtractor - INFO - Will check for new data every 3600 seconds
+2025-09-11 00:43:34,245 - DailyArgoExtractor - INFO - Starting check for new data...
+2025-09-11 00:43:34,245 - DailyArgoExtractor - INFO - Checking 2025/09 for new files...
+2025-09-11 00:43:34,245 - DailyArgoExtractor - INFO - Scanning directory: https://data-argo.ifremer.fr/geo/indian_ocean/2025/09/
+2025-09-11 00:43:35,523 - DailyArgoExtractor - INFO - Found 10 files in 2025/09
+2025-09-11 00:43:35,523 - DailyArgoExtractor - INFO - No new data found in 2025/09
+2025-09-11 00:43:35,524 - DailyArgoExtractor - INFO - Check completed. Downloaded 0 new files
+2025-09-11 00:43:35,524 - DailyArgoExtractor - INFO - No new data available
+2025-09-11 00:43:35,524 - DailyArgoExtractor - INFO - Waiting 3600 seconds until next check...
+2025-09-11 00:43:47,228 - DailyArgoExtractor - INFO - Folder structure created successfully
+2025-09-11 00:43:47,228 - DailyArgoExtractor - INFO - Daily ARGO Extractor initialized
+2025-09-11 00:43:47,228 - DailyArgoExtractor - INFO - Base folder: daily_dataset
+2025-09-11 00:43:47,229 - DailyArgoExtractor - INFO - Check interval: 3600 seconds
+2025-09-11 00:43:47,229 - DailyArgoExtractor - INFO - Starting continuous monitoring...
+2025-09-11 00:43:47,229 - DailyArgoExtractor - INFO - Will check for new data every 3600 seconds
+2025-09-11 00:43:47,229 - DailyArgoExtractor - INFO - Starting check for new data...
+2025-09-11 00:43:47,230 - DailyArgoExtractor - INFO - Checking 2025/09 for new files...
+2025-09-11 00:43:47,230 - DailyArgoExtractor - INFO - Scanning directory: https://data-argo.ifremer.fr/geo/indian_ocean/2025/09/
+2025-09-11 00:43:48,236 - DailyArgoExtractor - INFO - Found 10 files in 2025/09
+2025-09-11 00:43:48,236 - DailyArgoExtractor - INFO - No new data found in 2025/09
+2025-09-11 00:43:48,236 - DailyArgoExtractor - INFO - Check completed. Downloaded 0 new files
+2025-09-11 00:43:48,236 - DailyArgoExtractor - INFO - No new data available
+2025-09-11 00:43:48,237 - DailyArgoExtractor - INFO - Waiting 3600 seconds until next check...
+2025-09-11 00:44:13,113 - DailyArgoExtractor - INFO - Folder structure created successfully
+2025-09-11 00:44:13,113 - DailyArgoExtractor - INFO - Daily ARGO Extractor initialized
+2025-09-11 00:44:13,113 - DailyArgoExtractor - INFO - Base folder: daily_dataset
+2025-09-11 00:44:13,113 - DailyArgoExtractor - INFO - Check interval: 3600 seconds
+2025-09-11 00:44:13,113 - DailyArgoExtractor - INFO - Starting continuous monitoring...
+2025-09-11 00:44:13,113 - DailyArgoExtractor - INFO - Will check for new data every 3600 seconds
+2025-09-11 00:44:13,114 - DailyArgoExtractor - INFO - Starting check for new data...
+2025-09-11 00:44:13,114 - DailyArgoExtractor - INFO - Checking 2025/09 for new files...
+2025-09-11 00:44:13,114 - DailyArgoExtractor - INFO - Scanning directory: https://data-argo.ifremer.fr/geo/indian_ocean/2025/09/
+2025-09-11 00:44:14,285 - DailyArgoExtractor - INFO - Found 10 files in 2025/09
+2025-09-11 00:44:14,285 - DailyArgoExtractor - INFO - No new data found in 2025/09
+2025-09-11 00:44:14,285 - DailyArgoExtractor - INFO - Check completed. Downloaded 0 new files
+2025-09-11 00:44:14,285 - DailyArgoExtractor - INFO - No new data available
+2025-09-11 00:44:14,285 - DailyArgoExtractor - INFO - Waiting 3600 seconds until next check...
+2025-09-11 00:44:37,335 - DailyArgoExtractor - INFO - Folder structure created successfully
+2025-09-11 00:44:37,335 - DailyArgoExtractor - INFO - Daily ARGO Extractor initialized
+2025-09-11 00:44:37,335 - DailyArgoExtractor - INFO - Base folder: daily_dataset
+2025-09-11 00:44:37,335 - DailyArgoExtractor - INFO - Check interval: 3600 seconds
+2025-09-11 00:44:37,336 - DailyArgoExtractor - INFO - Starting continuous monitoring...
+2025-09-11 00:44:37,336 - DailyArgoExtractor - INFO - Will check for new data every 3600 seconds
+2025-09-11 00:44:37,336 - DailyArgoExtractor - INFO - Starting check for new data...
+2025-09-11 00:44:37,336 - DailyArgoExtractor - INFO - Checking 2025/09 for new files...
+2025-09-11 00:44:37,336 - DailyArgoExtractor - INFO - Scanning directory: https://data-argo.ifremer.fr/geo/indian_ocean/2025/09/
+2025-09-11 00:44:38,659 - DailyArgoExtractor - INFO - Found 10 files in 2025/09
+2025-09-11 00:44:38,659 - DailyArgoExtractor - INFO - No new data found in 2025/09
+2025-09-11 00:44:38,660 - DailyArgoExtractor - INFO - Check completed. Downloaded 0 new files
+2025-09-11 00:44:38,660 - DailyArgoExtractor - INFO - No new data available
+2025-09-11 00:44:38,660 - DailyArgoExtractor - INFO - Waiting 3600 seconds until next check...
+2025-09-11 01:43:35,531 - DailyArgoExtractor - INFO - Starting check for new data...
+2025-09-11 01:43:35,535 - DailyArgoExtractor - INFO - Checking 2025/09 for new files...
+2025-09-11 01:43:35,536 - DailyArgoExtractor - INFO - Scanning directory: https://data-argo.ifremer.fr/geo/indian_ocean/2025/09/
+2025-09-11 01:43:36,985 - DailyArgoExtractor - INFO - Found 10 files in 2025/09
+2025-09-11 01:43:36,986 - DailyArgoExtractor - INFO - No new data found in 2025/09
+2025-09-11 01:43:36,986 - DailyArgoExtractor - INFO - Check completed. Downloaded 0 new files
+2025-09-11 01:43:36,988 - DailyArgoExtractor - INFO - No new data available
+2025-09-11 01:43:36,988 - DailyArgoExtractor - INFO - Waiting 3600 seconds until next check...
+2025-09-13 15:19:20,248 - DailyArgoExtractor - INFO - Folder structure created successfully
+2025-09-13 15:19:20,248 - DailyArgoExtractor - INFO - Daily ARGO Extractor initialized
+2025-09-13 15:19:20,249 - DailyArgoExtractor - INFO - Base folder: daily_dataset
+2025-09-13 15:19:20,249 - DailyArgoExtractor - INFO - Check interval: 3600 seconds
+2025-09-13 15:19:20,249 - DailyArgoExtractor - INFO - Starting continuous monitoring...
+2025-09-13 15:19:20,249 - DailyArgoExtractor - INFO - Will check for new data every 3600 seconds
+2025-09-13 15:19:20,249 - DailyArgoExtractor - INFO - Starting check for new data...
+2025-09-13 15:19:20,249 - DailyArgoExtractor - INFO - Checking 2025/09 for new files...
+2025-09-13 15:19:20,249 - DailyArgoExtractor - INFO - Scanning directory: https://data-argo.ifremer.fr/geo/indian_ocean/2025/09/
+2025-09-13 15:19:21,790 - DailyArgoExtractor - INFO - Found 13 files in 2025/09
+2025-09-13 15:19:21,791 - DailyArgoExtractor - INFO - Found 3 new files in 2025/09
+2025-09-13 15:19:21,794 - DailyArgoExtractor - INFO - Downloading 20250911_prof.nc (attempt 1/4)
+2025-09-13 15:19:26,105 - DailyArgoExtractor - INFO - Successfully downloaded 20250911_prof.nc to 11sep2025
+2025-09-13 15:19:27,108 - DailyArgoExtractor - INFO - Downloading 20250912_prof.nc (attempt 1/4)
+2025-09-13 15:19:31,838 - DailyArgoExtractor - INFO - Successfully downloaded 20250912_prof.nc to 12sep2025
+2025-09-13 15:19:32,839 - DailyArgoExtractor - INFO - Downloading 20250913_prof.nc (attempt 1/4)
+2025-09-13 15:19:34,477 - DailyArgoExtractor - INFO - Successfully downloaded 20250913_prof.nc to 13sep2025
+2025-09-13 15:19:35,478 - DailyArgoExtractor - INFO - Check completed. Downloaded 3 new files
+2025-09-13 15:19:35,479 - DailyArgoExtractor - INFO - Downloaded 3 new files
+2025-09-13 15:19:35,479 - DailyArgoExtractor - INFO - Waiting 3600 seconds until next check...
+2025-09-13 16:19:35,481 - DailyArgoExtractor - INFO - Starting check for new data...
+2025-09-13 16:19:35,484 - DailyArgoExtractor - INFO - Checking 2025/09 for new files...
+2025-09-13 16:19:35,485 - DailyArgoExtractor - INFO - Scanning directory: https://data-argo.ifremer.fr/geo/indian_ocean/2025/09/
+2025-09-13 16:19:36,635 - DailyArgoExtractor - INFO - Found 13 files in 2025/09
+2025-09-13 16:19:36,636 - DailyArgoExtractor - INFO - No new data found in 2025/09
+2025-09-13 16:19:36,639 - DailyArgoExtractor - INFO - Check completed. Downloaded 0 new files
+2025-09-13 16:19:36,642 - DailyArgoExtractor - INFO - No new data available
+2025-09-13 16:19:36,644 - DailyArgoExtractor - INFO - Waiting 3600 seconds until next check...
+2025-09-13 17:25:47,222 - DailyArgoExtractor - INFO - Monitoring stopped by user
+2025-09-13 17:25:49,350 - DailyArgoExtractor - INFO - Folder structure created successfully
+2025-09-13 17:25:49,350 - DailyArgoExtractor - INFO - Daily ARGO Extractor initialized
+2025-09-13 17:25:49,350 - DailyArgoExtractor - INFO - Base folder: daily_dataset
+2025-09-13 17:25:49,351 - DailyArgoExtractor - INFO - Check interval: 3600 seconds
+2025-09-13 17:25:49,351 - DailyArgoExtractor - INFO - Starting continuous monitoring...
+2025-09-13 17:25:49,351 - DailyArgoExtractor - INFO - Will check for new data every 3600 seconds
+2025-09-13 17:25:49,351 - DailyArgoExtractor - INFO - Starting check for new data...
+2025-09-13 17:25:49,351 - DailyArgoExtractor - INFO - Checking 2025/09 for new files...
+2025-09-13 17:25:49,351 - DailyArgoExtractor - INFO - Scanning directory: https://data-argo.ifremer.fr/geo/indian_ocean/2025/09/
+2025-09-13 17:25:51,416 - DailyArgoExtractor - INFO - Found 13 files in 2025/09
+2025-09-13 17:25:51,417 - DailyArgoExtractor - INFO - No new data found in 2025/09
+2025-09-13 17:25:51,417 - DailyArgoExtractor - INFO - Check completed. Downloaded 0 new files
+2025-09-13 17:25:51,417 - DailyArgoExtractor - INFO - No new data available
+2025-09-13 17:25:51,418 - DailyArgoExtractor - INFO - Waiting 3600 seconds until next check...
+2025-09-13 18:25:51,420 - DailyArgoExtractor - INFO - Starting check for new data...
+2025-09-13 18:25:51,423 - DailyArgoExtractor - INFO - Checking 2025/09 for new files...
+2025-09-13 18:25:51,424 - DailyArgoExtractor - INFO - Scanning directory: https://data-argo.ifremer.fr/geo/indian_ocean/2025/09/
+2025-09-13 18:25:53,051 - DailyArgoExtractor - INFO - Found 13 files in 2025/09
+2025-09-13 18:25:53,051 - DailyArgoExtractor - INFO - No new data found in 2025/09
+2025-09-13 18:25:53,052 - DailyArgoExtractor - INFO - Check completed. Downloaded 0 new files
+2025-09-13 18:25:53,052 - DailyArgoExtractor - INFO - No new data available
+2025-09-13 18:25:53,052 - DailyArgoExtractor - INFO - Waiting 3600 seconds until next check...
+2025-09-13 19:25:53,062 - DailyArgoExtractor - INFO - Starting check for new data...
+2025-09-13 19:25:53,070 - DailyArgoExtractor - INFO - Checking 2025/09 for new files...
+2025-09-13 19:25:53,071 - DailyArgoExtractor - INFO - Scanning directory: https://data-argo.ifremer.fr/geo/indian_ocean/2025/09/
+2025-09-13 19:25:55,100 - DailyArgoExtractor - INFO - Found 13 files in 2025/09
+2025-09-13 19:25:55,101 - DailyArgoExtractor - INFO - No new data found in 2025/09
+2025-09-13 19:25:55,102 - DailyArgoExtractor - INFO - Check completed. Downloaded 0 new files
+2025-09-13 19:25:55,102 - DailyArgoExtractor - INFO - No new data available
+2025-09-13 19:25:55,103 - DailyArgoExtractor - INFO - Waiting 3600 seconds until next check...
+2025-09-13 22:14:14,089 - DailyArgoExtractor - INFO - Starting check for new data...
+2025-09-13 22:14:14,091 - DailyArgoExtractor - INFO - Checking 2025/09 for new files...
+2025-09-13 22:14:14,092 - DailyArgoExtractor - INFO - Scanning directory: https://data-argo.ifremer.fr/geo/indian_ocean/2025/09/
+2025-09-13 22:14:15,461 - DailyArgoExtractor - INFO - Found 13 files in 2025/09
+2025-09-13 22:14:15,462 - DailyArgoExtractor - INFO - No new data found in 2025/09
+2025-09-13 22:14:15,462 - DailyArgoExtractor - INFO - Check completed. Downloaded 0 new files
+2025-09-13 22:14:15,462 - DailyArgoExtractor - INFO - No new data available
+2025-09-13 22:14:15,462 - DailyArgoExtractor - INFO - Waiting 3600 seconds until next check...
+2025-09-13 23:56:31,621 - DailyArgoExtractor - INFO - Starting check for new data...
+2025-09-13 23:56:31,624 - DailyArgoExtractor - INFO - Checking 2025/09 for new files...
+2025-09-13 23:56:31,624 - DailyArgoExtractor - INFO - Scanning directory: https://data-argo.ifremer.fr/geo/indian_ocean/2025/09/
+2025-09-13 23:56:33,548 - DailyArgoExtractor - INFO - Found 13 files in 2025/09
+2025-09-13 23:56:33,549 - DailyArgoExtractor - INFO - No new data found in 2025/09
+2025-09-13 23:56:33,549 - DailyArgoExtractor - INFO - Check completed. Downloaded 0 new files
+2025-09-13 23:56:33,549 - DailyArgoExtractor - INFO - No new data available
+2025-09-13 23:56:33,549 - DailyArgoExtractor - INFO - Waiting 3600 seconds until next check...
+2025-09-14 00:56:33,561 - DailyArgoExtractor - INFO - Starting check for new data...
+2025-09-14 00:56:33,571 - DailyArgoExtractor - INFO - Checking 2025/09 for new files...
+2025-09-14 00:56:33,572 - DailyArgoExtractor - INFO - Scanning directory: https://data-argo.ifremer.fr/geo/indian_ocean/2025/09/
+2025-09-14 00:56:35,621 - DailyArgoExtractor - INFO - Found 13 files in 2025/09
+2025-09-14 00:56:35,621 - DailyArgoExtractor - INFO - No new data found in 2025/09
+2025-09-14 00:56:35,622 - DailyArgoExtractor - INFO - Check completed. Downloaded 0 new files
+2025-09-14 00:56:35,622 - DailyArgoExtractor - INFO - No new data available
+2025-09-14 00:56:35,623 - DailyArgoExtractor - INFO - Waiting 3600 seconds until next check...
+2025-09-14 09:39:22,769 - DailyArgoExtractor - INFO - Starting check for new data...
+2025-09-14 09:39:22,772 - DailyArgoExtractor - INFO - Checking 2025/09 for new files...
+2025-09-14 09:39:22,772 - DailyArgoExtractor - INFO - Scanning directory: https://data-argo.ifremer.fr/geo/indian_ocean/2025/09/
+2025-09-14 09:39:24,291 - DailyArgoExtractor - INFO - Found 14 files in 2025/09
+2025-09-14 09:39:24,294 - DailyArgoExtractor - INFO - Found 1 new files in 2025/09
+2025-09-14 09:39:24,334 - DailyArgoExtractor - INFO - Downloading 20250914_prof.nc (attempt 1/4)
+2025-09-14 09:39:25,123 - DailyArgoExtractor - INFO - Successfully downloaded 20250914_prof.nc to 14sep2025
+2025-09-14 09:39:26,127 - DailyArgoExtractor - INFO - Check completed. Downloaded 1 new files
+2025-09-14 09:39:26,128 - DailyArgoExtractor - INFO - Downloaded 1 new files
+2025-09-14 09:39:26,128 - DailyArgoExtractor - INFO - Waiting 3600 seconds until next check...
+2025-09-14 10:42:37,438 - DailyArgoExtractor - INFO - Starting check for new data...
+2025-09-14 10:42:37,445 - DailyArgoExtractor - INFO - Checking 2025/09 for new files...
+2025-09-14 10:42:37,447 - DailyArgoExtractor - INFO - Scanning directory: https://data-argo.ifremer.fr/geo/indian_ocean/2025/09/
+2025-09-14 10:42:39,294 - DailyArgoExtractor - INFO - Found 14 files in 2025/09
+2025-09-14 10:42:39,294 - DailyArgoExtractor - INFO - No new data found in 2025/09
+2025-09-14 10:42:39,296 - DailyArgoExtractor - INFO - Check completed. Downloaded 0 new files
+2025-09-14 10:42:39,296 - DailyArgoExtractor - INFO - No new data available
+2025-09-14 10:42:39,297 - DailyArgoExtractor - INFO - Waiting 3600 seconds until next check...
+2025-09-14 11:42:39,300 - DailyArgoExtractor - INFO - Starting check for new data...
+2025-09-14 11:42:39,302 - DailyArgoExtractor - INFO - Checking 2025/09 for new files...
+2025-09-14 11:42:39,302 - DailyArgoExtractor - INFO - Scanning directory: https://data-argo.ifremer.fr/geo/indian_ocean/2025/09/
+2025-09-14 11:42:40,806 - DailyArgoExtractor - INFO - Found 14 files in 2025/09
+2025-09-14 11:42:40,807 - DailyArgoExtractor - INFO - No new data found in 2025/09
+2025-09-14 11:42:40,807 - DailyArgoExtractor - INFO - Check completed. Downloaded 0 new files
+2025-09-14 11:42:40,807 - DailyArgoExtractor - INFO - No new data available
+2025-09-14 11:42:40,807 - DailyArgoExtractor - INFO - Waiting 3600 seconds until next check...
